@@ -1,0 +1,17 @@
+cd beautynomy/client
+
+# Create vercel.json
+cat > vercel.json << 'EOF'
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install"
+}
+EOF
+
+# Push to GitHub
+cd ..
+git add client/vercel.json
+git commit -m "Add vercel.json configuration"
+git push origin main
