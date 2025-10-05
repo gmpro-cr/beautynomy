@@ -1,3 +1,10 @@
-// This file re-exports the actual main.jsx from the root src directory for Vite compatibility after moving index.html
-export * from '../../src/main.jsx';
-export { default } from '../../src/main.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
