@@ -237,11 +237,50 @@ export default function App() {
                       }}
                       >
                         <div style={{ position: 'relative', background: 'linear-gradient(180deg, #fafafa 0%, #ffffff 100%)' }}>
-                          <img 
-                            src={product.image} 
-                            alt={product.name} 
-                            style={{ width: '100%', height: '300px', objectFit: 'cover' }} 
-                          />
+                          <div style={{ position: 'relative', paddingTop: '100%', overflow: 'hidden' }}>
+                            <img 
+                              src={product.image} 
+                              alt={product.name} 
+                              style={{ 
+                                position: 'absolute',
+                                top: '0',
+                                left: '0',
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                transition: 'transform 0.5s ease'
+                              }}
+                              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                            />
+                          </div>
+                          <div style={{
+                            position: 'absolute',
+                            top: '16px',
+                            left: '16px',
+                            background: 'rgba(255, 255, 255, 0.95)',
+                            backdropFilter: 'blur(8px)',
+                            padding: '8px 12px',
+                            borderRadius: '12px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px'
+                          }}>
+                            <span style={{ fontSize: '12px', color: '#4b5563' }}>⭐</span>
+                            <span style={{ 
+                              fontSize: '13px', 
+                              fontWeight: '600', 
+                              color: '#111827',
+                              borderRight: '1px solid #e5e7eb',
+                              paddingRight: '8px'
+                            }}>
+                              {(product.prices.reduce((acc, curr) => acc + curr.rating, 0) / product.prices.length).toFixed(1)}
+                            </span>
+                            <span style={{ fontSize: '12px', color: '#6b7280' }}>
+                              {product.prices.reduce((acc, curr) => acc + curr.reviews, 0).toLocaleString()} reviews
+                            </span>
+                          </div>
                           {savings > 0 && (
                             <div style={{
                               position: 'absolute',
@@ -254,103 +293,329 @@ export default function App() {
                               fontSize: '13px',
                               fontWeight: '700',
                               boxShadow: '0 8px 20px rgba(236, 72, 153, 0.4)',
-                              letterSpacing: '0.3px'
+                              letterSpacing: '0.3px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px'
                             }}>
-                              Save ₹{savings}
+                              <span style={{ fontSize: '16px' }}>💰</span>
+                              Save ₹{savings.toLocaleString()}
                             </div>
                           )}
                         </div>
                         
                         <div style={{ padding: '28px' }}>
                           <div style={{ 
-                            fontSize: '11px', 
-                            fontWeight: '800', 
-                            color: '#a855f7', 
-                            textTransform: 'uppercase', 
-                            letterSpacing: '1.5px',
-                            marginBottom: '10px'
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'flex-start',
+                            marginBottom: '16px'
                           }}>
-                            {product.brand}
+                            <div>
+                              <div style={{ 
+                                fontSize: '11px', 
+                                fontWeight: '800', 
+                                color: '#a855f7', 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '1.5px',
+                                marginBottom: '8px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px'
+                              }}>
+                                {product.brand}
+                                {product.isVerified && (
+                                  <span style={{ 
+                                    background: '#ecfdf5', 
+                                    color: '#059669',
+                                    padding: '4px 8px',
+                                    borderRadius: '6px',
+                                    fontSize: '10px'
+                                  }}>
+                                    VERIFIED
+                                  </span>
+                                )}
+                              </div>
+                              <h3 style={{ 
+                                fontSize: '22px', 
+                                fontWeight: '700', 
+                                color: '#111827', 
+                                marginBottom: '10px',
+                                lineHeight: '1.3',
+                                letterSpacing: '-0.3px'
+                              }}>
+                                {product.name}
+                              </h3>
+                            </div>
+                            <button
+                              onClick={() => alert('Added to wishlist!')}
+                              style={{
+                                background: 'white',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '50%',
+                                width: '40px',
+                                height: '40px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = '#fdf2f8';
+                                e.currentTarget.style.borderColor = '#fbcfe8';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'white';
+                                e.currentTarget.style.borderColor = '#e5e7eb';
+                              }}
+                            >
+                              ❤️
+                            </button>
                           </div>
-                          <h3 style={{ 
-                            fontSize: '22px', 
-                            fontWeight: '700', 
-                            color: '#111827', 
-                            marginBottom: '10px',
-                            lineHeight: '1.3',
-                            letterSpacing: '-0.3px'
-                          }}>
-                            {product.name}
-                          </h3>
+
+                          <div style={{ marginBottom: '20px' }}>
+                            {product.highlights && product.highlights.map((highlight, i) => (
+                              <div key={i} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                marginBottom: '6px',
+                                color: '#6b7280',
+                                fontSize: '13px'
+                              }}>
+                                <span style={{ color: '#a855f7' }}>✓</span>
+                                {highlight}
+                              </div>
+                            ))}
+                          </div>
+
                           <p style={{ 
                             color: '#6b7280', 
                             fontSize: '14px', 
                             lineHeight: '1.6', 
-                            marginBottom: '24px',
-                            minHeight: '42px'
+                            marginBottom: '24px'
                           }}>
                             {product.description}
                           </p>
+
+                          {product.tags && (
+                            <div style={{
+                              display: 'flex',
+                              gap: '8px',
+                              flexWrap: 'wrap',
+                              marginBottom: '24px'
+                            }}>
+                              {product.tags.map((tag, i) => (
+                                <span key={i} style={{
+                                  background: '#f3f4f6',
+                                  padding: '6px 12px',
+                                  borderRadius: '20px',
+                                  fontSize: '12px',
+                                  color: '#4b5563'
+                                }}>
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                           
                           <div style={{ borderTop: '1px solid #f3f4f6', paddingTop: '24px' }}>
+                            <div style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              marginBottom: '20px'
+                            }}>
+                              <div>
+                                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>Price Range</div>
+                                <div style={{ fontSize: '15px', fontWeight: '600', color: '#111827' }}>
+                                  ₹{Math.min(...product.prices.map(p => p.price)).toLocaleString()} - ₹{Math.max(...product.prices.map(p => p.price)).toLocaleString()}
+                                </div>
+                              </div>
+                              <div style={{ textAlign: 'right' }}>
+                                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>Average Rating</div>
+                                <div style={{ fontSize: '15px', fontWeight: '600', color: '#111827', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                  ⭐ {(product.prices.reduce((acc, curr) => acc + curr.rating, 0) / product.prices.length).toFixed(1)}
+                                </div>
+                              </div>
+                            </div>
+
                             {product.prices.map((price, i) => (
                               <div key={i} style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                padding: '14px 18px',
+                                padding: '16px',
                                 background: price.price === lowestPrice ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)' : '#fafafa',
-                                borderRadius: '14px',
-                                marginBottom: '10px',
-                                border: price.price === lowestPrice ? '1.5px solid rgba(168, 85, 247, 0.2)' : '1px solid transparent'
+                                borderRadius: '16px',
+                                marginBottom: '12px',
+                                border: price.price === lowestPrice ? '1.5px solid rgba(168, 85, 247, 0.2)' : '1px solid transparent',
+                                position: 'relative',
+                                overflow: 'hidden'
                               }}>
-                                <div>
-                                  <div style={{ fontWeight: '700', color: '#111827', fontSize: '15px', marginBottom: '4px' }}>
-                                    {price.platform}
-                                  </div>
-                                  <div style={{ fontSize: '12px', color: '#9ca3af' }}>
-                                    {price.rating} ({price.reviews.toLocaleString()})
-                                  </div>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                                  <span style={{ 
-                                    fontSize: '24px', 
-                                    fontWeight: '800', 
-                                    background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    letterSpacing: '-0.5px'
+                                {price.price === lowestPrice && (
+                                  <div style={{
+                                    position: 'absolute',
+                                    top: '12px',
+                                    right: '-32px',
+                                    background: '#a855f7',
+                                    color: 'white',
+                                    padding: '4px 40px',
+                                    transform: 'rotate(45deg)',
+                                    fontSize: '11px',
+                                    fontWeight: '600',
+                                    letterSpacing: '0.5px'
                                   }}>
-                                    ₹{price.price.toLocaleString()}
-                                  </span>
-                                  
-                                  <a
-                                    href={price.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{
-                                      padding: '10px 22px',
+                                    BEST PRICE
+                                  </div>
+                                )}
+
+                                <div style={{ 
+                                  display: 'flex',
+                                  justifyContent: 'space-between',
+                                  alignItems: 'flex-start',
+                                  marginBottom: '12px'
+                                }}>
+                                  <div style={{ flex: 1 }}>
+                                    <div style={{ 
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '8px',
+                                      marginBottom: '4px'
+                                    }}>
+                                      <img 
+                                        src={price.platformLogo || 'default-logo.png'}
+                                        alt={price.platform}
+                                        style={{
+                                          width: '20px',
+                                          height: '20px',
+                                          borderRadius: '4px'
+                                        }}
+                                      />
+                                      <span style={{ fontWeight: '600', color: '#111827', fontSize: '15px' }}>
+                                        {price.platform}
+                                      </span>
+                                      {price.isOfficial && (
+                                        <span style={{
+                                          background: '#ecfdf5',
+                                          color: '#059669',
+                                          padding: '2px 8px',
+                                          borderRadius: '12px',
+                                          fontSize: '11px',
+                                          fontWeight: '500'
+                                        }}>
+                                          Official Store
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div style={{ fontSize: '13px', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                      <span>⭐ {price.rating} ({price.reviews.toLocaleString()} reviews)</span>
+                                      {price.delivery && (
+                                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                          🚚 {price.delivery}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div style={{ textAlign: 'right' }}>
+                                    {price.originalPrice && price.originalPrice > price.price && (
+                                      <div style={{ 
+                                        fontSize: '14px',
+                                        color: '#6b7280',
+                                        textDecoration: 'line-through',
+                                        marginBottom: '2px'
+                                      }}>
+                                        ₹{price.originalPrice.toLocaleString()}
+                                      </div>
+                                    )}
+                                    <div style={{ 
+                                      fontSize: '24px', 
+                                      fontWeight: '800', 
                                       background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
-                                      color: 'white',
-                                      textDecoration: 'none',
-                                      borderRadius: '10px',
-                                      fontSize: '13px',
-                                      fontWeight: '700',
-                                      transition: 'all 0.2s ease',
-                                      boxShadow: '0 4px 12px rgba(168, 85, 247, 0.3)'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.target.style.transform = 'translateY(-2px)';
-                                      e.target.style.boxShadow = '0 8px 20px rgba(168, 85, 247, 0.4)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.target.style.transform = 'translateY(0)';
-                                      e.target.style.boxShadow = '0 4px 12px rgba(168, 85, 247, 0.3)';
-                                    }}
-                                  >
-                                    View
-                                  </a>
+                                      WebkitBackgroundClip: 'text',
+                                      WebkitTextFillColor: 'transparent',
+                                      letterSpacing: '-0.5px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '4px',
+                                      justifyContent: 'flex-end'
+                                    }}>
+                                      ₹{price.price.toLocaleString()}
+                                      {price.originalPrice && price.originalPrice > price.price && (
+                                        <span style={{
+                                          fontSize: '13px',
+                                          color: '#059669',
+                                          fontWeight: '600',
+                                          marginLeft: '8px'
+                                        }}>
+                                          {Math.round((1 - price.price/price.originalPrice) * 100)}% OFF
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
                                 </div>
+
+                                {price.offers && price.offers.length > 0 && (
+                                  <div style={{
+                                    display: 'flex',
+                                    gap: '8px',
+                                    marginBottom: '12px'
+                                  }}>
+                                    {price.offers.map((offer, j) => (
+                                      <div key={j} style={{
+                                        background: '#f3f4f6',
+                                        padding: '4px 10px',
+                                        borderRadius: '8px',
+                                        fontSize: '12px',
+                                        color: '#4b5563',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '4px'
+                                      }}>
+                                        🏷️ {offer}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                <a
+                                  href={price.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    width: '100%',
+                                    background: price.price === lowestPrice 
+                                      ? 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)'
+                                      : '#fff',
+                                    color: price.price === lowestPrice ? '#fff' : '#111827',
+                                    border: price.price === lowestPrice 
+                                      ? 'none'
+                                      : '1px solid #e5e7eb',
+                                    padding: '12px',
+                                    borderRadius: '12px',
+                                    fontSize: '14px',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '8px',
+                                    textDecoration: 'none'
+                                  }}
+                                >
+                                  {price.price === lowestPrice ? 'Buy at Best Price' : 'Visit Store'}
+                                  <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="16" 
+                                    height="16" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2"
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                  >
+                                    <path d="M7 7l5 5-5 5"/>
+                                    <path d="M13 7l5 5-5 5"/>
+                                  </svg>
+                                </a>
                               </div>
                             ))}
                           </div>
