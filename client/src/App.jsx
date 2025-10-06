@@ -54,7 +54,7 @@ export default function App() {
         zIndex: 100,
         backdropFilter: 'blur(20px)'
       }}>
-        <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{ fontSize: '26px' }}>💄</div>
             <span style={{ 
@@ -83,10 +83,10 @@ export default function App() {
           {/* Hero Section */}
           <div style={{
             background: 'linear-gradient(180deg, rgba(250, 245, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%)',
-            padding: '80px 24px 60px',
+            padding: '80px 40px 60px',
             textAlign: 'center'
           }}>
-            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
               <h1 style={{
                 fontSize: 'clamp(40px, 8vw, 64px)',
                 fontWeight: '800',
@@ -181,7 +181,8 @@ export default function App() {
           </div>
 
           {/* Products Grid */}
-          <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '40px 40px 80px', width: '100%' }}>
+                          {/* Products Grid */}
+          <div style={{ maxWidth: '2000px', margin: '0 auto', padding: '40px 40px 80px' }}>
             {loading ? (
               <div style={{ textAlign: 'center', padding: '80px 0' }}>
                 <div style={{ 
@@ -210,7 +211,7 @@ export default function App() {
                 <div style={{ 
                   display: 'grid', 
                   gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-                  gap: '32px',
+                  gap: '40px',
                   width: '100%'
                 }}>
                   {products.map(product => {
