@@ -591,5 +591,3 @@ app.get('/api/products/:id', (req, res) => {
 });
 
 app.listen(process.env.PORT || 5000, () => console.log('Beautynomy Server running on port', process.env.PORT || 5000));
-EOF
-
