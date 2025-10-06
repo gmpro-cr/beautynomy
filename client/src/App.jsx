@@ -54,7 +54,7 @@ export default function App() {
         zIndex: 100,
         backdropFilter: 'blur(20px)'
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           <div onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{ fontSize: '26px' }}>💄</div>
             <span style={{ 
@@ -181,7 +181,7 @@ export default function App() {
           </div>
 
           {/* Products Grid */}
-          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px' }}>
+          <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '40px 40px 80px', width: '100%' }}>
             {loading ? (
               <div style={{ textAlign: 'center', padding: '80px 0' }}>
                 <div style={{ 
@@ -209,8 +209,9 @@ export default function App() {
 
                 <div style={{ 
                   display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 360px), 1fr))', 
-                  gap: '32px' 
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
+                  gap: '32px',
+                  width: '100%'
                 }}>
                   {products.map(product => {
                     const lowestPrice = Math.min(...product.prices.map(p => p.price));
@@ -736,7 +737,7 @@ export default function App() {
         color: 'white',
         padding: '60px 24px 30px'
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1800px', margin: '0 auto', width: '100%' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '40px' }}>
             <div>
               <div style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px' }}>💄 Beautynomy</div>
