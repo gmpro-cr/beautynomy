@@ -3,6 +3,16 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
+// Trending beauty categories
+const TRENDING_TAGS = [
+  { name: 'Foundation', icon: '💄', color: 'from-pink-400 to-rose-500' },
+  { name: 'Lipstick', icon: '💋', color: 'from-red-400 to-pink-500' },
+  { name: 'Serum', icon: '✨', color: 'from-purple-400 to-pink-400' },
+  { name: 'Mascara', icon: '👁️', color: 'from-violet-400 to-purple-500' },
+  { name: 'Blush', icon: '🌸', color: 'from-rose-400 to-pink-500' },
+  { name: 'Skincare', icon: '🧴', color: 'from-blue-400 to-purple-400' },
+];
+
 export default function App() {
   const [query, setQuery] = useState('');
   const [products, setProducts] = useState([]);
@@ -31,730 +41,388 @@ export default function App() {
     setCurrentPage('home');
   };
 
-  const styles = {
-    button: {
-      background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
-      color: 'white',
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: '600',
-      transition: 'all 0.3s ease',
-    }
+  const handleTrendingClick = (tag) => {
+    setQuery(tag);
+    fetchProducts(tag);
+    setCurrentPage('home');
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#fefefe', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white font-['Inter',sans-serif]">
       {/* Navbar */}
-      <nav style={{
-        background: 'rgba(255, 255, 255, 0.95)',
-        borderBottom: '1px solid rgba(233, 213, 255, 0.3)',
-        padding: '16px 0',
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        backdropFilter: 'blur(20px)'
-      }}>
-                <div style={{ maxWidth: '1800px', margin: '0 auto', padding: '0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ fontSize: '26px' }}>💄</div>
-            <span style={{ 
-              fontSize: '24px', 
-              fontWeight: '700', 
-              background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent',
-              letterSpacing: '-0.5px'
-            }}>
-              Beautynomy
-            </span>
+      <nav className="bg-white/95 backdrop-blur-lg border-b border-purple-100 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <div 
+              onClick={() => setCurrentPage('home')} 
+              className="flex items-center gap-3 cursor-pointer group"
+            >
+              <span className="text-3xl group-hover:scale-110 transition-transform">💄</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent tracking-tight">
+                Beautynomy
+              </span>
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:flex gap-8 items-center">
+              <button 
+                onClick={() => setCurrentPage('home')} 
+                className={`text-sm font-medium transition-colors ${
+                  currentPage === 'home' ? 'text-purple-600' : 'text-gray-600 hover:text-purple-600'
+                }`}
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => setCurrentPage('about')} 
+                className={`text-sm font-medium transition-colors ${
+                  currentPage === 'about' ? 'text-purple-600' : 'text-gray-600 hover:text-purple-600'
+                }`}
+              >
+                About
+              </button>
+              <button 
+                onClick={() => setCurrentPage('contact')} 
+                className={`text-sm font-medium transition-colors ${
+                  currentPage === 'contact' ? 'text-purple-600' : 'text-gray-600 hover:text-purple-600'
+                }`}
+              >
+                Contact
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden text-gray-700 hover:text-purple-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {menuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
-          
-          {/* Desktop Menu */}
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-            <button onClick={() => setCurrentPage('home')} style={{ background: 'none', border: 'none', color: currentPage === 'home' ? '#a855f7' : '#6b7280', cursor: 'pointer', fontSize: '15px', fontWeight: '500', transition: 'color 0.2s' }}>Home</button>
-            <button onClick={() => setCurrentPage('about')} style={{ background: 'none', border: 'none', color: currentPage === 'about' ? '#a855f7' : '#6b7280', cursor: 'pointer', fontSize: '15px', fontWeight: '500', transition: 'color 0.2s' }}>About</button>
-            <button onClick={() => setCurrentPage('contact')} style={{ background: 'none', border: 'none', color: currentPage === 'contact' ? '#a855f7' : '#6b7280', cursor: 'pointer', fontSize: '15px', fontWeight: '500', transition: 'color 0.2s' }}>Contact</button>
-          </div>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="md:hidden mt-4 pb-4 space-y-3">
+              <button 
+                onClick={() => { setCurrentPage('home'); setMenuOpen(false); }} 
+                className="block w-full text-left py-2 px-4 text-sm font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => { setCurrentPage('about'); setMenuOpen(false); }} 
+                className="block w-full text-left py-2 px-4 text-sm font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => { setCurrentPage('contact'); setMenuOpen(false); }} 
+                className="block w-full text-left py-2 px-4 text-sm font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+              >
+                Contact
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
-      {currentPage === 'home' && (
-        <>
-          {/* Hero Section */}
-          <div style={{
-            background: 'linear-gradient(180deg, rgba(250, 245, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%)',
-            padding: '80px 40px 60px',
-            textAlign: 'center'
-          }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-              <h1 style={{
-                fontSize: 'clamp(40px, 8vw, 64px)',
-                fontWeight: '800',
-                marginBottom: '20px',
-                background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                lineHeight: '1.1',
-                letterSpacing: '-1.5px'
-              }}>
-                Where Beauty<br/>Meets Simplicity
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        {currentPage === 'home' && (
+          <>
+            {/* Hero Section */}
+            <div className="text-center mb-12">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+                Where Beauty Meets{' '}
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Simplicity
+                </span>
               </h1>
-              <p style={{ fontSize: '18px', color: '#6b7280', marginBottom: '48px', lineHeight: '1.7', maxWidth: '600px', margin: '0 auto 48px' }}>
-                Compare prices across leading platforms and discover the best deals on your favorite beauty products
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                Compare prices, discover trending products, and make smarter beauty decisions
               </p>
-              
-              {/* Search Bar */}
-              <div style={{ maxWidth: '650px', margin: '0 auto 30px', position: 'relative' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  background: 'white', 
-                  borderRadius: '16px', 
-                  padding: '8px',
-                  boxShadow: '0 10px 40px rgba(168, 85, 247, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05)',
-                  border: '1px solid rgba(233, 213, 255, 0.5)'
-                }}>
-                  <input
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && search()}
-                    placeholder="Search for lipstick, foundation, skincare..."
-                    style={{
-                      flex: 1,
-                      padding: '16px 20px',
-                      border: 'none',
-                      fontSize: '16px',
-                      outline: 'none',
-                      background: 'transparent',
-                      color: '#111827'
-                    }}
-                  />
-                  <button
-                    onClick={search}
-                    style={{
-                      ...styles.button,
-                      padding: '16px 36px',
-                      borderRadius: '12px',
-                      fontSize: '15px',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
+            </div>
 
-              {/* Popular Tags */}
-              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
-                <span style={{ color: '#9ca3af', fontSize: '14px', fontWeight: '500' }}>Trending:</span>
-                {['Foundation', 'Lipstick', 'Serum'].map(term => (
+            {/* Search Bar */}
+            <div className="max-w-2xl mx-auto mb-12">
+              <div className="flex gap-3 p-2 bg-white rounded-2xl shadow-lg border border-purple-100">
+                <input
+                  type="text"
+                  placeholder="Search for lipstick, serum, foundation..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && search()}
+                  className="flex-1 px-6 py-4 text-gray-700 outline-none rounded-xl bg-transparent placeholder-gray-400"
+                />
+                <button
+                  onClick={search}
+                  className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-200"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Trending Tags */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Trending Categories
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                {TRENDING_TAGS.map((tag) => (
                   <button
-                    key={term}
-                    onClick={() => { setQuery(term); fetchProducts(term); }}
-                    style={{
-                      background: 'rgba(250, 245, 255, 0.8)',
-                      border: '1px solid rgba(168, 85, 247, 0.2)',
-                      padding: '8px 18px',
-                      borderRadius: '12px',
-                      cursor: 'pointer',
-                      fontSize: '14px',
-                      color: '#a855f7',
-                      fontWeight: '500',
-                      transition: 'all 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => { 
-                      e.target.style.background = '#faf5ff'; 
-                      e.target.style.borderColor = '#a855f7';
-                      e.target.style.transform = 'translateY(-2px)';
-                    }}
-                    onMouseLeave={(e) => { 
-                      e.target.style.background = 'rgba(250, 245, 255, 0.8)'; 
-                      e.target.style.borderColor = 'rgba(168, 85, 247, 0.2)';
-                      e.target.style.transform = 'translateY(0)';
-                    }}
+                    key={tag.name}
+                    onClick={() => handleTrendingClick(tag.name)}
+                    className={`group p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-purple-100`}
                   >
-                    {term}
+                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
+                      {tag.icon}
+                    </div>
+                    <div className={`text-sm font-semibold bg-gradient-to-r ${tag.color} bg-clip-text text-transparent`}>
+                      {tag.name}
+                    </div>
                   </button>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Products Grid */}
-                          {/* Products Grid */}
-          <div style={{ maxWidth: '2000px', margin: '0 auto', padding: '40px 40px 80px' }}>
+            {/* Products Grid */}
             {loading ? (
-              <div style={{ textAlign: 'center', padding: '80px 0' }}>
-                <div style={{ 
-                  width: '50px', 
-                  height: '50px', 
-                  border: '4px solid #f3f4f6', 
-                  borderTop: '4px solid #a855f7',
-                  borderRadius: '50%',
-                  animation: 'spin 1s linear infinite',
-                  margin: '0 auto 20px'
-                }}></div>
-                <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
-                <p style={{ color: '#9ca3af', fontSize: '16px' }}>Finding the best deals...</p>
+              <div className="flex justify-center items-center py-20">
+                <div className="relative">
+                  <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin"></div>
+                  <div className="mt-4 text-center text-gray-600 font-medium">Loading...</div>
+                </div>
               </div>
             ) : products.length > 0 ? (
-              <>
-                <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-                  <h2 style={{ fontSize: '32px', fontWeight: '700', color: '#111827', marginBottom: '8px' }}>
-                    {query ? `Results for "${query}"` : 'Featured Products'}
-                  </h2>
-                  <p style={{ color: '#6b7280', fontSize: '16px' }}>
-                    {products.length} premium {products.length === 1 ? 'product' : 'products'} available
-                  </p>
-                </div>
-
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-                  gap: '40px',
-                  width: '100%'
-                }}>
-                  {products.map(product => {
-                    const lowestPrice = Math.min(...product.prices.map(p => p.price));
-                    const highestPrice = Math.max(...product.prices.map(p => p.price));
-                    const savings = highestPrice - lowestPrice;
-
-                    return (
-                      <div key={product.id} style={{
-                        background: 'white',
-                        borderRadius: '24px',
-                        overflow: 'hidden',
-                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                        border: '1px solid rgba(243, 244, 246, 0.8)',
-                        cursor: 'pointer'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-8px)';
-                        e.currentTarget.style.boxShadow = '0 20px 40px rgba(168, 85, 247, 0.15)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                      }}
-                      >
-                        <div style={{ position: 'relative', background: 'linear-gradient(180deg, #fafafa 0%, #ffffff 100%)' }}>
-                          <div style={{ position: 'relative', paddingTop: '100%', overflow: 'hidden' }}>
-                            <img 
-                              src={product.image} 
-                              alt={product.name} 
-                              style={{ 
-                                position: 'absolute',
-                                top: '0',
-                                left: '0',
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                transition: 'transform 0.5s ease'
-                              }}
-                              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-                            />
-                          </div>
-                          <div style={{
-                            position: 'absolute',
-                            top: '16px',
-                            left: '16px',
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            backdropFilter: 'blur(8px)',
-                            padding: '8px 12px',
-                            borderRadius: '12px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px'
-                          }}>
-                            <span style={{ fontSize: '12px', color: '#4b5563' }}>⭐</span>
-                            <span style={{ 
-                              fontSize: '13px', 
-                              fontWeight: '600', 
-                              color: '#111827',
-                              borderRight: '1px solid #e5e7eb',
-                              paddingRight: '8px'
-                            }}>
-                              {(product.prices.reduce((acc, curr) => acc + curr.rating, 0) / product.prices.length).toFixed(1)}
-                            </span>
-                            <span style={{ fontSize: '12px', color: '#6b7280' }}>
-                              {product.prices.reduce((acc, curr) => acc + curr.reviews, 0).toLocaleString()} reviews
-                            </span>
-                          </div>
-                          {savings > 0 && (
-                            <div style={{
-                              position: 'absolute',
-                              top: '16px',
-                              right: '16px',
-                              background: 'linear-gradient(135deg, #ec4899 0%, #f97316 100%)',
-                              color: 'white',
-                              padding: '10px 18px',
-                              borderRadius: '12px',
-                              fontSize: '13px',
-                              fontWeight: '700',
-                              boxShadow: '0 8px 20px rgba(236, 72, 153, 0.4)',
-                              letterSpacing: '0.3px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px'
-                            }}>
-                              <span style={{ fontSize: '16px' }}>💰</span>
-                              Save ₹{savings.toLocaleString()}
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  {query ? `Results for "${query}"` : 'Featured Products'}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {products.map((product) => (
+                    <div
+                      key={product._id}
+                      className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-2 border border-purple-50"
+                    >
+                      {/* Product Image */}
+                      <div className="relative aspect-square bg-gradient-to-br from-purple-50 to-pink-50 overflow-hidden">
+                        <img
+                          src={product.image || 'https://via.placeholder.com/400x400?text=Beauty+Product'}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        {product.rating && (
+                          <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                            <div className="flex items-center gap-1">
+                              <span className="text-yellow-500">⭐</span>
+                              <span className="text-sm font-semibold text-gray-700">{product.rating}</span>
                             </div>
-                          )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Product Details */}
+                      <div className="p-5">
+                        <div className="text-xs font-semibold text-purple-600 mb-2 uppercase tracking-wide">
+                          {product.brand}
                         </div>
-                        
-                        <div style={{ padding: '28px' }}>
-                          <div style={{ 
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'flex-start',
-                            marginBottom: '16px'
-                          }}>
-                            <div>
-                              <div style={{ 
-                                fontSize: '11px', 
-                                fontWeight: '800', 
-                                color: '#a855f7', 
-                                textTransform: 'uppercase', 
-                                letterSpacing: '1.5px',
-                                marginBottom: '8px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px'
-                              }}>
-                                {product.brand}
-                                {product.isVerified && (
-                                  <span style={{ 
-                                    background: '#ecfdf5', 
-                                    color: '#059669',
-                                    padding: '4px 8px',
-                                    borderRadius: '6px',
-                                    fontSize: '10px'
-                                  }}>
-                                    VERIFIED
-                                  </span>
-                                )}
-                              </div>
-                              <h3 style={{ 
-                                fontSize: '22px', 
-                                fontWeight: '700', 
-                                color: '#111827', 
-                                marginBottom: '10px',
-                                lineHeight: '1.3',
-                                letterSpacing: '-0.3px'
-                              }}>
-                                {product.name}
-                              </h3>
-                            </div>
-                            <button
-                              onClick={() => alert('Added to wishlist!')}
-                              style={{
-                                background: 'white',
-                                border: '1px solid #e5e7eb',
-                                borderRadius: '50%',
-                                width: '40px',
-                                height: '40px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s ease'
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.background = '#fdf2f8';
-                                e.currentTarget.style.borderColor = '#fbcfe8';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.background = 'white';
-                                e.currentTarget.style.borderColor = '#e5e7eb';
-                              }}
-                            >
-                              ❤️
-                            </button>
-                          </div>
-
-                          <div style={{ marginBottom: '20px' }}>
-                            {product.highlights && product.highlights.map((highlight, i) => (
-                              <div key={i} style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                marginBottom: '6px',
-                                color: '#6b7280',
-                                fontSize: '13px'
-                              }}>
-                                <span style={{ color: '#a855f7' }}>✓</span>
-                                {highlight}
-                              </div>
-                            ))}
-                          </div>
-
-                          <p style={{ 
-                            color: '#6b7280', 
-                            fontSize: '14px', 
-                            lineHeight: '1.6', 
-                            marginBottom: '24px'
-                          }}>
+                        <h3 className="font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-purple-600 transition-colors">
+                          {product.name}
+                        </h3>
+                        {product.description && (
+                          <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                             {product.description}
                           </p>
+                        )}
 
-                          {product.tags && (
-                            <div style={{
-                              display: 'flex',
-                              gap: '8px',
-                              flexWrap: 'wrap',
-                              marginBottom: '24px'
-                            }}>
-                              {product.tags.map((tag, i) => (
-                                <span key={i} style={{
-                                  background: '#f3f4f6',
-                                  padding: '6px 12px',
-                                  borderRadius: '20px',
-                                  fontSize: '12px',
-                                  color: '#4b5563'
-                                }}>
-                                  {tag}
-                                </span>
-                              ))}
+                        {/* Price Comparison */}
+                        {product.prices && product.prices.length > 0 ? (
+                          <div className="space-y-2">
+                            <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                              Price Comparison
                             </div>
-                          )}
-                          
-                          <div style={{ borderTop: '1px solid #f3f4f6', paddingTop: '24px' }}>
-                            <div style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              marginBottom: '20px'
-                            }}>
-                              <div>
-                                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>Price Range</div>
-                                <div style={{ fontSize: '15px', fontWeight: '600', color: '#111827' }}>
-                                  ₹{Math.min(...product.prices.map(p => p.price)).toLocaleString()} - ₹{Math.max(...product.prices.map(p => p.price)).toLocaleString()}
-                                </div>
-                              </div>
-                              <div style={{ textAlign: 'right' }}>
-                                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>Average Rating</div>
-                                <div style={{ fontSize: '15px', fontWeight: '600', color: '#111827', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                  ⭐ {(product.prices.reduce((acc, curr) => acc + curr.rating, 0) / product.prices.length).toFixed(1)}
-                                </div>
-                              </div>
-                            </div>
-
-                            {product.prices.map((price, i) => (
-                              <div key={i} style={{
-                                padding: '16px',
-                                background: price.price === lowestPrice ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)' : '#fafafa',
-                                borderRadius: '16px',
-                                marginBottom: '12px',
-                                border: price.price === lowestPrice ? '1.5px solid rgba(168, 85, 247, 0.2)' : '1px solid transparent',
-                                position: 'relative',
-                                overflow: 'hidden'
-                              }}>
-                                {price.price === lowestPrice && (
-                                  <div style={{
-                                    position: 'absolute',
-                                    top: '12px',
-                                    right: '-32px',
-                                    background: '#a855f7',
-                                    color: 'white',
-                                    padding: '4px 40px',
-                                    transform: 'rotate(45deg)',
-                                    fontSize: '11px',
-                                    fontWeight: '600',
-                                    letterSpacing: '0.5px'
-                                  }}>
-                                    BEST PRICE
-                                  </div>
-                                )}
-
-                                <div style={{ 
-                                  display: 'flex',
-                                  justifyContent: 'space-between',
-                                  alignItems: 'flex-start',
-                                  marginBottom: '12px'
-                                }}>
-                                  <div style={{ flex: 1 }}>
-                                    <div style={{ 
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      gap: '8px',
-                                      marginBottom: '4px'
-                                    }}>
-                                      <img 
-                                        src={price.platformLogo || 'default-logo.png'}
-                                        alt={price.platform}
-                                        style={{
-                                          width: '20px',
-                                          height: '20px',
-                                          borderRadius: '4px'
-                                        }}
-                                      />
-                                      <span style={{ fontWeight: '600', color: '#111827', fontSize: '15px' }}>
-                                        {price.platform}
-                                      </span>
-                                      {price.isOfficial && (
-                                        <span style={{
-                                          background: '#ecfdf5',
-                                          color: '#059669',
-                                          padding: '2px 8px',
-                                          borderRadius: '12px',
-                                          fontSize: '11px',
-                                          fontWeight: '500'
-                                        }}>
-                                          Official Store
-                                        </span>
-                                      )}
-                                    </div>
-                                    <div style={{ fontSize: '13px', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                      <span>⭐ {price.rating} ({price.reviews.toLocaleString()} reviews)</span>
-                                      {price.delivery && (
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                          🚚 {price.delivery}
-                                        </span>
-                                      )}
-                                    </div>
-                                  </div>
-                                  <div style={{ textAlign: 'right' }}>
-                                    {price.originalPrice && price.originalPrice > price.price && (
-                                      <div style={{ 
-                                        fontSize: '14px',
-                                        color: '#6b7280',
-                                        textDecoration: 'line-through',
-                                        marginBottom: '2px'
-                                      }}>
-                                        ₹{price.originalPrice.toLocaleString()}
-                                      </div>
-                                    )}
-                                    <div style={{ 
-                                      fontSize: '24px', 
-                                      fontWeight: '800', 
-                                      background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
-                                      WebkitBackgroundClip: 'text',
-                                      WebkitTextFillColor: 'transparent',
-                                      letterSpacing: '-0.5px',
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      gap: '4px',
-                                      justifyContent: 'flex-end'
-                                    }}>
-                                      ₹{price.price.toLocaleString()}
-                                      {price.originalPrice && price.originalPrice > price.price && (
-                                        <span style={{
-                                          fontSize: '13px',
-                                          color: '#059669',
-                                          fontWeight: '600',
-                                          marginLeft: '8px'
-                                        }}>
-                                          {Math.round((1 - price.price/price.originalPrice) * 100)}% OFF
-                                        </span>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {price.offers && price.offers.length > 0 && (
-                                  <div style={{
-                                    display: 'flex',
-                                    gap: '8px',
-                                    marginBottom: '12px'
-                                  }}>
-                                    {price.offers.map((offer, j) => (
-                                      <div key={j} style={{
-                                        background: '#f3f4f6',
-                                        padding: '4px 10px',
-                                        borderRadius: '8px',
-                                        fontSize: '12px',
-                                        color: '#4b5563',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '4px'
-                                      }}>
-                                        🏷️ {offer}
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
-
-                                <a
-                                  href={price.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  style={{
-                                    width: '100%',
-                                    background: price.price === lowestPrice 
-                                      ? 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)'
-                                      : '#fff',
-                                    color: price.price === lowestPrice ? '#fff' : '#111827',
-                                    border: price.price === lowestPrice 
-                                      ? 'none'
-                                      : '1px solid #e5e7eb',
-                                    padding: '12px',
-                                    borderRadius: '12px',
-                                    fontSize: '14px',
-                                    fontWeight: '600',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '8px',
-                                    textDecoration: 'none'
-                                  }}
-                                >
-                                  {price.price === lowestPrice ? 'Buy at Best Price' : 'Visit Store'}
-                                  <svg 
-                                    xmlns="http://www.w3.org/2000/svg" 
-                                    width="16" 
-                                    height="16" 
-                                    viewBox="0 0 24 24" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    strokeWidth="2"
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round"
-                                  >
-                                    <path d="M7 7l5 5-5 5"/>
-                                    <path d="M13 7l5 5-5 5"/>
-                                  </svg>
-                                </a>
+                            {product.prices.slice(0, 3).map((price, idx) => (
+                              <div
+                                key={idx}
+                                className="flex justify-between items-center p-2 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
+                              >
+                                <span className="text-sm font-medium text-gray-700">{price.platform}</span>
+                                <span className="text-sm font-bold text-purple-600">₹{price.amount}</span>
                               </div>
                             ))}
                           </div>
-                        </div>
+                        ) : (
+                          <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                            ₹{product.price || '999'}
+                          </div>
+                        )}
+
+                        {/* View Details Button */}
+                        <button className="w-full mt-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200">
+                          View Details
+                        </button>
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
-              </>
+              </div>
             ) : (
-              <div style={{ textAlign: 'center', padding: '80px 20px' }}>
-                <div style={{ fontSize: '64px', marginBottom: '24px', opacity: 0.5 }}>🔍</div>
-                <h3 style={{ fontSize: '24px', fontWeight: '700', color: '#111827', marginBottom: '12px' }}>
-                  No products found
-                </h3>
-                <p style={{ color: '#6b7280', fontSize: '16px', maxWidth: '400px', margin: '0 auto' }}>
-                  Try adjusting your search or browse our trending products
-                </p>
+              <div className="text-center py-20">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">No products found</h3>
+                <p className="text-gray-600">Try searching for something else or explore our trending categories</p>
               </div>
             )}
-          </div>
-        </>
-      )}
+          </>
+        )}
 
-      {currentPage === 'about' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '80px 24px' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', color: '#111827', letterSpacing: '-1px' }}>
-            About Beautynomy
-          </h1>
-          <div style={{ fontSize: '18px', lineHeight: '1.8', color: '#6b7280', space: '20px' }}>
-            <p style={{ marginBottom: '20px' }}>
-              Welcome to Beautynomy, where beauty meets smart shopping. We believe everyone deserves access to the best beauty products at the best prices.
-            </p>
-            <p>
-              Our platform compares prices across multiple leading e-commerce sites, helping you make informed decisions and save money on your favorite products.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {currentPage === 'contact' && (
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '80px 24px' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', color: '#111827', letterSpacing: '-1px' }}>
-            Get in Touch
-          </h1>
-          <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '40px', lineHeight: '1.7' }}>
-            Have questions or feedback? We'd love to hear from you.
-          </p>
-          <div style={{ background: 'white', padding: '40px', borderRadius: '24px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)' }}>
-            <input 
-              type="text" 
-              placeholder="Your Name"
-              style={{
-                width: '100%',
-                padding: '16px 20px',
-                marginBottom: '20px',
-                border: '2px solid #f3f4f6',
-                borderRadius: '14px',
-                fontSize: '15px',
-                outline: 'none',
-                transition: 'border-color 0.2s'
-              }}
-              onFocus={(e) => e.target.style.borderColor = '#e9d5ff'}
-              onBlur={(e) => e.target.style.borderColor = '#f3f4f6'}
-            />
-            <input 
-              type="email" 
-              placeholder="Your Email"
-              style={{
-                width: '100%',
-                padding: '16px 20px',
-                marginBottom: '20px',
-                border: '2px solid #f3f4f6',
-                borderRadius: '14px',
-                fontSize: '15px',
-                outline: 'none',
-                transition: 'border-color 0.2s'
-              }}
-              onFocus={(e) => e.target.style.borderColor = '#e9d5ff'}
-              onBlur={(e) => e.target.style.borderColor = '#f3f4f6'}
-            />
-            <textarea 
-              placeholder="Your Message"
-              rows="5"
-              style={{
-                width: '100%',
-                padding: '16px 20px',
-                marginBottom: '24px',
-                border: '2px solid #f3f4f6',
-                borderRadius: '14px',
-                fontSize: '15px',
-                fontFamily: 'inherit',
-                resize: 'vertical',
-                outline: 'none',
-                transition: 'border-color 0.2s'
-              }}
-              onFocus={(e) => e.target.style.borderColor = '#e9d5ff'}
-              onBlur={(e) => e.target.style.borderColor = '#f3f4f6'}
-            />
-            <button
-              style={{
-                ...styles.button,
-                width: '100%',
-                padding: '16px',
-                borderRadius: '14px',
-                fontSize: '16px'
-              }}
-            >
-              Send Message
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer style={{
-        background: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)',
-        color: 'white',
-        padding: '60px 24px 30px'
-      }}>
-        <div style={{ maxWidth: '1800px', margin: '0 auto', width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '40px' }}>
-            <div>
-              <div style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px' }}>💄 Beautynomy</div>
-              <p style={{ color: '#9ca3af', fontSize: '14px', lineHeight: '1.6' }}>Your trusted beauty price comparison platform</p>
-            </div>
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Quick Links</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <button onClick={() => setCurrentPage('home')} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', textAlign: 'left', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'white'} onMouseLeave={(e) => e.target.style.color = '#9ca3af'}>Home</button>
-                <button onClick={() => setCurrentPage('about')} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', textAlign: 'left', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'white'} onMouseLeave={(e) => e.target.style.color = '#9ca3af'}>About</button>
-                <button onClick={() => setCurrentPage('contact')} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', textAlign: 'left', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'white'} onMouseLeave={(e) => e.target.style.color = '#9ca3af'}>Contact</button>
+        {currentPage === 'about' && (
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">About Beautynomy</h2>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p className="text-lg">
+                  <span className="font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Beautynomy
+                  </span>{' '}
+                  is your go-to beauty intelligence hub that simplifies the way you shop for cosmetics and skincare products.
+                </p>
+                <p>
+                  We understand that finding the perfect beauty product at the best price can be overwhelming. 
+                  That's why we've created a platform that aggregates prices from major e-commerce platforms like 
+                  Nykaa, Amazon, and Sephora, helping you make informed purchasing decisions.
+                </p>
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                  <p>
+                    To empower beauty enthusiasts with transparent pricing, authentic reviews, and trending product 
+                    recommendations – all in one elegant, easy-to-use platform.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">What We Offer</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <span className="text-purple-600 font-bold">✓</span>
+                      <span>Price comparison across multiple platforms</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-purple-600 font-bold">✓</span>
+                      <span>Trending beauty products and categories</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-purple-600 font-bold">✓</span>
+                      <span>Detailed product information and ratings</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-purple-600 font-bold">✓</span>
+                      <span>Beautiful, intuitive interface inspired by Fenty Beauty aesthetics</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div style={{ borderTop: '1px solid #374151', paddingTop: '24px', textAlign: 'center', color: '#9ca3af', fontSize: '14px' }}>
-            © 2025 Beautynomy. All rights reserved.
+        )}
+
+        {currentPage === 'contact' && (
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
+              <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    className="w-full px-6 py-4 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="w-full px-6 py-4 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <textarea
+                    rows="5"
+                    placeholder="Your message..."
+                    className="w-full px-6 py-4 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all resize-none"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-200"
+                >
+                  Send Message
+                </button>
+              </form>
+              <div className="mt-8 pt-8 border-t border-purple-100">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-gray-600">Follow us on social media</p>
+                  <div className="flex justify-center gap-4">
+                    <a href="#" className="text-2xl hover:scale-110 transition-transform">📱</a>
+                    <a href="#" className="text-2xl hover:scale-110 transition-transform">💌</a>
+                    <a href="#" className="text-2xl hover:scale-110 transition-transform">🐦</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-purple-900 to-pink-900 text-white mt-20">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-3xl">💄</span>
+                <span className="text-2xl font-bold">Beautynomy</span>
+              </div>
+              <p className="text-purple-200">
+                Where Beauty Meets Simplicity
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-purple-200">
+                <li><button onClick={() => setCurrentPage('home')} className="hover:text-white transition-colors">Home</button></li>
+                <li><button onClick={() => setCurrentPage('about')} className="hover:text-white transition-colors">About</button></li>
+                <li><button onClick={() => setCurrentPage('contact')} className="hover:text-white transition-colors">Contact</button></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg mb-4">Categories</h3>
+              <ul className="space-y-2 text-purple-200">
+                {TRENDING_TAGS.slice(0, 4).map((tag) => (
+                  <li key={tag.name}>
+                    <button 
+                      onClick={() => handleTrendingClick(tag.name)} 
+                      className="hover:text-white transition-colors"
+                    >
+                      {tag.icon} {tag.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-purple-700 pt-8 text-center text-purple-200">
+            <p>&copy; 2025 Beautynomy. All rights reserved.</p>
           </div>
         </div>
       </footer>
