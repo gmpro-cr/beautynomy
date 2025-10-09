@@ -3,6 +3,7 @@ services:
     name: beautynomy-api
     env: node
     plan: free
+    rootDir: Beautynomy/server
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /
