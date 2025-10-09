@@ -4,18 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run dev --prefix client",
-    "build": "npm run build --prefix client",
-    "start": "npm run preview --prefix client"
-  },
-  "workspaces": ["client", "server"],
-  "dependencies": {
-    "axios": "^1.12.2",
-    "lucide-react": "^0.544.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.14"
+    "dev": "npm run dev --prefix Beautynomy/client",
+    "build": "npm run build --prefix Beautynomy/client",
+    "start": "npm run preview --prefix Beautynomy/client",
+    "server": "npm start --prefix Beautynomy/server"
   }
 }

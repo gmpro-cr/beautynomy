@@ -1,0 +1,3 @@
+[submodule "Beautynomy/server"]
+	path = Beautynomy/server
+	url = https://github.com/gmpro-cr/beautynomy-server.git
