@@ -1,6 +1,5 @@
 {
-  "buildCommand": "cd Beautynomy/client && npm install && npm run build",
+  "buildCommand": "cd Beautynomy/client && npm run build",
   "outputDirectory": "Beautynomy/client/dist",
-  "devCommand": "cd Beautynomy/client && npm run dev",
-  "installCommand": "cd Beautynomy/client && npm install"
+  "installCommand": "npm install --prefix Beautynomy/client"
 }
