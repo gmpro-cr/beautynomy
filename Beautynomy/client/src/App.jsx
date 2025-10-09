@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Search, Heart, GitCompare, TrendingDown, TrendingUp, Star, Clock, X, Filter, ChevronDown } from 'lucide-react';
+import { Search, Heart, GitCompare, TrendingDown, TrendingUp, Star, Clock, X, Filter, Menu } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://beautynomy-api.onrender.com';
 
-// Trending categories
+// Trending categories - Fenty Beauty inspired
 const TRENDING_TAGS = [
-  { name: 'Foundation', icon: '💄', emoji: '💄' },
-  { name: 'Lipstick', icon: '💋', emoji: '💋' },
-  { name: 'Serum', icon: '✨', emoji: '✨' },
-  { name: 'Mascara', icon: '👁️', emoji: '👁️' },
-  { name: 'Blush', icon: '🌸', emoji: '🌸' },
-  { name: 'Skincare', icon: '🧴', emoji: '🧴' },
+  { name: 'Foundation', label: 'FOUNDATION' },
+  { name: 'Lipstick', label: 'LIPSTICK' },
+  { name: 'Serum', label: 'SERUM' },
+  { name: 'Mascara', label: 'MASCARA' },
+  { name: 'Blush', label: 'BLUSH' },
+  { name: 'Skincare', label: 'SKINCARE' },
 ];
 
 export default function App() {
@@ -29,6 +29,7 @@ export default function App() {
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [sortBy, setSortBy] = useState('relevance');
   const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Load wishlist from localStorage
   useEffect(() => {
@@ -43,12 +44,7 @@ export default function App() {
 
   // Fetch products
   useEffect(() => {
-    if (searchQuery || selectedCategory) {
-      fetchProducts();
-    } else {
-      // Load featured products on page load
-      fetchProducts();
-    }
+    fetchProducts();
   }, [searchQuery, selectedCategory]);
 
   // Apply filters and sorting
@@ -83,7 +79,7 @@ export default function App() {
       setLastUpdated(new Date());
     } catch (err) {
       console.error('Error fetching products:', err);
-      setError('Failed to load products. Please try again.');
+      setError('Failed to load products. Please check your connection.');
     } finally {
       setLoading(false);
     }
@@ -188,63 +184,58 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-purple-100">
+    <div className="min-h-screen bg-white">
+      {/* Header - Fenty Beauty Style */}
+      <header className="bg-black text-white sticky top-0 z-50 border-b border-neutral-800">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => { setCurrentPage('home'); setSelectedCategory(''); setSearchQuery(''); }}
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-3 group"
             >
-              <span className="text-4xl group-hover:scale-110 transition-transform">💄</span>
-              <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Beautynomy
-              </span>
+              <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center">
+                <span className="text-white text-xl font-bold">B</span>
+              </div>
+              <span className="text-2xl font-bold tracking-wider">BEAUTYNOMY</span>
             </button>
 
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => setCurrentPage('home')}
-                className={`font-medium transition-colors ${
-                  currentPage === 'home'
-                    ? 'text-purple-600'
-                    : 'text-gray-600 hover:text-purple-600'
+                className={`text-sm font-semibold tracking-widest transition-colors ${
+                  currentPage === 'home' ? 'text-amber-500' : 'text-white hover:text-amber-500'
                 }`}
               >
-                Home
+                HOME
               </button>
               <button
                 onClick={() => setCurrentPage('about')}
-                className={`font-medium transition-colors ${
-                  currentPage === 'about'
-                    ? 'text-purple-600'
-                    : 'text-gray-600 hover:text-purple-600'
+                className={`text-sm font-semibold tracking-widest transition-colors ${
+                  currentPage === 'about' ? 'text-amber-500' : 'text-white hover:text-amber-500'
                 }`}
               >
-                About
+                ABOUT
               </button>
               <button
                 onClick={() => setCurrentPage('contact')}
-                className={`font-medium transition-colors ${
-                  currentPage === 'contact'
-                    ? 'text-purple-600'
-                    : 'text-gray-600 hover:text-purple-600'
+                className={`text-sm font-semibold tracking-widest transition-colors ${
+                  currentPage === 'contact' ? 'text-amber-500' : 'text-white hover:text-amber-500'
                 }`}
               >
-                Contact
+                CONTACT
               </button>
               <button
                 onClick={() => setCurrentPage('wishlist')}
                 className="relative"
               >
                 <Heart
-                  className={`w-6 h-6 transition-colors ${
-                    wishlist.length > 0 ? 'fill-pink-500 text-pink-500' : 'text-gray-600 hover:text-pink-500'
+                  className={`w-6 h-6 transition-all ${
+                    wishlist.length > 0 ? 'fill-amber-500 text-amber-500' : 'text-white hover:text-amber-500'
                   }`}
                 />
                 {wishlist.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                     {wishlist.length}
                   </span>
                 )}
@@ -254,18 +245,39 @@ export default function App() {
                 className="relative"
               >
                 <GitCompare
-                  className={`w-6 h-6 transition-colors ${
-                    compareList.length > 0 ? 'text-purple-600' : 'text-gray-600 hover:text-purple-600'
+                  className={`w-6 h-6 transition-all ${
+                    compareList.length > 0 ? 'text-amber-500' : 'text-white hover:text-amber-500'
                   }`}
                 />
                 {compareList.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                     {compareList.length}
                   </span>
                 )}
               </button>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-white"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pt-4 border-t border-neutral-800">
+              <nav className="flex flex-col gap-4">
+                <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">HOME</button>
+                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">ABOUT</button>
+                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">CONTACT</button>
+                <button onClick={() => { setCurrentPage('wishlist'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">WISHLIST ({wishlist.length})</button>
+                <button onClick={() => { setCurrentPage('compare'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">COMPARE ({compareList.length})</button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -273,119 +285,116 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {currentPage === 'home' && (
           <>
-            {/* Hero Section */}
+            {/* Hero Section - Fenty Style */}
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-                Where Beauty Meets{' '}
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Simplicity
-                </span>
+              <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 tracking-tight">
+                BEAUTY FOR ALL
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Compare prices, discover trending products, and make smarter beauty decisions
+              <p className="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">
+                Compare prices across platforms. Find your perfect match. Save more.
               </p>
 
-              {/* Search Bar */}
-              <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-4">
+              {/* Search Bar - Elegant Black/White */}
+              <form onSubmit={handleSearch} className="max-w-3xl mx-auto mb-6">
                 <div className="relative">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search for lipstick, serum, foundation..."
-                    className="w-full px-6 py-4 pr-32 rounded-full border-2 border-purple-200 focus:border-purple-500 focus:outline-none text-lg shadow-lg"
+                    placeholder="Search for products..."
+                    className="w-full px-8 py-5 pr-32 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none text-lg font-medium tracking-wide"
                   />
                   <button
                     type="submit"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 px-8 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-200"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 px-8 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
                   >
-                    <Search className="w-5 h-5" />
+                    SEARCH
                   </button>
                 </div>
               </form>
 
               {/* Price Update Info */}
-              <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+              <div className="flex items-center justify-center gap-2 text-sm text-neutral-500 tracking-wide">
                 <Clock className="w-4 h-4" />
-                <span>Prices updated {getTimeSinceUpdate()}</span>
+                <span>UPDATED {getTimeSinceUpdate().toUpperCase()}</span>
               </div>
             </div>
 
-            {/* Trending Categories */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                Trending Categories
+            {/* Trending Categories - Clean Grid */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-black mb-8 text-center tracking-tight">
+                SHOP BY CATEGORY
               </h2>
-              <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {TRENDING_TAGS.map((tag) => (
                   <button
                     key={tag.name}
                     onClick={() => handleTrendingClick(tag.name)}
-                    className={`p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 border-2 ${
+                    className={`p-8 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-300 border-2 ${
                       selectedCategory === tag.name
-                        ? 'border-purple-500 bg-purple-50'
-                        : 'border-transparent'
+                        ? 'border-amber-600 bg-black text-white'
+                        : 'border-black'
                     }`}
                   >
-                    <div className="text-4xl mb-2">{tag.emoji}</div>
-                    <div className="text-sm font-semibold text-gray-700">{tag.name}</div>
+                    <div className="text-sm font-bold tracking-widest">{tag.label}</div>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Filters and Sort */}
-            <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-md">
+            {/* Filters and Sort - Minimal Black/White */}
+            <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between bg-neutral-50 p-6 border-2 border-black">
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-colors"
                 >
                   <Filter className="w-4 h-4" />
-                  Filters
+                  FILTERS
                   {(selectedBrands.length > 0 || priceRange[0] > 0 || priceRange[1] < 5000) && (
-                    <span className="bg-purple-500 text-white text-xs rounded-full px-2">
+                    <span className="bg-amber-500 text-black text-xs rounded-full px-2 py-1">
                       {selectedBrands.length + (priceRange[0] > 0 || priceRange[1] < 5000 ? 1 : 0)}
                     </span>
                   )}
                 </button>
-                
+
                 {selectedBrands.length > 0 && (
                   <button
                     onClick={() => setSelectedBrands([])}
-                    className="text-sm text-gray-600 hover:text-gray-900"
+                    className="text-sm text-neutral-600 hover:text-black font-semibold tracking-wide"
                   >
-                    Clear filters
+                    CLEAR FILTERS
                   </button>
                 )}
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">Sort by:</span>
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold tracking-widest text-black">SORT:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500"
+                  className="px-4 py-3 border-2 border-black bg-white focus:outline-none focus:border-amber-600 font-semibold tracking-wide"
                 >
-                  <option value="relevance">Relevance</option>
-                  <option value="price_low">Price: Low to High</option>
-                  <option value="price_high">Price: High to Low</option>
-                  <option value="rating">Highest Rated</option>
-                  <option value="reviews">Most Reviews</option>
-                  <option value="discount">Best Discount</option>
+                  <option value="relevance">RELEVANCE</option>
+                  <option value="price_low">PRICE: LOW TO HIGH</option>
+                  <option value="price_high">PRICE: HIGH TO LOW</option>
+                  <option value="rating">HIGHEST RATED</option>
+                  <option value="reviews">MOST REVIEWS</option>
+                  <option value="discount">BEST DISCOUNT</option>
                 </select>
               </div>
             </div>
 
             {/* Filter Panel */}
             {showFilters && (
-              <div className="mb-8 bg-white p-6 rounded-xl shadow-md">
-                <div className="grid md:grid-cols-2 gap-6">
+              <div className="mb-8 bg-neutral-50 p-8 border-2 border-black">
+                <div className="grid md:grid-cols-2 gap-8">
                   {/* Price Range */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Price Range</h3>
-                    <div className="space-y-2">
+                    <h3 className="font-bold text-black mb-4 tracking-widest">PRICE RANGE</h3>
+                    <div className="space-y-3">
                       <div className="flex items-center gap-4">
+                        <span className="text-sm font-semibold text-neutral-700 w-16">MIN:</span>
                         <input
                           type="range"
                           min="0"
@@ -393,11 +402,12 @@ export default function App() {
                           step="100"
                           value={priceRange[0]}
                           onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
-                          className="flex-1"
+                          className="flex-1 accent-amber-600"
                         />
-                        <span className="text-sm text-gray-600 w-20">₹{priceRange[0]}</span>
+                        <span className="text-sm font-bold text-black w-20">₹{priceRange[0]}</span>
                       </div>
                       <div className="flex items-center gap-4">
+                        <span className="text-sm font-semibold text-neutral-700 w-16">MAX:</span>
                         <input
                           type="range"
                           min="0"
@@ -405,26 +415,26 @@ export default function App() {
                           step="100"
                           value={priceRange[1]}
                           onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                          className="flex-1"
+                          className="flex-1 accent-amber-600"
                         />
-                        <span className="text-sm text-gray-600 w-20">₹{priceRange[1]}</span>
+                        <span className="text-sm font-bold text-black w-20">₹{priceRange[1]}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Brands */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Brands</h3>
+                    <h3 className="font-bold text-black mb-4 tracking-widest">BRANDS</h3>
                     <div className="max-h-40 overflow-y-auto space-y-2">
                       {allBrands.map((brand) => (
-                        <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                        <label key={brand} className="flex items-center gap-3 cursor-pointer group">
                           <input
                             type="checkbox"
                             checked={selectedBrands.includes(brand)}
                             onChange={() => toggleBrand(brand)}
-                            className="w-4 h-4 text-purple-600 rounded"
+                            className="w-5 h-5 accent-amber-600"
                           />
-                          <span className="text-sm text-gray-700">{brand}</span>
+                          <span className="text-sm font-semibold text-neutral-700 group-hover:text-black">{brand}</span>
                         </label>
                       ))}
                     </div>
@@ -435,148 +445,142 @@ export default function App() {
 
             {/* Products Grid */}
             {loading ? (
-              <div className="text-center py-20">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-purple-600 border-t-transparent"></div>
-                <p className="mt-4 text-gray-600">Loading amazing products...</p>
+              <div className="text-center py-32">
+                <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-black border-t-amber-600"></div>
+                <p className="mt-6 text-black font-bold tracking-widest">LOADING PRODUCTS...</p>
               </div>
             ) : error ? (
-              <div className="text-center py-20">
-                <div className="text-6xl mb-4">😞</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Oops!</h3>
-                <p className="text-gray-600">{error}</p>
+              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+                <div className="text-6xl mb-6">⚠️</div>
+                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">CONNECTION ERROR</h3>
+                <p className="text-neutral-600 mb-6">{error}</p>
+                <button
+                  onClick={fetchProducts}
+                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                >
+                  TRY AGAIN
+                </button>
               </div>
             ) : filteredProducts.length > 0 ? (
               <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    {selectedCategory ? `${selectedCategory} Products` : 'Featured Products'}
+                <div className="mb-8 flex items-center justify-between">
+                  <h2 className="text-3xl font-bold text-black tracking-tight">
+                    {selectedCategory ? `${selectedCategory.toUpperCase()} PRODUCTS` : 'ALL PRODUCTS'}
                   </h2>
-                  <p className="text-gray-600">{filteredProducts.length} products found</p>
+                  <p className="text-neutral-600 font-semibold">{filteredProducts.length} PRODUCTS</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                   {filteredProducts.map((product) => {
                     const bestDeal = getBestDeal(product);
                     const maxDiscount = getMaxDiscount(product);
                     const lowestPrice = getLowestPrice(product);
-                    const highestPrice = getHighestPrice(product);
                     const priceDropped = product.priceChange && product.priceChange < 0;
-                    const priceIncreased = product.priceChange && product.priceChange > 0;
 
                     return (
                       <div
                         key={product._id}
-                        className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+                        className="group bg-white border-2 border-black hover:border-amber-600 transition-all duration-300"
                       >
                         {/* Product Image */}
-                        <div className="relative bg-gradient-to-br from-purple-50 to-pink-50 p-6 h-64 flex items-center justify-center overflow-hidden">
+                        <div className="relative bg-neutral-50 p-8 h-72 flex items-center justify-center overflow-hidden">
                           <img
                             src={product.image}
                             alt={product.name}
-                            className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
+                            className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                           />
-                          
+
                           {/* Wishlist & Compare Buttons */}
-                          <div className="absolute top-3 right-3 flex gap-2">
+                          <div className="absolute top-4 right-4 flex flex-col gap-2">
                             <button
                               onClick={() => toggleWishlist(product)}
-                              className="p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+                              className="p-3 bg-white border-2 border-black hover:bg-black hover:text-white transition-all"
                             >
                               <Heart
                                 className={`w-5 h-5 ${
                                   isInWishlist(product)
-                                    ? 'fill-pink-500 text-pink-500'
-                                    : 'text-gray-400'
+                                    ? 'fill-amber-600 text-amber-600'
+                                    : ''
                                 }`}
                               />
                             </button>
                             <button
                               onClick={() => toggleCompare(product)}
-                              className="p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+                              className="p-3 bg-white border-2 border-black hover:bg-black hover:text-white transition-all"
                             >
                               <GitCompare
                                 className={`w-5 h-5 ${
                                   isInCompare(product)
-                                    ? 'text-purple-600'
-                                    : 'text-gray-400'
+                                    ? 'text-amber-600'
+                                    : ''
                                 }`}
                               />
                             </button>
                           </div>
 
                           {/* Badges */}
-                          <div className="absolute top-3 left-3 flex flex-col gap-2">
+                          <div className="absolute top-4 left-4 flex flex-col gap-2">
                             {maxDiscount > 0 && (
-                              <div className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                                Save {maxDiscount}%
+                              <div className="bg-amber-600 text-black text-xs font-bold px-3 py-1 tracking-wider">
+                                SAVE {maxDiscount}%
                               </div>
                             )}
                             {priceDropped && (
-                              <div className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                              <div className="bg-black text-white text-xs font-bold px-3 py-1 tracking-wider flex items-center gap-1">
                                 <TrendingDown className="w-3 h-3" />
-                                Price Drop
-                              </div>
-                            )}
-                            {priceIncreased && (
-                              <div className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-                                <TrendingUp className="w-3 h-3" />
-                                Price Up
+                                PRICE DROP
                               </div>
                             )}
                           </div>
 
                           {/* Rating */}
-                          <div className="absolute bottom-3 right-3 bg-white px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-                            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            <span className="text-sm font-semibold">{product.rating || '4.5'}</span>
+                          <div className="absolute bottom-4 right-4 bg-white px-3 py-2 border-2 border-black flex items-center gap-1">
+                            <Star className="w-4 h-4 fill-amber-600 text-amber-600" />
+                            <span className="text-sm font-bold">{product.rating || '4.5'}</span>
                           </div>
                         </div>
 
                         {/* Product Info */}
-                        <div className="p-5">
-                          <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-1">
+                        <div className="p-6 bg-white">
+                          <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">
                             {product.brand}
                           </div>
-                          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">
+                          <h3 className="text-lg font-bold text-black mb-3 line-clamp-2 min-h-[3.5rem] tracking-tight">
                             {product.name}
                           </h3>
-                          <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                          <p className="text-sm text-neutral-600 mb-4 line-clamp-2">
                             {product.description}
                           </p>
 
                           {/* Review Count */}
-                          <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-2 mb-4 text-sm text-neutral-500">
                             <Star className="w-4 h-4" />
                             <span>{product.rating || '4.5'} ({product.reviewCount || '127'} reviews)</span>
                           </div>
 
                           {/* Price Comparison */}
-                          <div className="space-y-2 mb-4">
-                            <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                              Price Comparison
+                          <div className="space-y-2 mb-6">
+                            <div className="text-xs font-bold text-black uppercase tracking-widest mb-3">
+                              PRICE COMPARISON
                             </div>
                             {product.prices.map((price, idx) => (
                               <div
                                 key={idx}
-                                className={`flex justify-between items-center p-2 rounded-lg transition-colors ${
+                                className={`flex justify-between items-center p-3 transition-all ${
                                   price.platform === bestDeal.platform
-                                    ? 'bg-green-50 border-2 border-green-400'
-                                    : 'bg-gray-50'
+                                    ? 'bg-amber-600 text-white'
+                                    : 'bg-neutral-50'
                                 }`}
                               >
-                                <span className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                                <span className="text-sm font-bold flex items-center gap-2">
                                   {price.platform}
                                   {price.platform === bestDeal.platform && (
-                                    <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full font-bold">
+                                    <span className="text-xs bg-black text-white px-2 py-1 font-bold">
                                       BEST
                                     </span>
                                   )}
                                 </span>
-                                <span className={`text-sm font-bold ${
-                                  price.platform === bestDeal.platform
-                                    ? 'text-green-600 text-base'
-                                    : 'text-gray-600'
-                                }`}>
+                                <span className="text-sm font-bold">
                                   ₹{price.amount}
                                 </span>
                               </div>
@@ -588,9 +592,9 @@ export default function App() {
                             href={bestDeal.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 text-center"
+                            className="block w-full py-4 bg-black text-white text-center font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
                           >
-                            Buy at {bestDeal.platform} for ₹{bestDeal.amount} →
+                            BUY NOW - ₹{bestDeal.amount}
                           </a>
                         </div>
                       </div>
@@ -599,17 +603,23 @@ export default function App() {
                 </div>
 
                 {/* Affiliate Disclosure */}
-                <div className="mt-12 p-4 bg-purple-50 border border-purple-200 rounded-xl text-center">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Affiliate Disclosure:</span> We earn from qualifying purchases made through links on this site. This helps us keep the service free for you.
+                <div className="mt-16 p-6 bg-neutral-50 border-2 border-black text-center">
+                  <p className="text-sm text-neutral-700 tracking-wide">
+                    <span className="font-bold">AFFILIATE DISCLOSURE:</span> We earn from qualifying purchases made through links on this site.
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="text-center py-20">
-                <div className="text-6xl mb-4">🔍</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">No products found</h3>
-                <p className="text-gray-600">Try adjusting your filters or search for something else</p>
+              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+                <div className="text-6xl mb-6">🔍</div>
+                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">NO PRODUCTS FOUND</h3>
+                <p className="text-neutral-600 mb-6">Try adjusting your filters or search for something else</p>
+                <button
+                  onClick={() => { setSelectedBrands([]); setPriceRange([0, 5000]); setSearchQuery(''); setSelectedCategory(''); }}
+                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                >
+                  CLEAR ALL FILTERS
+                </button>
               </div>
             )}
           </>
@@ -618,53 +628,57 @@ export default function App() {
         {/* Wishlist Page */}
         {currentPage === 'wishlist' && (
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">My Wishlist</h2>
+            <h2 className="text-5xl font-bold text-black mb-12 tracking-tight">MY WISHLIST</h2>
             {wishlist.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {wishlist.map((product) => {
                   const bestDeal = getBestDeal(product);
                   return (
-                    <div key={product._id} className="bg-white rounded-2xl shadow-md p-5 relative">
+                    <div key={product._id} className="bg-white border-2 border-black relative">
                       <button
                         onClick={() => toggleWishlist(product)}
-                        className="absolute top-3 right-3 p-2 bg-pink-100 rounded-full hover:bg-pink-200"
+                        className="absolute top-4 right-4 p-3 bg-white border-2 border-black hover:bg-black hover:text-white z-10"
                       >
-                        <X className="w-4 h-4 text-pink-600" />
+                        <X className="w-5 h-5" />
                       </button>
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-48 object-contain mb-4"
-                      />
-                      <div className="text-xs font-semibold text-purple-600 uppercase mb-1">
-                        {product.brand}
+                      <div className="bg-neutral-50 p-8">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-48 object-contain"
+                        />
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-2">{product.name}</h3>
-                      <div className="text-2xl font-bold text-green-600 mb-3">
-                        ₹{bestDeal.amount}
+                      <div className="p-6">
+                        <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">
+                          {product.brand}
+                        </div>
+                        <h3 className="font-bold text-black mb-4 tracking-tight">{product.name}</h3>
+                        <div className="text-2xl font-bold text-black mb-4">
+                          ₹{bestDeal.amount}
+                        </div>
+                        <a
+                          href={bestDeal.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full py-3 bg-black text-white text-center font-bold tracking-widest hover:bg-amber-600 transition-all"
+                        >
+                          BUY NOW
+                        </a>
                       </div>
-                      <a
-                        href={bestDeal.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg text-center"
-                      >
-                        Buy Now
-                      </a>
                     </div>
                   );
                 })}
               </div>
             ) : (
-              <div className="text-center py-20">
-                <Heart className="w-20 h-20 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Your wishlist is empty</h3>
-                <p className="text-gray-600 mb-6">Start adding products you love!</p>
+              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+                <Heart className="w-24 h-24 text-neutral-300 mx-auto mb-6" />
+                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">YOUR WISHLIST IS EMPTY</h3>
+                <p className="text-neutral-600 mb-8">Start adding products you love!</p>
                 <button
                   onClick={() => setCurrentPage('home')}
-                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl"
+                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
                 >
-                  Browse Products
+                  BROWSE PRODUCTS
                 </button>
               </div>
             )}
@@ -674,87 +688,89 @@ export default function App() {
         {/* Compare Page */}
         {currentPage === 'compare' && (
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Compare Products</h2>
+            <h2 className="text-5xl font-bold text-black mb-12 tracking-tight">COMPARE PRODUCTS</h2>
             {compareList.length > 0 ? (
               <div className="overflow-x-auto">
-                <table className="w-full bg-white rounded-2xl shadow-md overflow-hidden">
-                  <thead className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+                <table className="w-full bg-white border-2 border-black">
+                  <thead className="bg-black text-white">
                     <tr>
-                      <th className="p-4 text-left">Feature</th>
+                      <th className="p-6 text-left font-bold tracking-widest">FEATURE</th>
                       {compareList.map((product) => (
-                        <th key={product._id} className="p-4">
+                        <th key={product._id} className="p-6">
                           <div className="relative">
                             <button
                               onClick={() => toggleCompare(product)}
-                              className="absolute -top-2 -right-2 p-1 bg-white rounded-full text-purple-600 hover:bg-gray-100"
+                              className="absolute -top-3 -right-3 p-2 bg-white text-black border-2 border-black hover:bg-amber-600"
                             >
                               <X className="w-4 h-4" />
                             </button>
-                            <img
-                              src={product.image}
-                              alt={product.name}
-                              className="w-32 h-32 object-contain mx-auto mb-2"
-                            />
-                            <div className="text-sm font-semibold">{product.brand}</div>
-                            <div className="text-xs">{product.name}</div>
+                            <div className="bg-neutral-50 p-6 mb-4">
+                              <img
+                                src={product.image}
+                                alt={product.name}
+                                className="w-40 h-40 object-contain mx-auto"
+                              />
+                            </div>
+                            <div className="text-sm font-bold tracking-widest">{product.brand}</div>
+                            <div className="text-xs text-neutral-400 mt-2">{product.name}</div>
                           </div>
                         </th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b">
-                      <td className="p-4 font-semibold">Best Price</td>
+                    <tr className="border-b-2 border-black">
+                      <td className="p-6 font-bold tracking-widest bg-neutral-50">BEST PRICE</td>
                       {compareList.map((product) => {
                         const bestDeal = getBestDeal(product);
                         return (
-                          <td key={product._id} className="p-4 text-center">
-                            <div className="text-2xl font-bold text-green-600">₹{bestDeal.amount}</div>
-                            <div className="text-xs text-gray-600">{bestDeal.platform}</div>
+                          <td key={product._id} className="p-6 text-center">
+                            <div className="text-3xl font-bold text-black">₹{bestDeal.amount}</div>
+                            <div className="text-xs text-neutral-600 mt-1">{bestDeal.platform}</div>
                           </td>
                         );
                       })}
                     </tr>
-                    <tr className="border-b">
-                      <td className="p-4 font-semibold">Rating</td>
+                    <tr className="border-b-2 border-black">
+                      <td className="p-6 font-bold tracking-widest bg-neutral-50">RATING</td>
                       {compareList.map((product) => (
-                        <td key={product._id} className="p-4 text-center">
-                          <div className="flex items-center justify-center gap-1">
-                            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            <span>{product.rating || '4.5'}</span>
+                        <td key={product._id} className="p-6 text-center">
+                          <div className="flex items-center justify-center gap-2">
+                            <Star className="w-5 h-5 fill-amber-600 text-amber-600" />
+                            <span className="font-bold">{product.rating || '4.5'}</span>
                           </div>
                         </td>
                       ))}
                     </tr>
-                    <tr className="border-b">
-                      <td className="p-4 font-semibold">Reviews</td>
+                    <tr className="border-b-2 border-black">
+                      <td className="p-6 font-bold tracking-widest bg-neutral-50">REVIEWS</td>
                       {compareList.map((product) => (
-                        <td key={product._id} className="p-4 text-center">
-                          {product.reviewCount || '127'} reviews
+                        <td key={product._id} className="p-6 text-center font-semibold">
+                          {product.reviewCount || '127'}
                         </td>
                       ))}
                     </tr>
-                    <tr className="border-b">
-                      <td className="p-4 font-semibold">Max Savings</td>
+                    <tr className="border-b-2 border-black">
+                      <td className="p-6 font-bold tracking-widest bg-neutral-50">MAX SAVINGS</td>
                       {compareList.map((product) => (
-                        <td key={product._id} className="p-4 text-center">
-                          <span className="text-green-600 font-bold">{getMaxDiscount(product)}%</span>
+                        <td key={product._id} className="p-6 text-center">
+                          <span className="text-amber-600 font-bold text-xl">{getMaxDiscount(product)}%</span>
                         </td>
                       ))}
                     </tr>
                     <tr>
-                      <td className="p-4 font-semibold">Action</td>
+                      <td className="p-6 font-bold tracking-widest bg-neutral-50">ACTION</td>
                       {compareList.map((product) => {
                         const bestDeal = getBestDeal(product);
                         return (
-                          <td key={product._id} className="p-4 text-center">
+                          <td key={product._id} className="p-6 text-center">
                             <a
                               href={bestDeal.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg"
+                              className="inline-block px-8 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
                             >
-                              Buy Now
+                              BUY NOW
                             </a>
                           </td>
                         );
@@ -764,15 +780,15 @@ export default function App() {
                 </table>
               </div>
             ) : (
-              <div className="text-center py-20">
-                <GitCompare className="w-20 h-20 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">No products to compare</h3>
-                <p className="text-gray-600 mb-6">Add up to 3 products to compare them side by side</p>
+              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+                <GitCompare className="w-24 h-24 text-neutral-300 mx-auto mb-6" />
+                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">NO PRODUCTS TO COMPARE</h3>
+                <p className="text-neutral-600 mb-8">Add up to 3 products to compare them side by side</p>
                 <button
                   onClick={() => setCurrentPage('home')}
-                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl"
+                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
                 >
-                  Browse Products
+                  BROWSE PRODUCTS
                 </button>
               </div>
             )}
@@ -781,30 +797,46 @@ export default function App() {
 
         {/* About Page */}
         {currentPage === 'about' && (
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">About Beautynomy</h2>
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg">
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Beautynomy
-                  </span>{' '}
-                  is your go-to beauty intelligence hub that simplifies the way you shop for cosmetics and skincare products.
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white border-2 border-black p-16">
+              <h2 className="text-5xl font-bold text-black mb-8 tracking-tight">ABOUT BEAUTYNOMY</h2>
+              <div className="space-y-6 text-neutral-700 text-lg leading-relaxed">
+                <p>
+                  <span className="font-bold text-black">BEAUTYNOMY</span> is your intelligent beauty companion
+                  that simplifies the way you discover and shop for cosmetics and skincare products.
                 </p>
                 <p>
-                  We understand that finding the perfect beauty product at the best price can be overwhelming. That's why we've created a platform that compares prices across multiple e-commerce platforms, so you can make informed decisions and save money.
+                  We understand that finding the perfect beauty product at the best price can be overwhelming.
+                  That's why we've created a platform that compares prices across multiple e-commerce platforms,
+                  helping you make informed decisions and save money.
                 </p>
                 <p>
-                  Our mission is to empower beauty enthusiasts with transparent pricing information, helping you discover the best deals on your favorite products from trusted brands.
+                  Our mission is to empower beauty enthusiasts with transparent pricing information,
+                  helping you discover the best deals on your favorite products from trusted brands.
                 </p>
-                <div className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-lg">
-                  <h3 className="font-bold text-xl mb-3 text-purple-900">Why Choose Beautynomy?</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ Real-time price comparison across major platforms</li>
-                    <li>✓ Curated selection of trusted beauty brands</li>
-                    <li>✓ User ratings and reviews</li>
-                    <li>✓ Regular price updates</li>
-                    <li>✓ Easy-to-use interface</li>
+                <div className="bg-neutral-50 border-l-4 border-amber-600 p-8 mt-8">
+                  <h3 className="font-bold text-2xl mb-4 text-black tracking-tight">WHY CHOOSE BEAUTYNOMY?</h3>
+                  <ul className="space-y-3 text-neutral-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-600 font-bold">✓</span>
+                      <span>Real-time price comparison across major platforms</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-600 font-bold">✓</span>
+                      <span>Curated selection of trusted beauty brands</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-600 font-bold">✓</span>
+                      <span>User ratings and authentic reviews</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-600 font-bold">✓</span>
+                      <span>Regular price updates for accuracy</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-600 font-bold">✓</span>
+                      <span>Clean, intuitive interface</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -814,187 +846,94 @@ export default function App() {
 
         {/* Contact Page */}
         {currentPage === 'contact' && (
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-              <p className="text-gray-600 mb-8">
-                Have questions or feedback? We'd love to hear from you!
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white border-2 border-black p-16">
+              <h2 className="text-5xl font-bold text-black mb-8 tracking-tight">GET IN TOUCH</h2>
+              <p className="text-neutral-600 mb-12 text-lg">
+                Have questions or feedback? We'd love to hear from you.
               </p>
               <form className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Your Name
+                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                    YOUR NAME
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none font-medium"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address
+                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                    EMAIL ADDRESS
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none font-medium"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message
+                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                    MESSAGE
                   </label>
                   <textarea
-                    rows="5"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none resize-none"
+                    rows="6"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none resize-none font-medium"
                     placeholder="Tell us what's on your mind..."
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200"
+                  className="w-full py-5 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
                 >
-                  Send Message
+                  SEND MESSAGE
                 </button>
               </form>
             </div>
           </div>
         )}
-
-        {/* Privacy Policy Page */}
-        {currentPage === 'privacy' && (
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Privacy Policy</h2>
-              <div className="space-y-6 text-gray-700">
-                <p className="text-sm text-gray-500">Last updated: October 9, 2025</p>
-                
-                <section>
-                  <h3 className="text-xl font-bold mb-3">1. Information We Collect</h3>
-                  <p>We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">2. How We Use Your Information</h3>
-                  <p>We use the information we collect to provide, maintain, and improve our services, to process your transactions, and to communicate with you.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">3. Cookies and Tracking</h3>
-                  <p>We use cookies and similar tracking technologies to track activity on our service and hold certain information to improve your experience.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">4. Third-Party Services</h3>
-                  <p>We may employ third-party companies and individuals to facilitate our service, provide the service on our behalf, or assist us in analyzing how our service is used.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">5. Data Security</h3>
-                  <p>We take reasonable measures to help protect information about you from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">6. Your Rights</h3>
-                  <p>You have the right to access, update, or delete your personal information at any time. Contact us to exercise these rights.</p>
-                </section>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Terms of Service Page */}
-        {currentPage === 'terms' && (
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl p-12 border border-purple-100">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Terms of Service</h2>
-              <div className="space-y-6 text-gray-700">
-                <p className="text-sm text-gray-500">Last updated: October 9, 2025</p>
-                
-                <section>
-                  <h3 className="text-xl font-bold mb-3">1. Acceptance of Terms</h3>
-                  <p>By accessing and using Beautynomy, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">2. Use of Service</h3>
-                  <p>You may use our service only for lawful purposes and in accordance with these Terms. You agree not to use the service in any way that violates any applicable law or regulation.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">3. Price Information</h3>
-                  <p>While we strive to provide accurate price information, prices are subject to change. We are not responsible for any pricing errors on third-party websites.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">4. Affiliate Disclosure</h3>
-                  <p>Beautynomy participates in affiliate marketing programs. We may earn commissions from qualifying purchases made through links on our site.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">5. Intellectual Property</h3>
-                  <p>The service and its original content, features, and functionality are owned by Beautynomy and are protected by copyright, trademark, and other intellectual property laws.</p>
-                </section>
-
-                <section>
-                  <h3 className="text-xl font-bold mb-3">6. Limitation of Liability</h3>
-                  <p>In no event shall Beautynomy be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the service.</p>
-                </section>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
 
-      {/* Enhanced Footer */}
-      <footer className="bg-gradient-to-r from-purple-900 to-pink-900 text-white mt-20">
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      {/* Footer - Fenty Style */}
+      <footer className="bg-black text-white mt-32 border-t-2 border-amber-600">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-3xl">💄</span>
-                <span className="text-2xl font-bold">Beautynomy</span>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">B</span>
+                </div>
+                <span className="text-2xl font-bold tracking-wider">BEAUTYNOMY</span>
               </div>
-              <p className="text-purple-200 mb-4">
-                Where Beauty Meets Simplicity
+              <p className="text-neutral-400 text-sm tracking-wide">
+                BEAUTY FOR ALL
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-                </a>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
-                </a>
-              </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-purple-200">
-                <li><button onClick={() => setCurrentPage('home')} className="hover:text-white transition-colors">Home</button></li>
-                <li><button onClick={() => setCurrentPage('about')} className="hover:text-white transition-colors">About</button></li>
-                <li><button onClick={() => setCurrentPage('contact')} className="hover:text-white transition-colors">Contact</button></li>
-                <li><button onClick={() => setCurrentPage('wishlist')} className="hover:text-white transition-colors">Wishlist</button></li>
+              <h3 className="font-bold text-lg mb-4 tracking-widest">QUICK LINKS</h3>
+              <ul className="space-y-2 text-neutral-400 text-sm">
+                <li><button onClick={() => setCurrentPage('home')} className="hover:text-amber-500 transition-colors">HOME</button></li>
+                <li><button onClick={() => setCurrentPage('about')} className="hover:text-amber-500 transition-colors">ABOUT</button></li>
+                <li><button onClick={() => setCurrentPage('contact')} className="hover:text-amber-500 transition-colors">CONTACT</button></li>
+                <li><button onClick={() => setCurrentPage('wishlist')} className="hover:text-amber-500 transition-colors">WISHLIST</button></li>
               </ul>
             </div>
 
             {/* Categories */}
             <div>
-              <h3 className="font-bold text-lg mb-4">Categories</h3>
-              <ul className="space-y-2 text-purple-200">
+              <h3 className="font-bold text-lg mb-4 tracking-widest">CATEGORIES</h3>
+              <ul className="space-y-2 text-neutral-400 text-sm">
                 {TRENDING_TAGS.map((tag) => (
                   <li key={tag.name}>
-                    <button 
-                      onClick={() => { handleTrendingClick(tag.name); window.scrollTo(0, 0); }} 
-                      className="hover:text-white transition-colors"
+                    <button
+                      onClick={() => { handleTrendingClick(tag.name); window.scrollTo(0, 0); }}
+                      className="hover:text-amber-500 transition-colors"
                     >
-                      {tag.icon} {tag.name}
+                      {tag.label}
                     </button>
                   </li>
                 ))}
@@ -1003,19 +942,19 @@ export default function App() {
 
             {/* Legal */}
             <div>
-              <h3 className="font-bold text-lg mb-4">Legal</h3>
-              <ul className="space-y-2 text-purple-200">
-                <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors">Privacy Policy</button></li>
-                <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors">Terms of Service</button></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Affiliate Disclosure</a></li>
+              <h3 className="font-bold text-lg mb-4 tracking-widest">LEGAL</h3>
+              <ul className="space-y-2 text-neutral-400 text-sm">
+                <li><a href="#" className="hover:text-amber-500 transition-colors">PRIVACY POLICY</a></li>
+                <li><a href="#" className="hover:text-amber-500 transition-colors">TERMS OF SERVICE</a></li>
+                <li><a href="#" className="hover:text-amber-500 transition-colors">COOKIE POLICY</a></li>
+                <li><a href="#" className="hover:text-amber-500 transition-colors">AFFILIATE DISCLOSURE</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-purple-700 pt-8 text-center text-purple-200">
-            <p>&copy; 2025 Beautynomy. All rights reserved.</p>
-            <p className="mt-2 text-sm">Where Beauty Meets Simplicity</p>
+          <div className="border-t border-neutral-800 pt-8 text-center text-neutral-500 text-sm">
+            <p>&copy; 2025 BEAUTYNOMY. ALL RIGHTS RESERVED.</p>
+            <p className="mt-2 tracking-widest">BEAUTY FOR ALL</p>
           </div>
         </div>
       </footer>
