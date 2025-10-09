@@ -1,0 +1,29 @@
+# Backup directories
+*-backup-*/
+client-backup-*/
+server-backup-*/
+
+# Build outputs
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel

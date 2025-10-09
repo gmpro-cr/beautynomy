@@ -1,8 +1,9 @@
-# ✅ Beautynomy v2.0 - Deployment Ready
+# ✅ Beautynomy v2.0 - Backend LIVE, Frontend Ready
 
-## Status: COMPLETE ✅
+## Status: Backend LIVE ✅ | Frontend Ready for Deploy ⚠️
 
-All code has been successfully updated and pushed to GitHub. Your website is ready for deployment!
+Backend API is successfully deployed and running on Render!
+Frontend code is error-free and ready for Vercel deployment.
 
 ---
 
@@ -47,31 +48,27 @@ All code has been successfully updated and pushed to GitHub. Your website is rea
 
 ---
 
-## 🚀 Next Steps: Deploy to Production
+## 🎉 Backend Deployment Status
 
-### STEP 1: Deploy Backend to Render (5 minutes)
+### ✅ STEP 1: Backend Deployed to Render - COMPLETE!
 
-1. **Go to Render**: https://render.com
-2. **Sign in** (or create free account)
-3. **Click "New +" → "Web Service"**
-4. **Connect GitHub** and select repository: `gmpro-cr/beautynomy`
-5. **Configure**:
-   ```
-   Name: beautynomy-api
-   Root Directory: Beautynomy/server
-   Environment: Node
-   Build Command: npm install
-   Start Command: npm start
-   Plan: Free
-   ```
-6. **Click "Create Web Service"**
-7. **Wait for deployment** (~2-3 minutes)
-8. **COPY YOUR API URL** (e.g., `https://beautynomy-api.onrender.com`)
-   - Save this! You'll need it for the frontend
+**Status**: LIVE and operational ✅
+**URL**: https://beautynomy-api.onrender.com
+**Region**: Singapore
+**Deployment ID**: dep-d3k1m98dl3ps738bbjt0
+**Fixed Issue**: Updated root directory from "" to "Beautynomy"
+
+**Test it yourself**:
+```bash
+curl https://beautynomy-api.onrender.com/
+curl https://beautynomy-api.onrender.com/api/products
+```
 
 ---
 
-### STEP 2: Deploy Frontend to Vercel (5 minutes)
+## 🚀 Next Steps: Deploy Frontend to Vercel
+
+### STEP 2: Deploy Frontend to Vercel (5 minutes) - PENDING
 
 1. **Go to Vercel**: https://vercel.com
 2. **Sign in** (or create free account)
