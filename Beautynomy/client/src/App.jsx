@@ -184,9 +184,18 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-amber-50/30 relative">
+      {/* Elegant Background Pattern */}
+      <div
+        className="fixed inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+
       {/* Header - Fenty Beauty Style */}
-      <header className="bg-black text-white sticky top-0 z-50 border-b border-neutral-800">
+      <header className="bg-black text-white sticky top-0 z-50 border-b border-neutral-800 backdrop-blur-sm bg-opacity-95">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <button
@@ -558,43 +567,85 @@ export default function App() {
                             <span>{product.rating || '4.5'} ({product.reviewCount || '127'} reviews)</span>
                           </div>
 
-                          {/* Price Comparison */}
+                          {/* Price Comparison - Skyscanner Style */}
                           <div className="space-y-2 mb-6">
-                            <div className="text-xs font-bold text-black uppercase tracking-widest mb-3">
-                              PRICE COMPARISON
+                            <div className="text-xs font-bold text-black uppercase tracking-widest mb-3 flex items-center gap-2">
+                              <span>COMPARE PRICES</span>
+                              <span className="text-neutral-400 text-[10px]">• TAP TO VISIT</span>
                             </div>
                             {product.prices.map((price, idx) => (
-                              <div
+                              <a
                                 key={idx}
-                                className={`flex justify-between items-center p-3 transition-all ${
+                                href={price.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`block group relative overflow-hidden transition-all duration-200 border-2 ${
                                   price.platform === bestDeal.platform
-                                    ? 'bg-amber-600 text-white'
-                                    : 'bg-neutral-50'
+                                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 border-amber-700 text-white shadow-lg scale-105'
+                                    : 'bg-white border-neutral-200 hover:border-black hover:shadow-md'
                                 }`}
                               >
-                                <span className="text-sm font-bold flex items-center gap-2">
-                                  {price.platform}
-                                  {price.platform === bestDeal.platform && (
-                                    <span className="text-xs bg-black text-white px-2 py-1 font-bold">
-                                      BEST
-                                    </span>
-                                  )}
-                                </span>
-                                <span className="text-sm font-bold">
-                                  ₹{price.amount}
-                                </span>
-                              </div>
+                                <div className="flex justify-between items-center p-4">
+                                  <div className="flex items-center gap-3">
+                                    {/* Platform Icon/Badge */}
+                                    <div className={`w-10 h-10 flex items-center justify-center font-black text-xs border-2 ${
+                                      price.platform === bestDeal.platform
+                                        ? 'bg-black text-white border-black'
+                                        : 'bg-neutral-100 text-black border-neutral-300 group-hover:bg-black group-hover:text-white group-hover:border-black'
+                                    }`}>
+                                      {price.platform.substring(0, 2).toUpperCase()}
+                                    </div>
+                                    <div>
+                                      <div className={`text-sm font-bold ${
+                                        price.platform === bestDeal.platform ? 'text-white' : 'text-black'
+                                      }`}>
+                                        {price.platform}
+                                      </div>
+                                      {price.platform === bestDeal.platform && (
+                                        <div className="text-[10px] font-bold uppercase tracking-wider text-black flex items-center gap-1">
+                                          <Star className="w-3 h-3 fill-black" />
+                                          Best Price
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <div className={`text-right ${price.platform === bestDeal.platform ? 'text-white' : ''}`}>
+                                      <div className="text-lg font-black">₹{price.amount}</div>
+                                      {price.platform !== bestDeal.platform && (
+                                        <div className="text-[10px] text-neutral-500 group-hover:text-amber-600">
+                                          +₹{price.amount - bestDeal.amount} more
+                                        </div>
+                                      )}
+                                    </div>
+                                    <svg
+                                      className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${
+                                        price.platform === bestDeal.platform ? 'text-white' : 'text-neutral-400 group-hover:text-black'
+                                      }`}
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </div>
+                                </div>
+                                {/* Hover effect */}
+                                {price.platform !== bestDeal.platform && (
+                                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                                )}
+                              </a>
                             ))}
                           </div>
 
-                          {/* Buy Button */}
+                          {/* Quick Buy Button */}
                           <a
                             href={bestDeal.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full py-4 bg-black text-white text-center font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
+                            className="block w-full py-4 bg-gradient-to-r from-black to-neutral-800 text-white text-center font-bold tracking-widest hover:from-amber-600 hover:to-amber-500 transition-all duration-200 shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
                           >
-                            BUY NOW - ₹{bestDeal.amount}
+                            QUICK BUY - ₹{bestDeal.amount}
                           </a>
                         </div>
                       </div>
