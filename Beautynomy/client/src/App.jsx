@@ -184,28 +184,28 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-amber-50/30 relative">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-purple-50/40 relative">
       {/* Elegant Background Pattern */}
       <div
-        className="fixed inset-0 opacity-[0.03] pointer-events-none"
+        className="fixed inset-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff4081' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: '60px 60px'
         }}
       />
 
-      {/* Header - Fenty Beauty Style */}
-      <header className="bg-black text-white sticky top-0 z-50 border-b border-neutral-800 backdrop-blur-sm bg-opacity-95">
+      {/* Header - Modern Beauty Style */}
+      <header className="bg-gradient-to-r from-purple-700 via-purple-600 to-rose-600 text-white sticky top-0 z-50 border-b-4 border-rose-400 backdrop-blur-sm shadow-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => { setCurrentPage('home'); setSelectedCategory(''); setSearchQuery(''); }}
               className="flex items-center gap-3 group"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-rose-400 to-coral-500 rounded-full flex items-center justify-center shadow-lg ring-2 ring-white/30">
                 <span className="text-white text-xl font-bold">B</span>
               </div>
-              <span className="text-2xl font-bold tracking-wider">BEAUTYNOMY</span>
+              <span className="text-2xl font-bold tracking-wider drop-shadow-md">BEAUTYNOMY</span>
             </button>
 
             {/* Desktop Navigation */}
@@ -213,7 +213,7 @@ export default function App() {
               <button
                 onClick={() => setCurrentPage('home')}
                 className={`text-sm font-semibold tracking-widest transition-colors ${
-                  currentPage === 'home' ? 'text-amber-500' : 'text-white hover:text-amber-500'
+                  currentPage === 'home' ? 'text-rose-200' : 'text-white hover:text-rose-200'
                 }`}
               >
                 HOME
@@ -221,7 +221,7 @@ export default function App() {
               <button
                 onClick={() => setCurrentPage('about')}
                 className={`text-sm font-semibold tracking-widest transition-colors ${
-                  currentPage === 'about' ? 'text-amber-500' : 'text-white hover:text-amber-500'
+                  currentPage === 'about' ? 'text-rose-200' : 'text-white hover:text-rose-200'
                 }`}
               >
                 ABOUT
@@ -229,7 +229,7 @@ export default function App() {
               <button
                 onClick={() => setCurrentPage('contact')}
                 className={`text-sm font-semibold tracking-widest transition-colors ${
-                  currentPage === 'contact' ? 'text-amber-500' : 'text-white hover:text-amber-500'
+                  currentPage === 'contact' ? 'text-rose-200' : 'text-white hover:text-rose-200'
                 }`}
               >
                 CONTACT
@@ -240,11 +240,11 @@ export default function App() {
               >
                 <Heart
                   className={`w-6 h-6 transition-all ${
-                    wishlist.length > 0 ? 'fill-amber-500 text-amber-500' : 'text-white hover:text-amber-500'
+                    wishlist.length > 0 ? 'fill-rose-300 text-rose-300' : 'text-white hover:text-rose-300'
                   }`}
                 />
                 {wishlist.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-rose-400 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     {wishlist.length}
                   </span>
                 )}
@@ -255,11 +255,11 @@ export default function App() {
               >
                 <GitCompare
                   className={`w-6 h-6 transition-all ${
-                    compareList.length > 0 ? 'text-amber-500' : 'text-white hover:text-amber-500'
+                    compareList.length > 0 ? 'text-rose-300' : 'text-white hover:text-rose-300'
                   }`}
                 />
                 {compareList.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-rose-400 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     {compareList.length}
                   </span>
                 )}
@@ -277,13 +277,13 @@ export default function App() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pt-4 border-t border-neutral-800">
+            <div className="md:hidden mt-4 pt-4 border-t border-rose-300/30">
               <nav className="flex flex-col gap-4">
-                <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">HOME</button>
-                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">ABOUT</button>
-                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">CONTACT</button>
-                <button onClick={() => { setCurrentPage('wishlist'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">WISHLIST ({wishlist.length})</button>
-                <button onClick={() => { setCurrentPage('compare'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-amber-500">COMPARE ({compareList.length})</button>
+                <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-rose-200">HOME</button>
+                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-rose-200">ABOUT</button>
+                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-rose-200">CONTACT</button>
+                <button onClick={() => { setCurrentPage('wishlist'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-rose-200">WISHLIST ({wishlist.length})</button>
+                <button onClick={() => { setCurrentPage('compare'); setMobileMenuOpen(false); }} className="text-left text-sm font-semibold tracking-widest text-white hover:text-rose-200">COMPARE ({compareList.length})</button>
               </nav>
             </div>
           )}
@@ -294,28 +294,28 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {currentPage === 'home' && (
           <>
-            {/* Hero Section - Fenty Style */}
+            {/* Hero Section - Modern Beauty Style */}
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 via-rose-500 to-coral-500 bg-clip-text text-transparent mb-6 tracking-tight drop-shadow-sm">
                 BEAUTY FOR ALL
               </h1>
-              <p className="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">
+              <p className="text-xl text-charcoal-600 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Compare prices across platforms. Find your perfect match. Save more.
               </p>
 
-              {/* Search Bar - Elegant Black/White */}
+              {/* Search Bar - Modern Purple/Rose */}
               <form onSubmit={handleSearch} className="max-w-3xl mx-auto mb-6">
-                <div className="relative">
+                <div className="relative shadow-xl">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search for products..."
-                    className="w-full px-8 py-5 pr-32 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none text-lg font-medium tracking-wide"
+                    placeholder="Search for lipstick, foundation, serum..."
+                    className="w-full px-8 py-5 pr-32 bg-white border-2 border-purple-300 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200 text-lg font-medium tracking-wide rounded-full transition-all"
                   />
                   <button
                     type="submit"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 px-8 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 px-8 py-3 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold tracking-widest hover:from-rose-600 hover:to-purple-700 transition-all duration-200 rounded-full shadow-lg"
                   >
                     SEARCH
                   </button>
@@ -329,9 +329,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Trending Categories - Clean Grid */}
+            {/* Trending Categories - Modern Grid */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-black mb-8 text-center tracking-tight">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-700 to-rose-600 bg-clip-text text-transparent mb-8 text-center tracking-tight">
                 SHOP BY CATEGORY
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -339,10 +339,10 @@ export default function App() {
                   <button
                     key={tag.name}
                     onClick={() => handleTrendingClick(tag.name)}
-                    className={`p-8 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-300 border-2 ${
+                    className={`p-8 transition-all duration-300 border-2 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 ${
                       selectedCategory === tag.name
-                        ? 'border-amber-600 bg-black text-white'
-                        : 'border-black'
+                        ? 'border-purple-500 bg-gradient-to-br from-purple-600 to-rose-500 text-white scale-105'
+                        : 'border-purple-200 bg-white hover:border-rose-400 text-purple-900'
                     }`}
                   >
                     <div className="text-sm font-bold tracking-widest">{tag.label}</div>
@@ -352,16 +352,16 @@ export default function App() {
             </div>
 
             {/* Filters and Sort - Minimal Black/White */}
-            <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between bg-neutral-50 p-6 border-2 border-black">
+            <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between bg-neutral-50 p-6 border-2 border-purple-300">
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-6 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-colors"
                 >
                   <Filter className="w-4 h-4" />
                   FILTERS
                   {(selectedBrands.length > 0 || priceRange[0] > 0 || priceRange[1] < 5000) && (
-                    <span className="bg-amber-500 text-black text-xs rounded-full px-2 py-1">
+                    <span className="bg-rose-400 text-charcoal-800 text-xs rounded-full px-2 py-1">
                       {selectedBrands.length + (priceRange[0] > 0 || priceRange[1] < 5000 ? 1 : 0)}
                     </span>
                   )}
@@ -370,7 +370,7 @@ export default function App() {
                 {selectedBrands.length > 0 && (
                   <button
                     onClick={() => setSelectedBrands([])}
-                    className="text-sm text-neutral-600 hover:text-black font-semibold tracking-wide"
+                    className="text-sm text-neutral-600 hover:text-charcoal-800 font-semibold tracking-wide"
                   >
                     CLEAR FILTERS
                   </button>
@@ -378,11 +378,11 @@ export default function App() {
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="text-sm font-bold tracking-widest text-black">SORT:</span>
+                <span className="text-sm font-bold tracking-widest text-charcoal-800">SORT:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-3 border-2 border-black bg-white focus:outline-none focus:border-amber-600 font-semibold tracking-wide"
+                  className="px-4 py-3 border-2 border-purple-300 bg-white focus:outline-none focus:border-rose-500 font-semibold tracking-wide"
                 >
                   <option value="relevance">RELEVANCE</option>
                   <option value="price_low">PRICE: LOW TO HIGH</option>
@@ -396,11 +396,11 @@ export default function App() {
 
             {/* Filter Panel */}
             {showFilters && (
-              <div className="mb-8 bg-neutral-50 p-8 border-2 border-black">
+              <div className="mb-8 bg-neutral-50 p-8 border-2 border-purple-300">
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Price Range */}
                   <div>
-                    <h3 className="font-bold text-black mb-4 tracking-widest">PRICE RANGE</h3>
+                    <h3 className="font-bold text-charcoal-800 mb-4 tracking-widest">PRICE RANGE</h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-4">
                         <span className="text-sm font-semibold text-neutral-700 w-16">MIN:</span>
@@ -411,9 +411,9 @@ export default function App() {
                           step="100"
                           value={priceRange[0]}
                           onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
-                          className="flex-1 accent-amber-600"
+                          className="flex-1 accent-rose-500"
                         />
-                        <span className="text-sm font-bold text-black w-20">₹{priceRange[0]}</span>
+                        <span className="text-sm font-bold text-charcoal-800 w-20">₹{priceRange[0]}</span>
                       </div>
                       <div className="flex items-center gap-4">
                         <span className="text-sm font-semibold text-neutral-700 w-16">MAX:</span>
@@ -424,16 +424,16 @@ export default function App() {
                           step="100"
                           value={priceRange[1]}
                           onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                          className="flex-1 accent-amber-600"
+                          className="flex-1 accent-rose-500"
                         />
-                        <span className="text-sm font-bold text-black w-20">₹{priceRange[1]}</span>
+                        <span className="text-sm font-bold text-charcoal-800 w-20">₹{priceRange[1]}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Brands */}
                   <div>
-                    <h3 className="font-bold text-black mb-4 tracking-widest">BRANDS</h3>
+                    <h3 className="font-bold text-charcoal-800 mb-4 tracking-widest">BRANDS</h3>
                     <div className="max-h-40 overflow-y-auto space-y-2">
                       {allBrands.map((brand) => (
                         <label key={brand} className="flex items-center gap-3 cursor-pointer group">
@@ -441,9 +441,9 @@ export default function App() {
                             type="checkbox"
                             checked={selectedBrands.includes(brand)}
                             onChange={() => toggleBrand(brand)}
-                            className="w-5 h-5 accent-amber-600"
+                            className="w-5 h-5 accent-rose-500"
                           />
-                          <span className="text-sm font-semibold text-neutral-700 group-hover:text-black">{brand}</span>
+                          <span className="text-sm font-semibold text-neutral-700 group-hover:text-charcoal-800">{brand}</span>
                         </label>
                       ))}
                     </div>
@@ -455,17 +455,17 @@ export default function App() {
             {/* Products Grid */}
             {loading ? (
               <div className="text-center py-32">
-                <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-black border-t-amber-600"></div>
-                <p className="mt-6 text-black font-bold tracking-widest">LOADING PRODUCTS...</p>
+                <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-purple-200 border-t-rose-500"></div>
+                <p className="mt-6 text-charcoal-800 font-bold tracking-widest">LOADING PRODUCTS...</p>
               </div>
             ) : error ? (
-              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+              <div className="text-center py-32 bg-neutral-50 border-2 border-purple-300 p-12">
                 <div className="text-6xl mb-6">⚠️</div>
-                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">CONNECTION ERROR</h3>
+                <h3 className="text-3xl font-bold text-charcoal-800 mb-4 tracking-tight">CONNECTION ERROR</h3>
                 <p className="text-neutral-600 mb-6">{error}</p>
                 <button
                   onClick={fetchProducts}
-                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                  className="px-8 py-4 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all"
                 >
                   TRY AGAIN
                 </button>
@@ -473,7 +473,7 @@ export default function App() {
             ) : filteredProducts.length > 0 ? (
               <div>
                 <div className="mb-8 flex items-center justify-between">
-                  <h2 className="text-3xl font-bold text-black tracking-tight">
+                  <h2 className="text-3xl font-bold text-charcoal-800 tracking-tight">
                     {selectedCategory ? `${selectedCategory.toUpperCase()} PRODUCTS` : 'ALL PRODUCTS'}
                   </h2>
                   <p className="text-neutral-600 font-semibold">{filteredProducts.length} PRODUCTS</p>
@@ -489,7 +489,7 @@ export default function App() {
                     return (
                       <div
                         key={product._id}
-                        className="group bg-white border-2 border-black hover:border-amber-600 transition-all duration-300"
+                        className="group bg-white border-2 border-purple-300 hover:border-rose-500 transition-all duration-300"
                       >
                         {/* Product Image */}
                         <div className="relative bg-neutral-50 p-8 h-72 flex items-center justify-center overflow-hidden">
@@ -503,24 +503,24 @@ export default function App() {
                           <div className="absolute top-4 right-4 flex flex-col gap-2">
                             <button
                               onClick={() => toggleWishlist(product)}
-                              className="p-3 bg-white border-2 border-black hover:bg-black hover:text-white transition-all"
+                              className="p-3 bg-white border-2 border-purple-300 hover:bg-purple-700 hover:text-white transition-all"
                             >
                               <Heart
                                 className={`w-5 h-5 ${
                                   isInWishlist(product)
-                                    ? 'fill-amber-600 text-amber-600'
+                                    ? 'fill-rose-500 text-rose-600'
                                     : ''
                                 }`}
                               />
                             </button>
                             <button
                               onClick={() => toggleCompare(product)}
-                              className="p-3 bg-white border-2 border-black hover:bg-black hover:text-white transition-all"
+                              className="p-3 bg-white border-2 border-purple-300 hover:bg-purple-700 hover:text-white transition-all"
                             >
                               <GitCompare
                                 className={`w-5 h-5 ${
                                   isInCompare(product)
-                                    ? 'text-amber-600'
+                                    ? 'text-rose-600'
                                     : ''
                                 }`}
                               />
@@ -530,12 +530,12 @@ export default function App() {
                           {/* Badges */}
                           <div className="absolute top-4 left-4 flex flex-col gap-2">
                             {maxDiscount > 0 && (
-                              <div className="bg-amber-600 text-black text-xs font-bold px-3 py-1 tracking-wider">
+                              <div className="bg-rose-500 text-charcoal-800 text-xs font-bold px-3 py-1 tracking-wider">
                                 SAVE {maxDiscount}%
                               </div>
                             )}
                             {priceDropped && (
-                              <div className="bg-black text-white text-xs font-bold px-3 py-1 tracking-wider flex items-center gap-1">
+                              <div className="bg-purple-700 text-white text-xs font-bold px-3 py-1 tracking-wider flex items-center gap-1">
                                 <TrendingDown className="w-3 h-3" />
                                 PRICE DROP
                               </div>
@@ -543,8 +543,8 @@ export default function App() {
                           </div>
 
                           {/* Rating */}
-                          <div className="absolute bottom-4 right-4 bg-white px-3 py-2 border-2 border-black flex items-center gap-1">
-                            <Star className="w-4 h-4 fill-amber-600 text-amber-600" />
+                          <div className="absolute bottom-4 right-4 bg-white px-3 py-2 border-2 border-purple-300 flex items-center gap-1">
+                            <Star className="w-4 h-4 fill-rose-500 text-rose-600" />
                             <span className="text-sm font-bold">{product.rating || '4.5'}</span>
                           </div>
                         </div>
@@ -554,7 +554,7 @@ export default function App() {
                           <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">
                             {product.brand}
                           </div>
-                          <h3 className="text-lg font-bold text-black mb-3 line-clamp-2 min-h-[3.5rem] tracking-tight">
+                          <h3 className="text-lg font-bold text-charcoal-800 mb-3 line-clamp-2 min-h-[3.5rem] tracking-tight">
                             {product.name}
                           </h3>
                           <p className="text-sm text-neutral-600 mb-4 line-clamp-2">
@@ -569,7 +569,7 @@ export default function App() {
 
                           {/* Price Comparison - Skyscanner Style */}
                           <div className="space-y-2 mb-6">
-                            <div className="text-xs font-bold text-black uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <div className="text-xs font-bold text-charcoal-800 uppercase tracking-widest mb-3 flex items-center gap-2">
                               <span>COMPARE PRICES</span>
                               <span className="text-neutral-400 text-[10px]">• TAP TO VISIT</span>
                             </div>
@@ -581,8 +581,8 @@ export default function App() {
                                 rel="noopener noreferrer"
                                 className={`block group relative overflow-hidden transition-all duration-200 border-2 ${
                                   price.platform === bestDeal.platform
-                                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 border-amber-700 text-white shadow-lg scale-105'
-                                    : 'bg-white border-neutral-200 hover:border-black hover:shadow-md'
+                                    ? 'bg-gradient-to-r from-rose-400 to-purple-500 border-rose-600 text-white shadow-lg scale-105'
+                                    : 'bg-white border-neutral-200 hover:border-purple-300 hover:shadow-md'
                                 }`}
                               >
                                 <div className="flex justify-between items-center p-4">
@@ -590,19 +590,19 @@ export default function App() {
                                     {/* Platform Icon/Badge */}
                                     <div className={`w-10 h-10 flex items-center justify-center font-black text-xs border-2 ${
                                       price.platform === bestDeal.platform
-                                        ? 'bg-black text-white border-black'
-                                        : 'bg-neutral-100 text-black border-neutral-300 group-hover:bg-black group-hover:text-white group-hover:border-black'
+                                        ? 'bg-purple-700 text-white border-purple-300'
+                                        : 'bg-neutral-100 text-charcoal-800 border-neutral-300 group-hover:bg-purple-700 group-hover:text-white group-hover:border-purple-300'
                                     }`}>
                                       {price.platform.substring(0, 2).toUpperCase()}
                                     </div>
                                     <div>
                                       <div className={`text-sm font-bold ${
-                                        price.platform === bestDeal.platform ? 'text-white' : 'text-black'
+                                        price.platform === bestDeal.platform ? 'text-white' : 'text-charcoal-800'
                                       }`}>
                                         {price.platform}
                                       </div>
                                       {price.platform === bestDeal.platform && (
-                                        <div className="text-[10px] font-bold uppercase tracking-wider text-black flex items-center gap-1">
+                                        <div className="text-[10px] font-bold uppercase tracking-wider text-charcoal-800 flex items-center gap-1">
                                           <Star className="w-3 h-3 fill-black" />
                                           Best Price
                                         </div>
@@ -613,14 +613,14 @@ export default function App() {
                                     <div className={`text-right ${price.platform === bestDeal.platform ? 'text-white' : ''}`}>
                                       <div className="text-lg font-black">₹{price.amount}</div>
                                       {price.platform !== bestDeal.platform && (
-                                        <div className="text-[10px] text-neutral-500 group-hover:text-amber-600">
+                                        <div className="text-[10px] text-neutral-500 group-hover:text-rose-600">
                                           +₹{price.amount - bestDeal.amount} more
                                         </div>
                                       )}
                                     </div>
                                     <svg
                                       className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${
-                                        price.platform === bestDeal.platform ? 'text-white' : 'text-neutral-400 group-hover:text-black'
+                                        price.platform === bestDeal.platform ? 'text-white' : 'text-neutral-400 group-hover:text-charcoal-800'
                                       }`}
                                       fill="none"
                                       viewBox="0 0 24 24"
@@ -632,7 +632,7 @@ export default function App() {
                                 </div>
                                 {/* Hover effect */}
                                 {price.platform !== bestDeal.platform && (
-                                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-rose-400 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                                 )}
                               </a>
                             ))}
@@ -643,7 +643,7 @@ export default function App() {
                             href={bestDeal.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full py-4 bg-gradient-to-r from-black to-neutral-800 text-white text-center font-bold tracking-widest hover:from-amber-600 hover:to-amber-500 transition-all duration-200 shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                            className="block w-full py-4 bg-gradient-to-r from-purple-600 to-rose-500 text-white text-center font-bold tracking-widest hover:from-purple-700 hover:to-rose-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                           >
                             QUICK BUY - ₹{bestDeal.amount}
                           </a>
@@ -654,20 +654,20 @@ export default function App() {
                 </div>
 
                 {/* Affiliate Disclosure */}
-                <div className="mt-16 p-6 bg-neutral-50 border-2 border-black text-center">
+                <div className="mt-16 p-6 bg-neutral-50 border-2 border-purple-300 text-center">
                   <p className="text-sm text-neutral-700 tracking-wide">
                     <span className="font-bold">AFFILIATE DISCLOSURE:</span> We earn from qualifying purchases made through links on this site.
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+              <div className="text-center py-32 bg-neutral-50 border-2 border-purple-300 p-12">
                 <div className="text-6xl mb-6">🔍</div>
-                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">NO PRODUCTS FOUND</h3>
+                <h3 className="text-3xl font-bold text-charcoal-800 mb-4 tracking-tight">NO PRODUCTS FOUND</h3>
                 <p className="text-neutral-600 mb-6">Try adjusting your filters or search for something else</p>
                 <button
                   onClick={() => { setSelectedBrands([]); setPriceRange([0, 5000]); setSearchQuery(''); setSelectedCategory(''); }}
-                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                  className="px-8 py-4 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all"
                 >
                   CLEAR ALL FILTERS
                 </button>
@@ -679,16 +679,16 @@ export default function App() {
         {/* Wishlist Page */}
         {currentPage === 'wishlist' && (
           <div>
-            <h2 className="text-5xl font-bold text-black mb-12 tracking-tight">MY WISHLIST</h2>
+            <h2 className="text-5xl font-bold text-charcoal-800 mb-12 tracking-tight">MY WISHLIST</h2>
             {wishlist.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {wishlist.map((product) => {
                   const bestDeal = getBestDeal(product);
                   return (
-                    <div key={product._id} className="bg-white border-2 border-black relative">
+                    <div key={product._id} className="bg-white border-2 border-purple-300 relative">
                       <button
                         onClick={() => toggleWishlist(product)}
-                        className="absolute top-4 right-4 p-3 bg-white border-2 border-black hover:bg-black hover:text-white z-10"
+                        className="absolute top-4 right-4 p-3 bg-white border-2 border-purple-300 hover:bg-purple-700 hover:text-white z-10"
                       >
                         <X className="w-5 h-5" />
                       </button>
@@ -703,15 +703,15 @@ export default function App() {
                         <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">
                           {product.brand}
                         </div>
-                        <h3 className="font-bold text-black mb-4 tracking-tight">{product.name}</h3>
-                        <div className="text-2xl font-bold text-black mb-4">
+                        <h3 className="font-bold text-charcoal-800 mb-4 tracking-tight">{product.name}</h3>
+                        <div className="text-2xl font-bold text-charcoal-800 mb-4">
                           ₹{bestDeal.amount}
                         </div>
                         <a
                           href={bestDeal.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-3 bg-black text-white text-center font-bold tracking-widest hover:bg-amber-600 transition-all"
+                          className="block w-full py-3 bg-purple-700 text-white text-center font-bold tracking-widest hover:bg-rose-500 transition-all"
                         >
                           BUY NOW
                         </a>
@@ -721,13 +721,13 @@ export default function App() {
                 })}
               </div>
             ) : (
-              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+              <div className="text-center py-32 bg-neutral-50 border-2 border-purple-300 p-12">
                 <Heart className="w-24 h-24 text-neutral-300 mx-auto mb-6" />
-                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">YOUR WISHLIST IS EMPTY</h3>
+                <h3 className="text-3xl font-bold text-charcoal-800 mb-4 tracking-tight">YOUR WISHLIST IS EMPTY</h3>
                 <p className="text-neutral-600 mb-8">Start adding products you love!</p>
                 <button
                   onClick={() => setCurrentPage('home')}
-                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                  className="px-8 py-4 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all"
                 >
                   BROWSE PRODUCTS
                 </button>
@@ -739,11 +739,11 @@ export default function App() {
         {/* Compare Page */}
         {currentPage === 'compare' && (
           <div>
-            <h2 className="text-5xl font-bold text-black mb-12 tracking-tight">COMPARE PRODUCTS</h2>
+            <h2 className="text-5xl font-bold text-charcoal-800 mb-12 tracking-tight">COMPARE PRODUCTS</h2>
             {compareList.length > 0 ? (
               <div className="overflow-x-auto">
-                <table className="w-full bg-white border-2 border-black">
-                  <thead className="bg-black text-white">
+                <table className="w-full bg-white border-2 border-purple-300">
+                  <thead className="bg-purple-700 text-white">
                     <tr>
                       <th className="p-6 text-left font-bold tracking-widest">FEATURE</th>
                       {compareList.map((product) => (
@@ -751,7 +751,7 @@ export default function App() {
                           <div className="relative">
                             <button
                               onClick={() => toggleCompare(product)}
-                              className="absolute -top-3 -right-3 p-2 bg-white text-black border-2 border-black hover:bg-amber-600"
+                              className="absolute -top-3 -right-3 p-2 bg-white text-charcoal-800 border-2 border-purple-300 hover:bg-rose-500"
                             >
                               <X className="w-4 h-4" />
                             </button>
@@ -770,30 +770,30 @@ export default function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b-2 border-black">
+                    <tr className="border-b-2 border-purple-300">
                       <td className="p-6 font-bold tracking-widest bg-neutral-50">BEST PRICE</td>
                       {compareList.map((product) => {
                         const bestDeal = getBestDeal(product);
                         return (
                           <td key={product._id} className="p-6 text-center">
-                            <div className="text-3xl font-bold text-black">₹{bestDeal.amount}</div>
+                            <div className="text-3xl font-bold text-charcoal-800">₹{bestDeal.amount}</div>
                             <div className="text-xs text-neutral-600 mt-1">{bestDeal.platform}</div>
                           </td>
                         );
                       })}
                     </tr>
-                    <tr className="border-b-2 border-black">
+                    <tr className="border-b-2 border-purple-300">
                       <td className="p-6 font-bold tracking-widest bg-neutral-50">RATING</td>
                       {compareList.map((product) => (
                         <td key={product._id} className="p-6 text-center">
                           <div className="flex items-center justify-center gap-2">
-                            <Star className="w-5 h-5 fill-amber-600 text-amber-600" />
+                            <Star className="w-5 h-5 fill-rose-500 text-rose-600" />
                             <span className="font-bold">{product.rating || '4.5'}</span>
                           </div>
                         </td>
                       ))}
                     </tr>
-                    <tr className="border-b-2 border-black">
+                    <tr className="border-b-2 border-purple-300">
                       <td className="p-6 font-bold tracking-widest bg-neutral-50">REVIEWS</td>
                       {compareList.map((product) => (
                         <td key={product._id} className="p-6 text-center font-semibold">
@@ -801,11 +801,11 @@ export default function App() {
                         </td>
                       ))}
                     </tr>
-                    <tr className="border-b-2 border-black">
+                    <tr className="border-b-2 border-purple-300">
                       <td className="p-6 font-bold tracking-widest bg-neutral-50">MAX SAVINGS</td>
                       {compareList.map((product) => (
                         <td key={product._id} className="p-6 text-center">
-                          <span className="text-amber-600 font-bold text-xl">{getMaxDiscount(product)}%</span>
+                          <span className="text-rose-600 font-bold text-xl">{getMaxDiscount(product)}%</span>
                         </td>
                       ))}
                     </tr>
@@ -819,7 +819,7 @@ export default function App() {
                               href={bestDeal.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-block px-8 py-3 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                              className="inline-block px-8 py-3 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all"
                             >
                               BUY NOW
                             </a>
@@ -831,13 +831,13 @@ export default function App() {
                 </table>
               </div>
             ) : (
-              <div className="text-center py-32 bg-neutral-50 border-2 border-black p-12">
+              <div className="text-center py-32 bg-neutral-50 border-2 border-purple-300 p-12">
                 <GitCompare className="w-24 h-24 text-neutral-300 mx-auto mb-6" />
-                <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">NO PRODUCTS TO COMPARE</h3>
+                <h3 className="text-3xl font-bold text-charcoal-800 mb-4 tracking-tight">NO PRODUCTS TO COMPARE</h3>
                 <p className="text-neutral-600 mb-8">Add up to 3 products to compare them side by side</p>
                 <button
                   onClick={() => setCurrentPage('home')}
-                  className="px-8 py-4 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all"
+                  className="px-8 py-4 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all"
                 >
                   BROWSE PRODUCTS
                 </button>
@@ -849,11 +849,11 @@ export default function App() {
         {/* About Page */}
         {currentPage === 'about' && (
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white border-2 border-black p-16">
-              <h2 className="text-5xl font-bold text-black mb-8 tracking-tight">ABOUT BEAUTYNOMY</h2>
+            <div className="bg-white border-2 border-purple-300 p-16">
+              <h2 className="text-5xl font-bold text-charcoal-800 mb-8 tracking-tight">ABOUT BEAUTYNOMY</h2>
               <div className="space-y-6 text-neutral-700 text-lg leading-relaxed">
                 <p>
-                  <span className="font-bold text-black">BEAUTYNOMY</span> is your intelligent beauty companion
+                  <span className="font-bold text-charcoal-800">BEAUTYNOMY</span> is your intelligent beauty companion
                   that simplifies the way you discover and shop for cosmetics and skincare products.
                 </p>
                 <p>
@@ -865,27 +865,27 @@ export default function App() {
                   Our mission is to empower beauty enthusiasts with transparent pricing information,
                   helping you discover the best deals on your favorite products from trusted brands.
                 </p>
-                <div className="bg-neutral-50 border-l-4 border-amber-600 p-8 mt-8">
-                  <h3 className="font-bold text-2xl mb-4 text-black tracking-tight">WHY CHOOSE BEAUTYNOMY?</h3>
+                <div className="bg-neutral-50 border-l-4 border-rose-500 p-8 mt-8">
+                  <h3 className="font-bold text-2xl mb-4 text-charcoal-800 tracking-tight">WHY CHOOSE BEAUTYNOMY?</h3>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">✓</span>
+                      <span className="text-rose-600 font-bold">✓</span>
                       <span>Real-time price comparison across major platforms</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">✓</span>
+                      <span className="text-rose-600 font-bold">✓</span>
                       <span>Curated selection of trusted beauty brands</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">✓</span>
+                      <span className="text-rose-600 font-bold">✓</span>
                       <span>User ratings and authentic reviews</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">✓</span>
+                      <span className="text-rose-600 font-bold">✓</span>
                       <span>Regular price updates for accuracy</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">✓</span>
+                      <span className="text-rose-600 font-bold">✓</span>
                       <span>Clean, intuitive interface</span>
                     </li>
                   </ul>
@@ -898,45 +898,45 @@ export default function App() {
         {/* Contact Page */}
         {currentPage === 'contact' && (
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white border-2 border-black p-16">
-              <h2 className="text-5xl font-bold text-black mb-8 tracking-tight">GET IN TOUCH</h2>
+            <div className="bg-white border-2 border-purple-300 p-16">
+              <h2 className="text-5xl font-bold text-charcoal-800 mb-8 tracking-tight">GET IN TOUCH</h2>
               <p className="text-neutral-600 mb-12 text-lg">
                 Have questions or feedback? We'd love to hear from you.
               </p>
               <form className="space-y-6">
                 <div>
-                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                  <label className="block text-sm font-bold text-charcoal-800 mb-3 tracking-widest">
                     YOUR NAME
                   </label>
                   <input
                     type="text"
-                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none font-medium"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-purple-300 focus:border-rose-500 focus:outline-none font-medium"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                  <label className="block text-sm font-bold text-charcoal-800 mb-3 tracking-widest">
                     EMAIL ADDRESS
                   </label>
                   <input
                     type="email"
-                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none font-medium"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-purple-300 focus:border-rose-500 focus:outline-none font-medium"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-black mb-3 tracking-widest">
+                  <label className="block text-sm font-bold text-charcoal-800 mb-3 tracking-widest">
                     MESSAGE
                   </label>
                   <textarea
                     rows="6"
-                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-black focus:border-amber-600 focus:outline-none resize-none font-medium"
+                    className="w-full px-6 py-4 bg-neutral-50 border-2 border-purple-300 focus:border-rose-500 focus:outline-none resize-none font-medium"
                     placeholder="Tell us what's on your mind..."
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-5 bg-black text-white font-bold tracking-widest hover:bg-amber-600 transition-all duration-200"
+                  className="w-full py-5 bg-purple-700 text-white font-bold tracking-widest hover:bg-rose-500 transition-all duration-200"
                 >
                   SEND MESSAGE
                 </button>
@@ -947,13 +947,13 @@ export default function App() {
       </main>
 
       {/* Footer - Fenty Style */}
-      <footer className="bg-black text-white mt-32 border-t-2 border-amber-600">
+      <footer className="bg-purple-700 text-white mt-32 border-t-2 border-rose-500">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-coral-500 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white text-2xl font-bold">B</span>
                 </div>
                 <span className="text-2xl font-bold tracking-wider">BEAUTYNOMY</span>
@@ -967,10 +967,10 @@ export default function App() {
             <div>
               <h3 className="font-bold text-lg mb-4 tracking-widest">QUICK LINKS</h3>
               <ul className="space-y-2 text-neutral-400 text-sm">
-                <li><button onClick={() => setCurrentPage('home')} className="hover:text-amber-500 transition-colors">HOME</button></li>
-                <li><button onClick={() => setCurrentPage('about')} className="hover:text-amber-500 transition-colors">ABOUT</button></li>
-                <li><button onClick={() => setCurrentPage('contact')} className="hover:text-amber-500 transition-colors">CONTACT</button></li>
-                <li><button onClick={() => setCurrentPage('wishlist')} className="hover:text-amber-500 transition-colors">WISHLIST</button></li>
+                <li><button onClick={() => setCurrentPage('home')} className="hover:text-rose-500 transition-colors">HOME</button></li>
+                <li><button onClick={() => setCurrentPage('about')} className="hover:text-rose-500 transition-colors">ABOUT</button></li>
+                <li><button onClick={() => setCurrentPage('contact')} className="hover:text-rose-500 transition-colors">CONTACT</button></li>
+                <li><button onClick={() => setCurrentPage('wishlist')} className="hover:text-rose-500 transition-colors">WISHLIST</button></li>
               </ul>
             </div>
 
@@ -982,7 +982,7 @@ export default function App() {
                   <li key={tag.name}>
                     <button
                       onClick={() => { handleTrendingClick(tag.name); window.scrollTo(0, 0); }}
-                      className="hover:text-amber-500 transition-colors"
+                      className="hover:text-rose-500 transition-colors"
                     >
                       {tag.label}
                     </button>
@@ -995,10 +995,10 @@ export default function App() {
             <div>
               <h3 className="font-bold text-lg mb-4 tracking-widest">LEGAL</h3>
               <ul className="space-y-2 text-neutral-400 text-sm">
-                <li><a href="#" className="hover:text-amber-500 transition-colors">PRIVACY POLICY</a></li>
-                <li><a href="#" className="hover:text-amber-500 transition-colors">TERMS OF SERVICE</a></li>
-                <li><a href="#" className="hover:text-amber-500 transition-colors">COOKIE POLICY</a></li>
-                <li><a href="#" className="hover:text-amber-500 transition-colors">AFFILIATE DISCLOSURE</a></li>
+                <li><a href="#" className="hover:text-rose-500 transition-colors">PRIVACY POLICY</a></li>
+                <li><a href="#" className="hover:text-rose-500 transition-colors">TERMS OF SERVICE</a></li>
+                <li><a href="#" className="hover:text-rose-500 transition-colors">COOKIE POLICY</a></li>
+                <li><a href="#" className="hover:text-rose-500 transition-colors">AFFILIATE DISCLOSURE</a></li>
               </ul>
             </div>
           </div>
