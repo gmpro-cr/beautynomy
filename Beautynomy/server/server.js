@@ -212,8 +212,8 @@ app.post('/api/update-prices', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, () => {
+// Start server - bind to 0.0.0.0 for cloud platforms like Render
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Beautynomy API Server running on port ${PORT}`);
   console.log(`🗄️  Database: MongoDB (connected)`);
   console.log(`🛒 E-commerce Platforms: Nykaa, Amazon, Flipkart, Purplle, Myntra`);
