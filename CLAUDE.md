@@ -19,8 +19,10 @@ This is a monorepo containing:
 
 - **Backend**: Express.js (ES modules, using `"type": "module"`)
 - **Frontend**: React with Tailwind CSS
-- **Deployment**: Vercel (configured in `Beautynomy/server/vercel.json`)
-- **Data**: Currently uses in-memory mock data (no database connected)
+- **Deployment**:
+  - Backend: Render (configured in `Beautynomy/render.yaml`)
+  - Frontend: Vercel (configured in `Beautynomy/client/vercel.json`)
+- **Data**: In-memory data from `products-data.js` (204 products, no database)
 
 ## Development Commands
 
@@ -32,15 +34,21 @@ npm start  # Runs on http://localhost:5000
 ```
 
 ### Testing the API
-- Health check: `GET http://localhost:5000/api/health`
-- Get products: `GET http://localhost:5000/api/products?query=serum&category=Skincare&brand=PureGlow`
+- Health check: `GET http://localhost:5000/`
+- Get all products: `GET http://localhost:5000/api/products`
+- Search products: `GET http://localhost:5000/api/products?query=serum`
+- Filter by category: `GET http://localhost:5000/api/products?category=Foundation`
+- Filter by brand: `GET http://localhost:5000/api/products?brand=LAKME`
+- Get brands: `GET http://localhost:5000/api/brands`
+- Get categories: `GET http://localhost:5000/api/categories`
+- Get stats: `GET http://localhost:5000/api/stats`
 
 ## API Structure
 
 ### Endpoints
 
-**GET /api/health**
-- Returns server status
+**GET /**
+- Returns server health status and API information
 
 **GET /api/products**
 - Query parameters:
@@ -75,15 +83,22 @@ Each product contains:
 ## Architecture Notes
 
 ### Current State
-- Server uses mock data defined in `server.js` (6 sample products)
+- Server uses product data from `products-data.js` (204 products across 21 categories)
+- Products cover Foundation, Concealer, Primer, Eyeshadow, Mascara, Eyeliner, Lipstick, Lip Gloss, Blush, Bronzer, Highlighter, Skincare, Hair Care, and Nail Polish
+- 76 brands ranging from budget to luxury (Maybelline to Charlotte Tilbury)
+- All products include prices from 5 platforms: Nykaa, Amazon, Flipkart, Purplle, Myntra
 - Empty directories exist for future structure:
   - `models/` - Future database models
   - `routes/` - Future route handlers
   - `config/` - Future configuration files
 
 ### Frontend
-- Client source files are not present in `client/src/`
-- Tailwind and PostCSS configs exist at `client/client:tailwind.config.js` and `client/client:postcss.config.js`
+- React 18 + Vite 5 application with Tailwind CSS
+- Client source files in `client/src/` including App.jsx, main.jsx, index.css
+- Features: Wishlist, Product Comparison, Advanced Filters, Price Sorting
+- 7 pages: Home, About, Contact, Wishlist, Compare, Privacy, Terms
+- Mobile-responsive design with Fenty Beauty-inspired UI
+- Connects to backend API via VITE_API_URL environment variable
 
 ### Affiliate Links
 Products include affiliate links for:
