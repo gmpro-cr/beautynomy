@@ -2,6 +2,7 @@
 // Top 5 Indian E-commerce Platforms: Nykaa, Amazon India, Flipkart, Purplle, Myntra
 // 204 Products across all Beauty Categories
 // Note: Duplicates removed on 2025-10-11
+// Affiliate links updated on 2025-10-14
 
 export const products = [
   {
@@ -18,27 +19,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 459,
-        "url": "https://www.nykaa.com/maybelline-fit-me"
+        "url": "https://www.nykaa.com/maybelline-fit-me?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Maybelline-Foundation"
+        "url": "https://www.amazon.in/Maybelline-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/maybelline"
+        "url": "https://www.flipkart.com/maybelline?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/maybelline"
+        "url": "https://www.purplle.com/maybelline?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 450,
-        "url": "https://www.myntra.com/maybelline"
+        "url": "https://www.myntra.com/maybelline?affid=beautynomy"
       }
     ]
   },
@@ -55,27 +56,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 375,
-        "url": "https://www.nykaa.com/lakme-foundation"
+        "url": "https://www.nykaa.com/lakme-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Lakme-Foundation"
+        "url": "https://www.amazon.in/Lakme-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 350,
-        "url": "https://www.flipkart.com/lakme"
+        "url": "https://www.flipkart.com/lakme?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 365,
-        "url": "https://www.purplle.com/lakme"
+        "url": "https://www.purplle.com/lakme?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 370,
-        "url": "https://www.myntra.com/lakme"
+        "url": "https://www.myntra.com/lakme?affid=beautynomy"
       }
     ]
   },
@@ -93,27 +94,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1149,
-        "url": "https://www.nykaa.com/loreal-foundation"
+        "url": "https://www.nykaa.com/loreal-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1049,
-        "url": "https://www.amazon.in/LOreal-Foundation"
+        "url": "https://www.amazon.in/LOreal-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1099,
-        "url": "https://www.flipkart.com/loreal"
+        "url": "https://www.flipkart.com/loreal?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1125,
-        "url": "https://www.purplle.com/loreal"
+        "url": "https://www.purplle.com/loreal?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1140,
-        "url": "https://www.myntra.com/loreal"
+        "url": "https://www.myntra.com/loreal?affid=beautynomy"
       }
     ]
   },
@@ -130,27 +131,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 999,
-        "url": "https://www.nykaa.com/sugar-foundation"
+        "url": "https://www.nykaa.com/sugar-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 949,
-        "url": "https://www.amazon.in/Sugar-Foundation"
+        "url": "https://www.amazon.in/Sugar-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 975,
-        "url": "https://www.flipkart.com/sugar"
+        "url": "https://www.flipkart.com/sugar?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 989,
-        "url": "https://www.purplle.com/sugar"
+        "url": "https://www.purplle.com/sugar?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 999,
-        "url": "https://www.myntra.com/sugar"
+        "url": "https://www.myntra.com/sugar?affid=beautynomy"
       }
     ]
   },
@@ -167,27 +168,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 950,
-        "url": "https://www.nykaa.com/nyx-foundation"
+        "url": "https://www.nykaa.com/nyx-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 899,
-        "url": "https://www.amazon.in/NYX-Foundation"
+        "url": "https://www.amazon.in/NYX-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 925,
-        "url": "https://www.flipkart.com/nyx"
+        "url": "https://www.flipkart.com/nyx?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 940,
-        "url": "https://www.purplle.com/nyx"
+        "url": "https://www.purplle.com/nyx?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 950,
-        "url": "https://www.myntra.com/nyx"
+        "url": "https://www.myntra.com/nyx?affid=beautynomy"
       }
     ]
   },
@@ -204,27 +205,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/colorbar-foundation"
+        "url": "https://www.nykaa.com/colorbar-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/Colorbar"
+        "url": "https://www.amazon.in/Colorbar?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/colorbar"
+        "url": "https://www.flipkart.com/colorbar?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 689,
-        "url": "https://www.purplle.com/colorbar"
+        "url": "https://www.purplle.com/colorbar?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/colorbar"
+        "url": "https://www.myntra.com/colorbar?affid=beautynomy"
       }
     ]
   },
@@ -241,27 +242,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2900,
-        "url": "https://www.nykaa.com/mac-foundation"
+        "url": "https://www.nykaa.com/mac-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2750,
-        "url": "https://www.amazon.in/MAC-Foundation"
+        "url": "https://www.amazon.in/MAC-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2850,
-        "url": "https://www.flipkart.com/mac"
+        "url": "https://www.flipkart.com/mac?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2889,
-        "url": "https://www.purplle.com/mac"
+        "url": "https://www.purplle.com/mac?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2900,
-        "url": "https://www.myntra.com/mac"
+        "url": "https://www.myntra.com/mac?affid=beautynomy"
       }
     ]
   },
@@ -278,27 +279,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1050,
-        "url": "https://www.nykaa.com/revlon"
+        "url": "https://www.nykaa.com/revlon?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 975,
-        "url": "https://www.amazon.in/Revlon"
+        "url": "https://www.amazon.in/Revlon?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1025,
-        "url": "https://www.flipkart.com/revlon"
+        "url": "https://www.flipkart.com/revlon?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1040,
-        "url": "https://www.purplle.com/revlon"
+        "url": "https://www.purplle.com/revlon?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1050,
-        "url": "https://www.myntra.com/revlon"
+        "url": "https://www.myntra.com/revlon?affid=beautynomy"
       }
     ]
   },
@@ -315,27 +316,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 375,
-        "url": "https://www.nykaa.com/maybelline-concealer"
+        "url": "https://www.nykaa.com/maybelline-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Maybelline-Concealer"
+        "url": "https://www.amazon.in/Maybelline-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 350,
-        "url": "https://www.flipkart.com/concealer"
+        "url": "https://www.flipkart.com/concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 365,
-        "url": "https://www.purplle.com/concealer"
+        "url": "https://www.purplle.com/concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 375,
-        "url": "https://www.myntra.com/concealer"
+        "url": "https://www.myntra.com/concealer?affid=beautynomy"
       }
     ]
   },
@@ -353,27 +354,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 450,
-        "url": "https://www.nykaa.com/la-girl"
+        "url": "https://www.nykaa.com/la-girl?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/LA-Girl"
+        "url": "https://www.amazon.in/LA-Girl?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/la-girl"
+        "url": "https://www.flipkart.com/la-girl?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/la-girl"
+        "url": "https://www.purplle.com/la-girl?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 450,
-        "url": "https://www.myntra.com/la-girl"
+        "url": "https://www.myntra.com/la-girl?affid=beautynomy"
       }
     ]
   },
@@ -390,27 +391,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/lakme-concealer"
+        "url": "https://www.nykaa.com/lakme-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 375,
-        "url": "https://www.amazon.in/Lakme-Concealer"
+        "url": "https://www.amazon.in/Lakme-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 400,
-        "url": "https://www.flipkart.com/lakme-concealer"
+        "url": "https://www.flipkart.com/lakme-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/lakme-concealer"
+        "url": "https://www.purplle.com/lakme-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/lakme-concealer"
+        "url": "https://www.myntra.com/lakme-concealer?affid=beautynomy"
       }
     ]
   },
@@ -427,27 +428,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/nykaa-concealer"
+        "url": "https://www.nykaa.com/nykaa-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Nykaa-Concealer"
+        "url": "https://www.amazon.in/Nykaa-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/nykaa-concealer"
+        "url": "https://www.flipkart.com/nykaa-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 389,
-        "url": "https://www.purplle.com/nykaa-concealer"
+        "url": "https://www.purplle.com/nykaa-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/nykaa-concealer"
+        "url": "https://www.myntra.com/nykaa-concealer?affid=beautynomy"
       }
     ]
   },
@@ -464,27 +465,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/sugar-concealer"
+        "url": "https://www.nykaa.com/sugar-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/Sugar-Concealer"
+        "url": "https://www.amazon.in/Sugar-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/sugar-concealer"
+        "url": "https://www.flipkart.com/sugar-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 589,
-        "url": "https://www.purplle.com/sugar-concealer"
+        "url": "https://www.purplle.com/sugar-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/sugar-concealer"
+        "url": "https://www.myntra.com/sugar-concealer?affid=beautynomy"
       }
     ]
   },
@@ -501,27 +502,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 850,
-        "url": "https://www.nykaa.com/nyx-primer"
+        "url": "https://www.nykaa.com/nyx-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 799,
-        "url": "https://www.amazon.in/NYX-Primer"
+        "url": "https://www.amazon.in/NYX-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 825,
-        "url": "https://www.flipkart.com/nyx-primer"
+        "url": "https://www.flipkart.com/nyx-primer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 840,
-        "url": "https://www.purplle.com/nyx-primer"
+        "url": "https://www.purplle.com/nyx-primer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 850,
-        "url": "https://www.myntra.com/nyx-primer"
+        "url": "https://www.myntra.com/nyx-primer?affid=beautynomy"
       }
     ]
   },
@@ -539,27 +540,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/maybelline-primer"
+        "url": "https://www.nykaa.com/maybelline-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 449,
-        "url": "https://www.amazon.in/Maybelline-Primer"
+        "url": "https://www.amazon.in/Maybelline-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/maybelline-primer"
+        "url": "https://www.flipkart.com/maybelline-primer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 489,
-        "url": "https://www.purplle.com/maybelline-primer"
+        "url": "https://www.purplle.com/maybelline-primer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/maybelline-primer"
+        "url": "https://www.myntra.com/maybelline-primer?affid=beautynomy"
       }
     ]
   },
@@ -576,27 +577,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/insight-primer"
+        "url": "https://www.nykaa.com/insight-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Insight-Primer"
+        "url": "https://www.amazon.in/Insight-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/insight"
+        "url": "https://www.flipkart.com/insight?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 289,
-        "url": "https://www.purplle.com/insight"
+        "url": "https://www.purplle.com/insight?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/insight"
+        "url": "https://www.myntra.com/insight?affid=beautynomy"
       }
     ]
   },
@@ -613,27 +614,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 750,
-        "url": "https://www.nykaa.com/nyx-spray"
+        "url": "https://www.nykaa.com/nyx-spray?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 699,
-        "url": "https://www.amazon.in/NYX-Spray"
+        "url": "https://www.amazon.in/NYX-Spray?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/nyx-spray"
+        "url": "https://www.flipkart.com/nyx-spray?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/nyx-spray"
+        "url": "https://www.purplle.com/nyx-spray?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 750,
-        "url": "https://www.myntra.com/nyx-spray"
+        "url": "https://www.myntra.com/nyx-spray?affid=beautynomy"
       }
     ]
   },
@@ -650,27 +651,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 525,
-        "url": "https://www.nykaa.com/colorbar-compact"
+        "url": "https://www.nykaa.com/colorbar-compact?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Colorbar-Compact"
+        "url": "https://www.amazon.in/Colorbar-Compact?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 500,
-        "url": "https://www.flipkart.com/compact"
+        "url": "https://www.flipkart.com/compact?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 515,
-        "url": "https://www.purplle.com/compact"
+        "url": "https://www.purplle.com/compact?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 525,
-        "url": "https://www.myntra.com/compact"
+        "url": "https://www.myntra.com/compact?affid=beautynomy"
       }
     ]
   },
@@ -687,27 +688,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 850,
-        "url": "https://www.nykaa.com/lakme-eyeshadow"
+        "url": "https://www.nykaa.com/lakme-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 750,
-        "url": "https://www.amazon.in/Lakme-Eyeshadow"
+        "url": "https://www.amazon.in/Lakme-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 800,
-        "url": "https://www.flipkart.com/lakme-eyeshadow"
+        "url": "https://www.flipkart.com/lakme-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 825,
-        "url": "https://www.purplle.com/lakme-eyeshadow"
+        "url": "https://www.purplle.com/lakme-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 850,
-        "url": "https://www.myntra.com/lakme-eyeshadow"
+        "url": "https://www.myntra.com/lakme-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -725,27 +726,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 999,
-        "url": "https://www.nykaa.com/sugar-eyeshadow"
+        "url": "https://www.nykaa.com/sugar-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 879,
-        "url": "https://www.amazon.in/Sugar-Eyeshadow"
+        "url": "https://www.amazon.in/Sugar-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 940,
-        "url": "https://www.flipkart.com/sugar-eyeshadow"
+        "url": "https://www.flipkart.com/sugar-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 975,
-        "url": "https://www.purplle.com/sugar-eyeshadow"
+        "url": "https://www.purplle.com/sugar-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 999,
-        "url": "https://www.myntra.com/sugar-eyeshadow"
+        "url": "https://www.myntra.com/sugar-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -762,27 +763,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2250,
-        "url": "https://www.nykaa.com/morphe"
+        "url": "https://www.nykaa.com/morphe?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2100,
-        "url": "https://www.amazon.in/Morphe"
+        "url": "https://www.amazon.in/Morphe?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2175,
-        "url": "https://www.flipkart.com/morphe"
+        "url": "https://www.flipkart.com/morphe?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2225,
-        "url": "https://www.purplle.com/morphe"
+        "url": "https://www.purplle.com/morphe?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2250,
-        "url": "https://www.myntra.com/morphe"
+        "url": "https://www.myntra.com/morphe?affid=beautynomy"
       }
     ]
   },
@@ -800,27 +801,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/maybelline-mascara"
+        "url": "https://www.nykaa.com/maybelline-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 509,
-        "url": "https://www.amazon.in/Maybelline-Mascara"
+        "url": "https://www.amazon.in/Maybelline-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 549,
-        "url": "https://www.flipkart.com/mascara"
+        "url": "https://www.flipkart.com/mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 579,
-        "url": "https://www.purplle.com/mascara"
+        "url": "https://www.purplle.com/mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/mascara"
+        "url": "https://www.myntra.com/mascara?affid=beautynomy"
       }
     ]
   },
@@ -837,27 +838,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 450,
-        "url": "https://www.nykaa.com/lakme-mascara"
+        "url": "https://www.nykaa.com/lakme-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Lakme-Mascara"
+        "url": "https://www.amazon.in/Lakme-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/lakme-mascara"
+        "url": "https://www.flipkart.com/lakme-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/lakme-mascara"
+        "url": "https://www.purplle.com/lakme-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 450,
-        "url": "https://www.myntra.com/lakme-mascara"
+        "url": "https://www.myntra.com/lakme-mascara?affid=beautynomy"
       }
     ]
   },
@@ -874,27 +875,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 325,
-        "url": "https://www.nykaa.com/maybelline-eyeliner"
+        "url": "https://www.nykaa.com/maybelline-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 275,
-        "url": "https://www.amazon.in/Maybelline-Eyeliner"
+        "url": "https://www.amazon.in/Maybelline-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 300,
-        "url": "https://www.flipkart.com/eyeliner"
+        "url": "https://www.flipkart.com/eyeliner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 315,
-        "url": "https://www.purplle.com/eyeliner"
+        "url": "https://www.purplle.com/eyeliner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 325,
-        "url": "https://www.myntra.com/eyeliner"
+        "url": "https://www.myntra.com/eyeliner?affid=beautynomy"
       }
     ]
   },
@@ -911,27 +912,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/sugar-kohl"
+        "url": "https://www.nykaa.com/sugar-kohl?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 269,
-        "url": "https://www.amazon.in/Sugar-Kohl"
+        "url": "https://www.amazon.in/Sugar-Kohl?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 285,
-        "url": "https://www.flipkart.com/kohl"
+        "url": "https://www.flipkart.com/kohl?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 289,
-        "url": "https://www.purplle.com/kohl"
+        "url": "https://www.purplle.com/kohl?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/kohl"
+        "url": "https://www.myntra.com/kohl?affid=beautynomy"
       }
     ]
   },
@@ -949,27 +950,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/sugar-lipstick"
+        "url": "https://www.nykaa.com/sugar-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 569,
-        "url": "https://www.amazon.in/Sugar-Lipstick"
+        "url": "https://www.amazon.in/Sugar-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 585,
-        "url": "https://www.flipkart.com/sugar-lipstick"
+        "url": "https://www.flipkart.com/sugar-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 579,
-        "url": "https://www.purplle.com/sugar-lipstick"
+        "url": "https://www.purplle.com/sugar-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/sugar-lipstick"
+        "url": "https://www.myntra.com/sugar-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -986,27 +987,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1900,
-        "url": "https://www.nykaa.com/mac-lipstick"
+        "url": "https://www.nykaa.com/mac-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1850,
-        "url": "https://www.amazon.in/MAC-Lipstick"
+        "url": "https://www.amazon.in/MAC-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1875,
-        "url": "https://www.flipkart.com/mac-lipstick"
+        "url": "https://www.flipkart.com/mac-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1890,
-        "url": "https://www.purplle.com/mac-lipstick"
+        "url": "https://www.purplle.com/mac-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1900,
-        "url": "https://www.myntra.com/mac-lipstick"
+        "url": "https://www.myntra.com/mac-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -1023,27 +1024,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 349,
-        "url": "https://www.nykaa.com/nykaa-lipstick"
+        "url": "https://www.nykaa.com/nykaa-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 329,
-        "url": "https://www.amazon.in/Nykaa-Lipstick"
+        "url": "https://www.amazon.in/Nykaa-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 340,
-        "url": "https://www.flipkart.com/nykaa-lipstick"
+        "url": "https://www.flipkart.com/nykaa-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 345,
-        "url": "https://www.purplle.com/nykaa-lipstick"
+        "url": "https://www.purplle.com/nykaa-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 349,
-        "url": "https://www.myntra.com/nykaa-lipstick"
+        "url": "https://www.myntra.com/nykaa-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -1060,27 +1061,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/nykaa-gloss"
+        "url": "https://www.nykaa.com/nykaa-gloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 269,
-        "url": "https://www.amazon.in/Nykaa-Gloss"
+        "url": "https://www.amazon.in/Nykaa-Gloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 285,
-        "url": "https://www.flipkart.com/nykaa-gloss"
+        "url": "https://www.flipkart.com/nykaa-gloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 289,
-        "url": "https://www.purplle.com/nykaa-gloss"
+        "url": "https://www.purplle.com/nykaa-gloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/nykaa-gloss"
+        "url": "https://www.myntra.com/nykaa-gloss?affid=beautynomy"
       }
     ]
   },
@@ -1098,27 +1099,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 475,
-        "url": "https://www.nykaa.com/lakme-blush"
+        "url": "https://www.nykaa.com/lakme-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 425,
-        "url": "https://www.amazon.in/Lakme-Blush"
+        "url": "https://www.amazon.in/Lakme-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 450,
-        "url": "https://www.flipkart.com/lakme-blush"
+        "url": "https://www.flipkart.com/lakme-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 465,
-        "url": "https://www.purplle.com/lakme-blush"
+        "url": "https://www.purplle.com/lakme-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 475,
-        "url": "https://www.myntra.com/lakme-blush"
+        "url": "https://www.myntra.com/lakme-blush?affid=beautynomy"
       }
     ]
   },
@@ -1135,27 +1136,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1299,
-        "url": "https://www.nykaa.com/sugar-palette"
+        "url": "https://www.nykaa.com/sugar-palette?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1249,
-        "url": "https://www.amazon.in/Sugar-Palette"
+        "url": "https://www.amazon.in/Sugar-Palette?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1275,
-        "url": "https://www.flipkart.com/sugar-palette"
+        "url": "https://www.flipkart.com/sugar-palette?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1289,
-        "url": "https://www.purplle.com/sugar-palette"
+        "url": "https://www.purplle.com/sugar-palette?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1299,
-        "url": "https://www.myntra.com/sugar-palette"
+        "url": "https://www.myntra.com/sugar-palette?affid=beautynomy"
       }
     ]
   },
@@ -1172,27 +1173,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/nykaa-blush"
+        "url": "https://www.nykaa.com/nykaa-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 449,
-        "url": "https://www.amazon.in/Nykaa-Blush"
+        "url": "https://www.amazon.in/Nykaa-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/nykaa-blush"
+        "url": "https://www.flipkart.com/nykaa-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 489,
-        "url": "https://www.purplle.com/nykaa-blush"
+        "url": "https://www.purplle.com/nykaa-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/nykaa-blush"
+        "url": "https://www.myntra.com/nykaa-blush?affid=beautynomy"
       }
     ]
   },
@@ -1209,27 +1210,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 450,
-        "url": "https://www.nykaa.com/colorbar-blush"
+        "url": "https://www.nykaa.com/colorbar-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Colorbar-Blush"
+        "url": "https://www.amazon.in/Colorbar-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/colorbar-blush"
+        "url": "https://www.flipkart.com/colorbar-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/colorbar-blush"
+        "url": "https://www.purplle.com/colorbar-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 450,
-        "url": "https://www.myntra.com/colorbar-blush"
+        "url": "https://www.myntra.com/colorbar-blush?affid=beautynomy"
       }
     ]
   },
@@ -1246,27 +1247,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/maybelline-bronzer"
+        "url": "https://www.nykaa.com/maybelline-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 449,
-        "url": "https://www.amazon.in/Maybelline-Bronzer"
+        "url": "https://www.amazon.in/Maybelline-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/bronzer"
+        "url": "https://www.flipkart.com/bronzer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 489,
-        "url": "https://www.purplle.com/bronzer"
+        "url": "https://www.purplle.com/bronzer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/bronzer"
+        "url": "https://www.myntra.com/bronzer?affid=beautynomy"
       }
     ]
   },
@@ -1283,27 +1284,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/sugar-highlighter"
+        "url": "https://www.nykaa.com/sugar-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/Sugar-Highlighter"
+        "url": "https://www.amazon.in/Sugar-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/highlighter"
+        "url": "https://www.flipkart.com/highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 689,
-        "url": "https://www.purplle.com/highlighter"
+        "url": "https://www.purplle.com/highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/highlighter"
+        "url": "https://www.myntra.com/highlighter?affid=beautynomy"
       }
     ]
   },
@@ -1321,27 +1322,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 899,
-        "url": "https://www.nykaa.com/cetaphil"
+        "url": "https://www.nykaa.com/cetaphil?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 809,
-        "url": "https://www.amazon.in/Cetaphil"
+        "url": "https://www.amazon.in/Cetaphil?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 850,
-        "url": "https://www.flipkart.com/cetaphil"
+        "url": "https://www.flipkart.com/cetaphil?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 879,
-        "url": "https://www.purplle.com/cetaphil"
+        "url": "https://www.purplle.com/cetaphil?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 899,
-        "url": "https://www.myntra.com/cetaphil"
+        "url": "https://www.myntra.com/cetaphil?affid=beautynomy"
       }
     ]
   },
@@ -1358,27 +1359,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 175,
-        "url": "https://www.nykaa.com/himalaya"
+        "url": "https://www.nykaa.com/himalaya?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 145,
-        "url": "https://www.amazon.in/Himalaya"
+        "url": "https://www.amazon.in/Himalaya?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 160,
-        "url": "https://www.flipkart.com/himalaya"
+        "url": "https://www.flipkart.com/himalaya?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 169,
-        "url": "https://www.purplle.com/himalaya"
+        "url": "https://www.purplle.com/himalaya?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 175,
-        "url": "https://www.myntra.com/himalaya"
+        "url": "https://www.myntra.com/himalaya?affid=beautynomy"
       }
     ]
   },
@@ -1395,27 +1396,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 349,
-        "url": "https://www.nykaa.com/mamaearth"
+        "url": "https://www.nykaa.com/mamaearth?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 299,
-        "url": "https://www.amazon.in/Mamaearth"
+        "url": "https://www.amazon.in/Mamaearth?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 325,
-        "url": "https://www.flipkart.com/mamaearth"
+        "url": "https://www.flipkart.com/mamaearth?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 339,
-        "url": "https://www.purplle.com/mamaearth"
+        "url": "https://www.purplle.com/mamaearth?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 349,
-        "url": "https://www.myntra.com/mamaearth"
+        "url": "https://www.myntra.com/mamaearth?affid=beautynomy"
       }
     ]
   },
@@ -1432,27 +1433,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/wow"
+        "url": "https://www.nykaa.com/wow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/WOW"
+        "url": "https://www.amazon.in/WOW?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/wow"
+        "url": "https://www.flipkart.com/wow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 389,
-        "url": "https://www.purplle.com/wow"
+        "url": "https://www.purplle.com/wow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/wow"
+        "url": "https://www.myntra.com/wow?affid=beautynomy"
       }
     ]
   },
@@ -1469,27 +1470,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/garnier"
+        "url": "https://www.nykaa.com/garnier?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 375,
-        "url": "https://www.amazon.in/Garnier"
+        "url": "https://www.amazon.in/Garnier?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 400,
-        "url": "https://www.flipkart.com/garnier"
+        "url": "https://www.flipkart.com/garnier?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/garnier"
+        "url": "https://www.purplle.com/garnier?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/garnier"
+        "url": "https://www.myntra.com/garnier?affid=beautynomy"
       }
     ]
   },
@@ -1506,27 +1507,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/simple"
+        "url": "https://www.nykaa.com/simple?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Simple"
+        "url": "https://www.amazon.in/Simple?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/simple"
+        "url": "https://www.flipkart.com/simple?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 389,
-        "url": "https://www.purplle.com/simple"
+        "url": "https://www.purplle.com/simple?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/simple"
+        "url": "https://www.myntra.com/simple?affid=beautynomy"
       }
     ]
   },
@@ -1543,27 +1544,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 395,
-        "url": "https://www.nykaa.com/plum-cleanser"
+        "url": "https://www.nykaa.com/plum-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 345,
-        "url": "https://www.amazon.in/Plum-Cleanser"
+        "url": "https://www.amazon.in/Plum-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 370,
-        "url": "https://www.flipkart.com/plum-cleanser"
+        "url": "https://www.flipkart.com/plum-cleanser?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 385,
-        "url": "https://www.purplle.com/plum-cleanser"
+        "url": "https://www.purplle.com/plum-cleanser?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 395,
-        "url": "https://www.myntra.com/plum-cleanser"
+        "url": "https://www.myntra.com/plum-cleanser?affid=beautynomy"
       }
     ]
   },
@@ -1580,27 +1581,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 999,
-        "url": "https://www.nykaa.com/neutrogena"
+        "url": "https://www.nykaa.com/neutrogena?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 949,
-        "url": "https://www.amazon.in/Neutrogena"
+        "url": "https://www.amazon.in/Neutrogena?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 975,
-        "url": "https://www.flipkart.com/neutrogena"
+        "url": "https://www.flipkart.com/neutrogena?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 989,
-        "url": "https://www.purplle.com/neutrogena"
+        "url": "https://www.purplle.com/neutrogena?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 999,
-        "url": "https://www.myntra.com/neutrogena"
+        "url": "https://www.myntra.com/neutrogena?affid=beautynomy"
       }
     ]
   },
@@ -1617,27 +1618,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 225,
-        "url": "https://www.nykaa.com/lakme-moisturizer"
+        "url": "https://www.nykaa.com/lakme-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 195,
-        "url": "https://www.amazon.in/Lakme-Moisturizer"
+        "url": "https://www.amazon.in/Lakme-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 210,
-        "url": "https://www.flipkart.com/lakme-moisturizer"
+        "url": "https://www.flipkart.com/lakme-moisturizer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 220,
-        "url": "https://www.purplle.com/lakme-moisturizer"
+        "url": "https://www.purplle.com/lakme-moisturizer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 225,
-        "url": "https://www.myntra.com/lakme-moisturizer"
+        "url": "https://www.myntra.com/lakme-moisturizer?affid=beautynomy"
       }
     ]
   },
@@ -1654,27 +1655,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 495,
-        "url": "https://www.nykaa.com/plum-moisturizer"
+        "url": "https://www.nykaa.com/plum-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 445,
-        "url": "https://www.amazon.in/Plum-Moisturizer"
+        "url": "https://www.amazon.in/Plum-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 470,
-        "url": "https://www.flipkart.com/plum-moisturizer"
+        "url": "https://www.flipkart.com/plum-moisturizer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 485,
-        "url": "https://www.purplle.com/plum-moisturizer"
+        "url": "https://www.purplle.com/plum-moisturizer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 495,
-        "url": "https://www.myntra.com/plum-moisturizer"
+        "url": "https://www.myntra.com/plum-moisturizer?affid=beautynomy"
       }
     ]
   },
@@ -1692,27 +1693,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/ordinary"
+        "url": "https://www.nykaa.com/ordinary?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Ordinary"
+        "url": "https://www.amazon.in/Ordinary?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 565,
-        "url": "https://www.flipkart.com/ordinary"
+        "url": "https://www.flipkart.com/ordinary?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 589,
-        "url": "https://www.purplle.com/ordinary"
+        "url": "https://www.purplle.com/ordinary?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/ordinary"
+        "url": "https://www.myntra.com/ordinary?affid=beautynomy"
       }
     ]
   },
@@ -1730,27 +1731,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/minimalist"
+        "url": "https://www.nykaa.com/minimalist?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/Minimalist"
+        "url": "https://www.amazon.in/Minimalist?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/minimalist"
+        "url": "https://www.flipkart.com/minimalist?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 689,
-        "url": "https://www.purplle.com/minimalist"
+        "url": "https://www.purplle.com/minimalist?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/minimalist"
+        "url": "https://www.myntra.com/minimalist?affid=beautynomy"
       }
     ]
   },
@@ -1768,27 +1769,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1095,
-        "url": "https://www.nykaa.com/dotkey"
+        "url": "https://www.nykaa.com/dotkey?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1045,
-        "url": "https://www.amazon.in/DotKey"
+        "url": "https://www.amazon.in/DotKey?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1075,
-        "url": "https://www.flipkart.com/dotkey"
+        "url": "https://www.flipkart.com/dotkey?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1089,
-        "url": "https://www.purplle.com/dotkey"
+        "url": "https://www.purplle.com/dotkey?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1095,
-        "url": "https://www.myntra.com/dotkey"
+        "url": "https://www.myntra.com/dotkey?affid=beautynomy"
       }
     ]
   },
@@ -1806,27 +1807,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/dermaco"
+        "url": "https://www.nykaa.com/dermaco?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 545,
-        "url": "https://www.amazon.in/DermaCo"
+        "url": "https://www.amazon.in/DermaCo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/dermaco"
+        "url": "https://www.flipkart.com/dermaco?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 589,
-        "url": "https://www.purplle.com/dermaco"
+        "url": "https://www.purplle.com/dermaco?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/dermaco"
+        "url": "https://www.myntra.com/dermaco?affid=beautynomy"
       }
     ]
   },
@@ -1843,27 +1844,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1095,
-        "url": "https://www.nykaa.com/stbotanica"
+        "url": "https://www.nykaa.com/stbotanica?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1045,
-        "url": "https://www.amazon.in/StBotanica"
+        "url": "https://www.amazon.in/StBotanica?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1075,
-        "url": "https://www.flipkart.com/stbotanica"
+        "url": "https://www.flipkart.com/stbotanica?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1089,
-        "url": "https://www.purplle.com/stbotanica"
+        "url": "https://www.purplle.com/stbotanica?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1095,
-        "url": "https://www.myntra.com/stbotanica"
+        "url": "https://www.myntra.com/stbotanica?affid=beautynomy"
       }
     ]
   },
@@ -1880,27 +1881,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/pilgrim"
+        "url": "https://www.nykaa.com/pilgrim?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/Pilgrim"
+        "url": "https://www.amazon.in/Pilgrim?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/pilgrim"
+        "url": "https://www.flipkart.com/pilgrim?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 589,
-        "url": "https://www.purplle.com/pilgrim"
+        "url": "https://www.purplle.com/pilgrim?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/pilgrim"
+        "url": "https://www.myntra.com/pilgrim?affid=beautynomy"
       }
     ]
   },
@@ -1918,27 +1919,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 395,
-        "url": "https://www.nykaa.com/lotus-sunscreen"
+        "url": "https://www.nykaa.com/lotus-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 345,
-        "url": "https://www.amazon.in/Lotus-Sunscreen"
+        "url": "https://www.amazon.in/Lotus-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/lotus"
+        "url": "https://www.flipkart.com/lotus?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 385,
-        "url": "https://www.purplle.com/lotus"
+        "url": "https://www.purplle.com/lotus?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 395,
-        "url": "https://www.myntra.com/lotus"
+        "url": "https://www.myntra.com/lotus?affid=beautynomy"
       }
     ]
   },
@@ -1955,27 +1956,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 365,
-        "url": "https://www.nykaa.com/biotique"
+        "url": "https://www.nykaa.com/biotique?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 315,
-        "url": "https://www.amazon.in/Biotique"
+        "url": "https://www.amazon.in/Biotique?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 340,
-        "url": "https://www.flipkart.com/biotique"
+        "url": "https://www.flipkart.com/biotique?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 355,
-        "url": "https://www.purplle.com/biotique"
+        "url": "https://www.purplle.com/biotique?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 365,
-        "url": "https://www.myntra.com/biotique"
+        "url": "https://www.myntra.com/biotique?affid=beautynomy"
       }
     ]
   },
@@ -1992,27 +1993,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 749,
-        "url": "https://www.nykaa.com/reequil"
+        "url": "https://www.nykaa.com/reequil?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 699,
-        "url": "https://www.amazon.in/Reequil"
+        "url": "https://www.amazon.in/Reequil?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/reequil"
+        "url": "https://www.flipkart.com/reequil?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/reequil"
+        "url": "https://www.purplle.com/reequil?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 749,
-        "url": "https://www.myntra.com/reequil"
+        "url": "https://www.myntra.com/reequil?affid=beautynomy"
       }
     ]
   },
@@ -2029,27 +2030,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/minimalist-sunscreen"
+        "url": "https://www.nykaa.com/minimalist-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/Minimalist-Sunscreen"
+        "url": "https://www.amazon.in/Minimalist-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/minimalist-sunscreen"
+        "url": "https://www.flipkart.com/minimalist-sunscreen?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 589,
-        "url": "https://www.purplle.com/minimalist-sunscreen"
+        "url": "https://www.purplle.com/minimalist-sunscreen?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/minimalist-sunscreen"
+        "url": "https://www.myntra.com/minimalist-sunscreen?affid=beautynomy"
       }
     ]
   },
@@ -2066,27 +2067,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/pantene"
+        "url": "https://www.nykaa.com/pantene?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Pantene"
+        "url": "https://www.amazon.in/Pantene?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/pantene"
+        "url": "https://www.flipkart.com/pantene?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 289,
-        "url": "https://www.purplle.com/pantene"
+        "url": "https://www.purplle.com/pantene?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/pantene"
+        "url": "https://www.myntra.com/pantene?affid=beautynomy"
       }
     ]
   },
@@ -2103,27 +2104,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 449,
-        "url": "https://www.nykaa.com/mamaearth-shampoo"
+        "url": "https://www.nykaa.com/mamaearth-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Mamaearth-Shampoo"
+        "url": "https://www.amazon.in/Mamaearth-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/mamaearth-shampoo"
+        "url": "https://www.flipkart.com/mamaearth-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/mamaearth-shampoo"
+        "url": "https://www.purplle.com/mamaearth-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 449,
-        "url": "https://www.myntra.com/mamaearth-shampoo"
+        "url": "https://www.myntra.com/mamaearth-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -2140,27 +2141,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/wow-shampoo"
+        "url": "https://www.nykaa.com/wow-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 449,
-        "url": "https://www.amazon.in/WOW-Shampoo"
+        "url": "https://www.amazon.in/WOW-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/wow-shampoo"
+        "url": "https://www.flipkart.com/wow-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 489,
-        "url": "https://www.purplle.com/wow-shampoo"
+        "url": "https://www.purplle.com/wow-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/wow-shampoo"
+        "url": "https://www.myntra.com/wow-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -2177,27 +2178,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 325,
-        "url": "https://www.nykaa.com/pantene-conditioner"
+        "url": "https://www.nykaa.com/pantene-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 275,
-        "url": "https://www.amazon.in/Pantene-Conditioner"
+        "url": "https://www.amazon.in/Pantene-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 300,
-        "url": "https://www.flipkart.com/pantene-conditioner"
+        "url": "https://www.flipkart.com/pantene-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 315,
-        "url": "https://www.purplle.com/pantene-conditioner"
+        "url": "https://www.purplle.com/pantene-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 325,
-        "url": "https://www.myntra.com/pantene-conditioner"
+        "url": "https://www.myntra.com/pantene-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -2214,27 +2215,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 165,
-        "url": "https://www.nykaa.com/lakme-nails"
+        "url": "https://www.nykaa.com/lakme-nails?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 145,
-        "url": "https://www.amazon.in/Lakme-Nails"
+        "url": "https://www.amazon.in/Lakme-Nails?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 155,
-        "url": "https://www.flipkart.com/nail-polish"
+        "url": "https://www.flipkart.com/nail-polish?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 160,
-        "url": "https://www.purplle.com/nail-polish"
+        "url": "https://www.purplle.com/nail-polish?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 165,
-        "url": "https://www.myntra.com/nail-polish"
+        "url": "https://www.myntra.com/nail-polish?affid=beautynomy"
       }
     ]
   },
@@ -2251,27 +2252,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 199,
-        "url": "https://www.nykaa.com/sugar-nails"
+        "url": "https://www.nykaa.com/sugar-nails?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 179,
-        "url": "https://www.amazon.in/Sugar-Nails"
+        "url": "https://www.amazon.in/Sugar-Nails?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 190,
-        "url": "https://www.flipkart.com/sugar-nails"
+        "url": "https://www.flipkart.com/sugar-nails?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 195,
-        "url": "https://www.purplle.com/sugar-nails"
+        "url": "https://www.purplle.com/sugar-nails?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 199,
-        "url": "https://www.myntra.com/sugar-nails"
+        "url": "https://www.myntra.com/sugar-nails?affid=beautynomy"
       }
     ]
   },
@@ -2288,27 +2289,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 149,
-        "url": "https://www.nykaa.com/nykaa-nails"
+        "url": "https://www.nykaa.com/nykaa-nails?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 129,
-        "url": "https://www.amazon.in/Nykaa-Nails"
+        "url": "https://www.amazon.in/Nykaa-Nails?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 140,
-        "url": "https://www.flipkart.com/nykaa-nails"
+        "url": "https://www.flipkart.com/nykaa-nails?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 145,
-        "url": "https://www.purplle.com/nykaa-nails"
+        "url": "https://www.purplle.com/nykaa-nails?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 149,
-        "url": "https://www.myntra.com/nykaa-nails"
+        "url": "https://www.myntra.com/nykaa-nails?affid=beautynomy"
       }
     ]
   },
@@ -2325,27 +2326,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 125,
-        "url": "https://www.nykaa.com/maybelline-nails"
+        "url": "https://www.nykaa.com/maybelline-nails?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 99,
-        "url": "https://www.amazon.in/Maybelline-Nails"
+        "url": "https://www.amazon.in/Maybelline-Nails?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 110,
-        "url": "https://www.flipkart.com/maybelline-nails"
+        "url": "https://www.flipkart.com/maybelline-nails?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 120,
-        "url": "https://www.purplle.com/maybelline-nails"
+        "url": "https://www.purplle.com/maybelline-nails?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 125,
-        "url": "https://www.myntra.com/maybelline-nails"
+        "url": "https://www.myntra.com/maybelline-nails?affid=beautynomy"
       }
     ]
   },
@@ -2362,27 +2363,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/sugar-foundation"
+        "url": "https://www.nykaa.com/sugar-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/SUGAR-Foundation"
+        "url": "https://www.amazon.in/SUGAR-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/sugar-foundation"
+        "url": "https://www.flipkart.com/sugar-foundation?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/sugar-foundation"
+        "url": "https://www.purplle.com/sugar-foundation?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/sugar-foundation"
+        "url": "https://www.myntra.com/sugar-foundation?affid=beautynomy"
       }
     ]
   },
@@ -2400,27 +2401,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3950,
-        "url": "https://www.nykaa.com/estee-lauder-foundation"
+        "url": "https://www.nykaa.com/estee-lauder-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3750,
-        "url": "https://www.amazon.in/Estee-Lauder-Foundation"
+        "url": "https://www.amazon.in/Estee-Lauder-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3850,
-        "url": "https://www.flipkart.com/estee-lauder"
+        "url": "https://www.flipkart.com/estee-lauder?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3900,
-        "url": "https://www.purplle.com/estee-lauder"
+        "url": "https://www.purplle.com/estee-lauder?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3950,
-        "url": "https://www.myntra.com/estee-lauder"
+        "url": "https://www.myntra.com/estee-lauder?affid=beautynomy"
       }
     ]
   },
@@ -2437,27 +2438,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 650,
-        "url": "https://www.nykaa.com/colorbar-foundation"
+        "url": "https://www.nykaa.com/colorbar-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 585,
-        "url": "https://www.amazon.in/Colorbar-Foundation"
+        "url": "https://www.amazon.in/Colorbar-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/colorbar"
+        "url": "https://www.flipkart.com/colorbar?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/colorbar"
+        "url": "https://www.purplle.com/colorbar?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 650,
-        "url": "https://www.myntra.com/colorbar"
+        "url": "https://www.myntra.com/colorbar?affid=beautynomy"
       }
     ]
   },
@@ -2474,27 +2475,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1450,
-        "url": "https://www.nykaa.com/faceshop-foundation"
+        "url": "https://www.nykaa.com/faceshop-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1299,
-        "url": "https://www.amazon.in/FaceShop-Foundation"
+        "url": "https://www.amazon.in/FaceShop-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1375,
-        "url": "https://www.flipkart.com/faceshop"
+        "url": "https://www.flipkart.com/faceshop?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1425,
-        "url": "https://www.purplle.com/faceshop"
+        "url": "https://www.purplle.com/faceshop?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1450,
-        "url": "https://www.myntra.com/faceshop"
+        "url": "https://www.myntra.com/faceshop?affid=beautynomy"
       }
     ]
   },
@@ -2511,27 +2512,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1099,
-        "url": "https://www.nykaa.com/revlon-foundation"
+        "url": "https://www.nykaa.com/revlon-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 949,
-        "url": "https://www.amazon.in/Revlon-Foundation"
+        "url": "https://www.amazon.in/Revlon-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1025,
-        "url": "https://www.flipkart.com/revlon"
+        "url": "https://www.flipkart.com/revlon?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1075,
-        "url": "https://www.purplle.com/revlon"
+        "url": "https://www.purplle.com/revlon?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1099,
-        "url": "https://www.myntra.com/revlon"
+        "url": "https://www.myntra.com/revlon?affid=beautynomy"
       }
     ]
   },
@@ -2548,27 +2549,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 899,
-        "url": "https://www.nykaa.com/faces-foundation"
+        "url": "https://www.nykaa.com/faces-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 799,
-        "url": "https://www.amazon.in/Faces-Foundation"
+        "url": "https://www.amazon.in/Faces-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 850,
-        "url": "https://www.flipkart.com/faces"
+        "url": "https://www.flipkart.com/faces?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 875,
-        "url": "https://www.purplle.com/faces"
+        "url": "https://www.purplle.com/faces?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 899,
-        "url": "https://www.myntra.com/faces"
+        "url": "https://www.myntra.com/faces?affid=beautynomy"
       }
     ]
   },
@@ -2586,27 +2587,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 4200,
-        "url": "https://www.nykaa.com/charlotte-tilbury"
+        "url": "https://www.nykaa.com/charlotte-tilbury?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3950,
-        "url": "https://www.amazon.in/Charlotte-Tilbury"
+        "url": "https://www.amazon.in/Charlotte-Tilbury?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 4100,
-        "url": "https://www.flipkart.com/charlotte"
+        "url": "https://www.flipkart.com/charlotte?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 4175,
-        "url": "https://www.purplle.com/charlotte"
+        "url": "https://www.purplle.com/charlotte?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 4200,
-        "url": "https://www.myntra.com/charlotte"
+        "url": "https://www.myntra.com/charlotte?affid=beautynomy"
       }
     ]
   },
@@ -2623,27 +2624,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 4300,
-        "url": "https://www.nykaa.com/bobbi-brown"
+        "url": "https://www.nykaa.com/bobbi-brown?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 4050,
-        "url": "https://www.amazon.in/Bobbi-Brown"
+        "url": "https://www.amazon.in/Bobbi-Brown?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 4200,
-        "url": "https://www.flipkart.com/bobbi"
+        "url": "https://www.flipkart.com/bobbi?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 4275,
-        "url": "https://www.purplle.com/bobbi"
+        "url": "https://www.purplle.com/bobbi?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 4300,
-        "url": "https://www.myntra.com/bobbi"
+        "url": "https://www.myntra.com/bobbi?affid=beautynomy"
       }
     ]
   },
@@ -2660,27 +2661,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/insight-foundation"
+        "url": "https://www.nykaa.com/insight-foundation?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Insight-Foundation"
+        "url": "https://www.amazon.in/Insight-Foundation?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/insight"
+        "url": "https://www.flipkart.com/insight?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/insight"
+        "url": "https://www.purplle.com/insight?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/insight"
+        "url": "https://www.myntra.com/insight?affid=beautynomy"
       }
     ]
   },
@@ -2698,27 +2699,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2600,
-        "url": "https://www.nykaa.com/nars-concealer"
+        "url": "https://www.nykaa.com/nars-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2450,
-        "url": "https://www.amazon.in/NARS-Concealer"
+        "url": "https://www.amazon.in/NARS-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2550,
-        "url": "https://www.flipkart.com/nars"
+        "url": "https://www.flipkart.com/nars?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2580,
-        "url": "https://www.purplle.com/nars"
+        "url": "https://www.purplle.com/nars?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2600,
-        "url": "https://www.myntra.com/nars"
+        "url": "https://www.myntra.com/nars?affid=beautynomy"
       }
     ]
   },
@@ -2735,27 +2736,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1900,
-        "url": "https://www.nykaa.com/mac-concealer"
+        "url": "https://www.nykaa.com/mac-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1750,
-        "url": "https://www.amazon.in/MAC-Concealer"
+        "url": "https://www.amazon.in/MAC-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1850,
-        "url": "https://www.flipkart.com/mac-concealer"
+        "url": "https://www.flipkart.com/mac-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1875,
-        "url": "https://www.purplle.com/mac-concealer"
+        "url": "https://www.purplle.com/mac-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1900,
-        "url": "https://www.myntra.com/mac-concealer"
+        "url": "https://www.myntra.com/mac-concealer?affid=beautynomy"
       }
     ]
   },
@@ -2772,27 +2773,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 550,
-        "url": "https://www.nykaa.com/colorbar-concealer"
+        "url": "https://www.nykaa.com/colorbar-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 495,
-        "url": "https://www.amazon.in/Colorbar-Concealer"
+        "url": "https://www.amazon.in/Colorbar-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/colorbar-concealer"
+        "url": "https://www.flipkart.com/colorbar-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/colorbar-concealer"
+        "url": "https://www.purplle.com/colorbar-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 550,
-        "url": "https://www.myntra.com/colorbar-concealer"
+        "url": "https://www.myntra.com/colorbar-concealer?affid=beautynomy"
       }
     ]
   },
@@ -2809,27 +2810,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/revlon-concealer"
+        "url": "https://www.nykaa.com/revlon-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 599,
-        "url": "https://www.amazon.in/Revlon-Concealer"
+        "url": "https://www.amazon.in/Revlon-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 650,
-        "url": "https://www.flipkart.com/revlon-concealer"
+        "url": "https://www.flipkart.com/revlon-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 675,
-        "url": "https://www.purplle.com/revlon-concealer"
+        "url": "https://www.purplle.com/revlon-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/revlon-concealer"
+        "url": "https://www.myntra.com/revlon-concealer?affid=beautynomy"
       }
     ]
   },
@@ -2846,27 +2847,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/maybelline-concealer"
+        "url": "https://www.nykaa.com/maybelline-concealer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Maybelline-Concealer"
+        "url": "https://www.amazon.in/Maybelline-Concealer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/maybelline-concealer"
+        "url": "https://www.flipkart.com/maybelline-concealer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/maybelline-concealer"
+        "url": "https://www.purplle.com/maybelline-concealer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/maybelline-concealer"
+        "url": "https://www.myntra.com/maybelline-concealer?affid=beautynomy"
       }
     ]
   },
@@ -2884,27 +2885,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2900,
-        "url": "https://www.nykaa.com/benefit-primer"
+        "url": "https://www.nykaa.com/benefit-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2750,
-        "url": "https://www.amazon.in/Benefit-Primer"
+        "url": "https://www.amazon.in/Benefit-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2850,
-        "url": "https://www.flipkart.com/benefit"
+        "url": "https://www.flipkart.com/benefit?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2875,
-        "url": "https://www.purplle.com/benefit"
+        "url": "https://www.purplle.com/benefit?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2900,
-        "url": "https://www.myntra.com/benefit"
+        "url": "https://www.myntra.com/benefit?affid=beautynomy"
       }
     ]
   },
@@ -2921,27 +2922,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 550,
-        "url": "https://www.nykaa.com/lakme-primer"
+        "url": "https://www.nykaa.com/lakme-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Lakme-Primer"
+        "url": "https://www.amazon.in/Lakme-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/lakme-primer"
+        "url": "https://www.flipkart.com/lakme-primer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/lakme-primer"
+        "url": "https://www.purplle.com/lakme-primer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 550,
-        "url": "https://www.myntra.com/lakme-primer"
+        "url": "https://www.myntra.com/lakme-primer?affid=beautynomy"
       }
     ]
   },
@@ -2958,27 +2959,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2800,
-        "url": "https://www.nykaa.com/smashbox-primer"
+        "url": "https://www.nykaa.com/smashbox-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2650,
-        "url": "https://www.amazon.in/Smashbox-Primer"
+        "url": "https://www.amazon.in/Smashbox-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2750,
-        "url": "https://www.flipkart.com/smashbox"
+        "url": "https://www.flipkart.com/smashbox?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2775,
-        "url": "https://www.purplle.com/smashbox"
+        "url": "https://www.purplle.com/smashbox?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2800,
-        "url": "https://www.myntra.com/smashbox"
+        "url": "https://www.myntra.com/smashbox?affid=beautynomy"
       }
     ]
   },
@@ -2995,27 +2996,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 850,
-        "url": "https://www.nykaa.com/nyx-primer"
+        "url": "https://www.nykaa.com/nyx-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 750,
-        "url": "https://www.amazon.in/NYX-Primer"
+        "url": "https://www.amazon.in/NYX-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 825,
-        "url": "https://www.flipkart.com/nyx-primer"
+        "url": "https://www.flipkart.com/nyx-primer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 840,
-        "url": "https://www.purplle.com/nyx-primer"
+        "url": "https://www.purplle.com/nyx-primer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 850,
-        "url": "https://www.myntra.com/nyx-primer"
+        "url": "https://www.myntra.com/nyx-primer?affid=beautynomy"
       }
     ]
   },
@@ -3032,27 +3033,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/faces-primer"
+        "url": "https://www.nykaa.com/faces-primer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 625,
-        "url": "https://www.amazon.in/Faces-Primer"
+        "url": "https://www.amazon.in/Faces-Primer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/faces-primer"
+        "url": "https://www.flipkart.com/faces-primer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/faces-primer"
+        "url": "https://www.purplle.com/faces-primer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/faces-primer"
+        "url": "https://www.myntra.com/faces-primer?affid=beautynomy"
       }
     ]
   },
@@ -3070,27 +3071,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3400,
-        "url": "https://www.nykaa.com/laura-mercier-powder"
+        "url": "https://www.nykaa.com/laura-mercier-powder?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3200,
-        "url": "https://www.amazon.in/Laura-Mercier-Powder"
+        "url": "https://www.amazon.in/Laura-Mercier-Powder?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3300,
-        "url": "https://www.flipkart.com/laura-mercier"
+        "url": "https://www.flipkart.com/laura-mercier?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3375,
-        "url": "https://www.purplle.com/laura-mercier"
+        "url": "https://www.purplle.com/laura-mercier?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3400,
-        "url": "https://www.myntra.com/laura-mercier"
+        "url": "https://www.myntra.com/laura-mercier?affid=beautynomy"
       }
     ]
   },
@@ -3107,27 +3108,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2800,
-        "url": "https://www.nykaa.com/huda-powder"
+        "url": "https://www.nykaa.com/huda-powder?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2650,
-        "url": "https://www.amazon.in/Huda-Powder"
+        "url": "https://www.amazon.in/Huda-Powder?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2750,
-        "url": "https://www.flipkart.com/huda"
+        "url": "https://www.flipkart.com/huda?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2775,
-        "url": "https://www.purplle.com/huda"
+        "url": "https://www.purplle.com/huda?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2800,
-        "url": "https://www.myntra.com/huda"
+        "url": "https://www.myntra.com/huda?affid=beautynomy"
       }
     ]
   },
@@ -3144,27 +3145,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/maybelline-powder"
+        "url": "https://www.nykaa.com/maybelline-powder?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Maybelline-Powder"
+        "url": "https://www.amazon.in/Maybelline-Powder?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/maybelline-powder"
+        "url": "https://www.flipkart.com/maybelline-powder?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/maybelline-powder"
+        "url": "https://www.purplle.com/maybelline-powder?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/maybelline-powder"
+        "url": "https://www.myntra.com/maybelline-powder?affid=beautynomy"
       }
     ]
   },
@@ -3181,27 +3182,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 549,
-        "url": "https://www.nykaa.com/sugar-spray"
+        "url": "https://www.nykaa.com/sugar-spray?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 499,
-        "url": "https://www.amazon.in/SUGAR-Spray"
+        "url": "https://www.amazon.in/SUGAR-Spray?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/sugar-spray"
+        "url": "https://www.flipkart.com/sugar-spray?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/sugar-spray"
+        "url": "https://www.purplle.com/sugar-spray?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 549,
-        "url": "https://www.myntra.com/sugar-spray"
+        "url": "https://www.myntra.com/sugar-spray?affid=beautynomy"
       }
     ]
   },
@@ -3218,27 +3219,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 125,
-        "url": "https://www.nykaa.com/blue-heaven-powder"
+        "url": "https://www.nykaa.com/blue-heaven-powder?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 99,
-        "url": "https://www.amazon.in/Blue-Heaven-Powder"
+        "url": "https://www.amazon.in/Blue-Heaven-Powder?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 110,
-        "url": "https://www.flipkart.com/blue-heaven"
+        "url": "https://www.flipkart.com/blue-heaven?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 120,
-        "url": "https://www.purplle.com/blue-heaven"
+        "url": "https://www.purplle.com/blue-heaven?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 125,
-        "url": "https://www.myntra.com/blue-heaven"
+        "url": "https://www.myntra.com/blue-heaven?affid=beautynomy"
       }
     ]
   },
@@ -3256,27 +3257,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 4200,
-        "url": "https://www.nykaa.com/urban-decay-palette"
+        "url": "https://www.nykaa.com/urban-decay-palette?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3950,
-        "url": "https://www.amazon.in/Urban-Decay-Palette"
+        "url": "https://www.amazon.in/Urban-Decay-Palette?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 4100,
-        "url": "https://www.flipkart.com/urban-decay"
+        "url": "https://www.flipkart.com/urban-decay?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 4175,
-        "url": "https://www.purplle.com/urban-decay"
+        "url": "https://www.purplle.com/urban-decay?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 4200,
-        "url": "https://www.myntra.com/urban-decay"
+        "url": "https://www.myntra.com/urban-decay?affid=beautynomy"
       }
     ]
   },
@@ -3293,27 +3294,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 999,
-        "url": "https://www.nykaa.com/maybelline-eyeshadow"
+        "url": "https://www.nykaa.com/maybelline-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 875,
-        "url": "https://www.amazon.in/Maybelline-Eyeshadow"
+        "url": "https://www.amazon.in/Maybelline-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 950,
-        "url": "https://www.flipkart.com/maybelline-eyeshadow"
+        "url": "https://www.flipkart.com/maybelline-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 975,
-        "url": "https://www.purplle.com/maybelline-eyeshadow"
+        "url": "https://www.purplle.com/maybelline-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 999,
-        "url": "https://www.myntra.com/maybelline-eyeshadow"
+        "url": "https://www.myntra.com/maybelline-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -3330,27 +3331,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/lakme-eyeshadow"
+        "url": "https://www.nykaa.com/lakme-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 375,
-        "url": "https://www.amazon.in/Lakme-Eyeshadow"
+        "url": "https://www.amazon.in/Lakme-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 400,
-        "url": "https://www.flipkart.com/lakme-eyeshadow"
+        "url": "https://www.flipkart.com/lakme-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/lakme-eyeshadow"
+        "url": "https://www.purplle.com/lakme-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/lakme-eyeshadow"
+        "url": "https://www.myntra.com/lakme-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -3368,27 +3369,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 5400,
-        "url": "https://www.nykaa.com/huda-eyeshadow"
+        "url": "https://www.nykaa.com/huda-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 5100,
-        "url": "https://www.amazon.in/Huda-Eyeshadow"
+        "url": "https://www.amazon.in/Huda-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 5250,
-        "url": "https://www.flipkart.com/huda-eyeshadow"
+        "url": "https://www.flipkart.com/huda-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 5375,
-        "url": "https://www.purplle.com/huda-eyeshadow"
+        "url": "https://www.purplle.com/huda-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 5400,
-        "url": "https://www.myntra.com/huda-eyeshadow"
+        "url": "https://www.myntra.com/huda-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -3405,27 +3406,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 799,
-        "url": "https://www.nykaa.com/colorbar-eyeshadow"
+        "url": "https://www.nykaa.com/colorbar-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 699,
-        "url": "https://www.amazon.in/Colorbar-Eyeshadow"
+        "url": "https://www.amazon.in/Colorbar-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 750,
-        "url": "https://www.flipkart.com/colorbar-eyeshadow"
+        "url": "https://www.flipkart.com/colorbar-eyeshadow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 775,
-        "url": "https://www.purplle.com/colorbar-eyeshadow"
+        "url": "https://www.purplle.com/colorbar-eyeshadow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 799,
-        "url": "https://www.myntra.com/colorbar-eyeshadow"
+        "url": "https://www.myntra.com/colorbar-eyeshadow?affid=beautynomy"
       }
     ]
   },
@@ -3442,27 +3443,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3900,
-        "url": "https://www.nykaa.com/abh-eyeshadow"
+        "url": "https://www.nykaa.com/abh-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3650,
-        "url": "https://www.amazon.in/ABH-Eyeshadow"
+        "url": "https://www.amazon.in/ABH-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3800,
-        "url": "https://www.flipkart.com/abh"
+        "url": "https://www.flipkart.com/abh?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3875,
-        "url": "https://www.purplle.com/abh"
+        "url": "https://www.purplle.com/abh?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3900,
-        "url": "https://www.myntra.com/abh"
+        "url": "https://www.myntra.com/abh?affid=beautynomy"
       }
     ]
   },
@@ -3479,27 +3480,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3600,
-        "url": "https://www.nykaa.com/toofaced-eyeshadow"
+        "url": "https://www.nykaa.com/toofaced-eyeshadow?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3400,
-        "url": "https://www.amazon.in/TooFaced-Eyeshadow"
+        "url": "https://www.amazon.in/TooFaced-Eyeshadow?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3500,
-        "url": "https://www.flipkart.com/toofaced"
+        "url": "https://www.flipkart.com/toofaced?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3575,
-        "url": "https://www.purplle.com/toofaced"
+        "url": "https://www.purplle.com/toofaced?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3600,
-        "url": "https://www.myntra.com/toofaced"
+        "url": "https://www.myntra.com/toofaced?affid=beautynomy"
       }
     ]
   },
@@ -3517,27 +3518,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2600,
-        "url": "https://www.nykaa.com/benefit-mascara"
+        "url": "https://www.nykaa.com/benefit-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2450,
-        "url": "https://www.amazon.in/Benefit-Mascara"
+        "url": "https://www.amazon.in/Benefit-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2550,
-        "url": "https://www.flipkart.com/benefit-mascara"
+        "url": "https://www.flipkart.com/benefit-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2575,
-        "url": "https://www.purplle.com/benefit-mascara"
+        "url": "https://www.purplle.com/benefit-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2600,
-        "url": "https://www.myntra.com/benefit-mascara"
+        "url": "https://www.myntra.com/benefit-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3554,27 +3555,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2200,
-        "url": "https://www.nykaa.com/toofaced-mascara"
+        "url": "https://www.nykaa.com/toofaced-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1999,
-        "url": "https://www.amazon.in/TooFaced-Mascara"
+        "url": "https://www.amazon.in/TooFaced-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2100,
-        "url": "https://www.flipkart.com/toofaced-mascara"
+        "url": "https://www.flipkart.com/toofaced-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2175,
-        "url": "https://www.purplle.com/toofaced-mascara"
+        "url": "https://www.purplle.com/toofaced-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2200,
-        "url": "https://www.myntra.com/toofaced-mascara"
+        "url": "https://www.myntra.com/toofaced-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3591,27 +3592,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 899,
-        "url": "https://www.nykaa.com/loreal-mascara"
+        "url": "https://www.nykaa.com/loreal-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 799,
-        "url": "https://www.amazon.in/Loreal-Mascara"
+        "url": "https://www.amazon.in/Loreal-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 850,
-        "url": "https://www.flipkart.com/loreal-mascara"
+        "url": "https://www.flipkart.com/loreal-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 875,
-        "url": "https://www.purplle.com/loreal-mascara"
+        "url": "https://www.purplle.com/loreal-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 899,
-        "url": "https://www.myntra.com/loreal-mascara"
+        "url": "https://www.myntra.com/loreal-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3628,27 +3629,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1800,
-        "url": "https://www.nykaa.com/mac-mascara"
+        "url": "https://www.nykaa.com/mac-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1650,
-        "url": "https://www.amazon.in/MAC-Mascara"
+        "url": "https://www.amazon.in/MAC-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1750,
-        "url": "https://www.flipkart.com/mac-mascara"
+        "url": "https://www.flipkart.com/mac-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1775,
-        "url": "https://www.purplle.com/mac-mascara"
+        "url": "https://www.purplle.com/mac-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1800,
-        "url": "https://www.myntra.com/mac-mascara"
+        "url": "https://www.myntra.com/mac-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3665,27 +3666,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 525,
-        "url": "https://www.nykaa.com/lakme-mascara"
+        "url": "https://www.nykaa.com/lakme-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 450,
-        "url": "https://www.amazon.in/Lakme-Mascara"
+        "url": "https://www.amazon.in/Lakme-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 500,
-        "url": "https://www.flipkart.com/lakme-mascara"
+        "url": "https://www.flipkart.com/lakme-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 515,
-        "url": "https://www.purplle.com/lakme-mascara"
+        "url": "https://www.purplle.com/lakme-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 525,
-        "url": "https://www.myntra.com/lakme-mascara"
+        "url": "https://www.myntra.com/lakme-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3702,27 +3703,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/sugar-mascara"
+        "url": "https://www.nykaa.com/sugar-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/SUGAR-Mascara"
+        "url": "https://www.amazon.in/SUGAR-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/sugar-mascara"
+        "url": "https://www.flipkart.com/sugar-mascara?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/sugar-mascara"
+        "url": "https://www.purplle.com/sugar-mascara?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/sugar-mascara"
+        "url": "https://www.myntra.com/sugar-mascara?affid=beautynomy"
       }
     ]
   },
@@ -3740,27 +3741,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3200,
-        "url": "https://www.nykaa.com/dior-mascara"
+        "url": "https://www.nykaa.com/dior-mascara?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2999,
-        "url": "https://www.amazon.in/Dior-Mascara"
+        "url": "https://www.amazon.in/Dior-Mascara?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3100,
-        "url": "https://www.flipkart.com/dior"
+        "url": "https://www.flipkart.com/dior?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3175,
-        "url": "https://www.purplle.com/dior"
+        "url": "https://www.purplle.com/dior?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3200,
-        "url": "https://www.myntra.com/dior"
+        "url": "https://www.myntra.com/dior?affid=beautynomy"
       }
     ]
   },
@@ -3777,27 +3778,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 250,
-        "url": "https://www.nykaa.com/lakme-kajal"
+        "url": "https://www.nykaa.com/lakme-kajal?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 199,
-        "url": "https://www.amazon.in/Lakme-Kajal"
+        "url": "https://www.amazon.in/Lakme-Kajal?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 225,
-        "url": "https://www.flipkart.com/lakme-kajal"
+        "url": "https://www.flipkart.com/lakme-kajal?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 240,
-        "url": "https://www.purplle.com/lakme-kajal"
+        "url": "https://www.purplle.com/lakme-kajal?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 250,
-        "url": "https://www.myntra.com/lakme-kajal"
+        "url": "https://www.myntra.com/lakme-kajal?affid=beautynomy"
       }
     ]
   },
@@ -3814,27 +3815,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 225,
-        "url": "https://www.nykaa.com/maybelline-kajal"
+        "url": "https://www.nykaa.com/maybelline-kajal?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 175,
-        "url": "https://www.amazon.in/Maybelline-Kajal"
+        "url": "https://www.amazon.in/Maybelline-Kajal?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 200,
-        "url": "https://www.flipkart.com/maybelline-kajal"
+        "url": "https://www.flipkart.com/maybelline-kajal?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 215,
-        "url": "https://www.purplle.com/maybelline-kajal"
+        "url": "https://www.purplle.com/maybelline-kajal?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 225,
-        "url": "https://www.myntra.com/maybelline-kajal"
+        "url": "https://www.myntra.com/maybelline-kajal?affid=beautynomy"
       }
     ]
   },
@@ -3851,27 +3852,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 750,
-        "url": "https://www.nykaa.com/nyx-eyeliner"
+        "url": "https://www.nykaa.com/nyx-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 650,
-        "url": "https://www.amazon.in/NYX-Eyeliner"
+        "url": "https://www.amazon.in/NYX-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 700,
-        "url": "https://www.flipkart.com/nyx-eyeliner"
+        "url": "https://www.flipkart.com/nyx-eyeliner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 725,
-        "url": "https://www.purplle.com/nyx-eyeliner"
+        "url": "https://www.purplle.com/nyx-eyeliner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 750,
-        "url": "https://www.myntra.com/nyx-eyeliner"
+        "url": "https://www.myntra.com/nyx-eyeliner?affid=beautynomy"
       }
     ]
   },
@@ -3888,27 +3889,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1950,
-        "url": "https://www.nykaa.com/stila-eyeliner"
+        "url": "https://www.nykaa.com/stila-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1799,
-        "url": "https://www.amazon.in/Stila-Eyeliner"
+        "url": "https://www.amazon.in/Stila-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1875,
-        "url": "https://www.flipkart.com/stila"
+        "url": "https://www.flipkart.com/stila?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1925,
-        "url": "https://www.purplle.com/stila"
+        "url": "https://www.purplle.com/stila?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1950,
-        "url": "https://www.myntra.com/stila"
+        "url": "https://www.myntra.com/stila?affid=beautynomy"
       }
     ]
   },
@@ -3925,27 +3926,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/sugar-kajal"
+        "url": "https://www.nykaa.com/sugar-kajal?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/SUGAR-Kajal"
+        "url": "https://www.amazon.in/SUGAR-Kajal?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/sugar-kajal"
+        "url": "https://www.flipkart.com/sugar-kajal?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/sugar-kajal"
+        "url": "https://www.purplle.com/sugar-kajal?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/sugar-kajal"
+        "url": "https://www.myntra.com/sugar-kajal?affid=beautynomy"
       }
     ]
   },
@@ -3962,27 +3963,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1750,
-        "url": "https://www.nykaa.com/mac-eyeliner"
+        "url": "https://www.nykaa.com/mac-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1599,
-        "url": "https://www.amazon.in/MAC-Eyeliner"
+        "url": "https://www.amazon.in/MAC-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1675,
-        "url": "https://www.flipkart.com/mac-eyeliner"
+        "url": "https://www.flipkart.com/mac-eyeliner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1725,
-        "url": "https://www.purplle.com/mac-eyeliner"
+        "url": "https://www.purplle.com/mac-eyeliner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1750,
-        "url": "https://www.myntra.com/mac-eyeliner"
+        "url": "https://www.myntra.com/mac-eyeliner?affid=beautynomy"
       }
     ]
   },
@@ -3999,27 +4000,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/colorbar-eyeliner"
+        "url": "https://www.nykaa.com/colorbar-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Colorbar-Eyeliner"
+        "url": "https://www.amazon.in/Colorbar-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/colorbar-eyeliner"
+        "url": "https://www.flipkart.com/colorbar-eyeliner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/colorbar-eyeliner"
+        "url": "https://www.purplle.com/colorbar-eyeliner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/colorbar-eyeliner"
+        "url": "https://www.myntra.com/colorbar-eyeliner?affid=beautynomy"
       }
     ]
   },
@@ -4036,27 +4037,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/loreal-eyeliner"
+        "url": "https://www.nykaa.com/loreal-eyeliner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Loreal-Eyeliner"
+        "url": "https://www.amazon.in/Loreal-Eyeliner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/loreal-eyeliner"
+        "url": "https://www.flipkart.com/loreal-eyeliner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/loreal-eyeliner"
+        "url": "https://www.purplle.com/loreal-eyeliner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/loreal-eyeliner"
+        "url": "https://www.myntra.com/loreal-eyeliner?affid=beautynomy"
       }
     ]
   },
@@ -4073,27 +4074,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 99,
-        "url": "https://www.nykaa.com/blueheaven-kajal"
+        "url": "https://www.nykaa.com/blueheaven-kajal?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 75,
-        "url": "https://www.amazon.in/BlueHeaven-Kajal"
+        "url": "https://www.amazon.in/BlueHeaven-Kajal?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 85,
-        "url": "https://www.flipkart.com/blueheaven-kajal"
+        "url": "https://www.flipkart.com/blueheaven-kajal?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 95,
-        "url": "https://www.purplle.com/blueheaven-kajal"
+        "url": "https://www.purplle.com/blueheaven-kajal?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 99,
-        "url": "https://www.myntra.com/blueheaven-kajal"
+        "url": "https://www.myntra.com/blueheaven-kajal?affid=beautynomy"
       }
     ]
   },
@@ -4111,27 +4112,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2800,
-        "url": "https://www.nykaa.com/charlotte-lipstick"
+        "url": "https://www.nykaa.com/charlotte-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2650,
-        "url": "https://www.amazon.in/Charlotte-Lipstick"
+        "url": "https://www.amazon.in/Charlotte-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2750,
-        "url": "https://www.flipkart.com/charlotte-lipstick"
+        "url": "https://www.flipkart.com/charlotte-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2775,
-        "url": "https://www.purplle.com/charlotte-lipstick"
+        "url": "https://www.purplle.com/charlotte-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2800,
-        "url": "https://www.myntra.com/charlotte-lipstick"
+        "url": "https://www.myntra.com/charlotte-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4148,27 +4149,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/lakme-lipstick"
+        "url": "https://www.nykaa.com/lakme-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 425,
-        "url": "https://www.amazon.in/Lakme-Lipstick"
+        "url": "https://www.amazon.in/Lakme-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/lakme-lipstick"
+        "url": "https://www.flipkart.com/lakme-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 490,
-        "url": "https://www.purplle.com/lakme-lipstick"
+        "url": "https://www.purplle.com/lakme-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/lakme-lipstick"
+        "url": "https://www.myntra.com/lakme-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4185,27 +4186,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 650,
-        "url": "https://www.nykaa.com/nyx-lipstick"
+        "url": "https://www.nykaa.com/nyx-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 575,
-        "url": "https://www.amazon.in/NYX-Lipstick"
+        "url": "https://www.amazon.in/NYX-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/nyx-lipstick"
+        "url": "https://www.flipkart.com/nyx-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/nyx-lipstick"
+        "url": "https://www.purplle.com/nyx-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 650,
-        "url": "https://www.myntra.com/nyx-lipstick"
+        "url": "https://www.myntra.com/nyx-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4222,27 +4223,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/colorbar-lipstick"
+        "url": "https://www.nykaa.com/colorbar-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 625,
-        "url": "https://www.amazon.in/Colorbar-Lipstick"
+        "url": "https://www.amazon.in/Colorbar-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/colorbar-lipstick"
+        "url": "https://www.flipkart.com/colorbar-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/colorbar-lipstick"
+        "url": "https://www.purplle.com/colorbar-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/colorbar-lipstick"
+        "url": "https://www.myntra.com/colorbar-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4260,27 +4261,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3500,
-        "url": "https://www.nykaa.com/dior-lipstick"
+        "url": "https://www.nykaa.com/dior-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3299,
-        "url": "https://www.amazon.in/Dior-Lipstick"
+        "url": "https://www.amazon.in/Dior-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3400,
-        "url": "https://www.flipkart.com/dior-lipstick"
+        "url": "https://www.flipkart.com/dior-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3475,
-        "url": "https://www.purplle.com/dior-lipstick"
+        "url": "https://www.purplle.com/dior-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3500,
-        "url": "https://www.myntra.com/dior-lipstick"
+        "url": "https://www.myntra.com/dior-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4297,27 +4298,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/maybelline-lipstick"
+        "url": "https://www.nykaa.com/maybelline-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Maybelline-Lipstick"
+        "url": "https://www.amazon.in/Maybelline-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/maybelline-lipstick"
+        "url": "https://www.flipkart.com/maybelline-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/maybelline-lipstick"
+        "url": "https://www.purplle.com/maybelline-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/maybelline-lipstick"
+        "url": "https://www.myntra.com/maybelline-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4334,27 +4335,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/sugar-lipstick"
+        "url": "https://www.nykaa.com/sugar-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/SUGAR-Lipstick"
+        "url": "https://www.amazon.in/SUGAR-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/sugar-lipstick"
+        "url": "https://www.flipkart.com/sugar-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/sugar-lipstick"
+        "url": "https://www.purplle.com/sugar-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/sugar-lipstick"
+        "url": "https://www.myntra.com/sugar-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4371,27 +4372,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 749,
-        "url": "https://www.nykaa.com/loreal-lipstick"
+        "url": "https://www.nykaa.com/loreal-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 650,
-        "url": "https://www.amazon.in/Loreal-Lipstick"
+        "url": "https://www.amazon.in/Loreal-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/loreal-lipstick"
+        "url": "https://www.flipkart.com/loreal-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/loreal-lipstick"
+        "url": "https://www.purplle.com/loreal-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 749,
-        "url": "https://www.myntra.com/loreal-lipstick"
+        "url": "https://www.myntra.com/loreal-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4408,27 +4409,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 650,
-        "url": "https://www.nykaa.com/revlon-lipstick"
+        "url": "https://www.nykaa.com/revlon-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 575,
-        "url": "https://www.amazon.in/Revlon-Lipstick"
+        "url": "https://www.amazon.in/Revlon-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/revlon-lipstick"
+        "url": "https://www.flipkart.com/revlon-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/revlon-lipstick"
+        "url": "https://www.purplle.com/revlon-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 650,
-        "url": "https://www.myntra.com/revlon-lipstick"
+        "url": "https://www.myntra.com/revlon-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4445,27 +4446,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1800,
-        "url": "https://www.nykaa.com/huda-lipstick"
+        "url": "https://www.nykaa.com/huda-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1650,
-        "url": "https://www.amazon.in/Huda-Lipstick"
+        "url": "https://www.amazon.in/Huda-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1750,
-        "url": "https://www.flipkart.com/huda-lipstick"
+        "url": "https://www.flipkart.com/huda-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1775,
-        "url": "https://www.purplle.com/huda-lipstick"
+        "url": "https://www.purplle.com/huda-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1800,
-        "url": "https://www.myntra.com/huda-lipstick"
+        "url": "https://www.myntra.com/huda-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4482,27 +4483,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 549,
-        "url": "https://www.nykaa.com/faces-lipstick"
+        "url": "https://www.nykaa.com/faces-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Faces-Lipstick"
+        "url": "https://www.amazon.in/Faces-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/faces-lipstick"
+        "url": "https://www.flipkart.com/faces-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/faces-lipstick"
+        "url": "https://www.purplle.com/faces-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 549,
-        "url": "https://www.myntra.com/faces-lipstick"
+        "url": "https://www.myntra.com/faces-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4519,27 +4520,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 149,
-        "url": "https://www.nykaa.com/blueheaven-lipstick"
+        "url": "https://www.nykaa.com/blueheaven-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 99,
-        "url": "https://www.amazon.in/BlueHeaven-Lipstick"
+        "url": "https://www.amazon.in/BlueHeaven-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 125,
-        "url": "https://www.flipkart.com/blueheaven-lipstick"
+        "url": "https://www.flipkart.com/blueheaven-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 140,
-        "url": "https://www.purplle.com/blueheaven-lipstick"
+        "url": "https://www.purplle.com/blueheaven-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 149,
-        "url": "https://www.myntra.com/blueheaven-lipstick"
+        "url": "https://www.myntra.com/blueheaven-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4556,27 +4557,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/nykaa-lipstick"
+        "url": "https://www.nykaa.com/nykaa-lipstick?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Nykaa-Lipstick"
+        "url": "https://www.amazon.in/Nykaa-Lipstick?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/nykaa-lipstick"
+        "url": "https://www.flipkart.com/nykaa-lipstick?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/nykaa-lipstick"
+        "url": "https://www.purplle.com/nykaa-lipstick?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/nykaa-lipstick"
+        "url": "https://www.myntra.com/nykaa-lipstick?affid=beautynomy"
       }
     ]
   },
@@ -4594,27 +4595,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2000,
-        "url": "https://www.nykaa.com/fenty-lipgloss"
+        "url": "https://www.nykaa.com/fenty-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1850,
-        "url": "https://www.amazon.in/Fenty-LipGloss"
+        "url": "https://www.amazon.in/Fenty-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1950,
-        "url": "https://www.flipkart.com/fenty"
+        "url": "https://www.flipkart.com/fenty?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1975,
-        "url": "https://www.purplle.com/fenty"
+        "url": "https://www.purplle.com/fenty?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2000,
-        "url": "https://www.myntra.com/fenty"
+        "url": "https://www.myntra.com/fenty?affid=beautynomy"
       }
     ]
   },
@@ -4631,27 +4632,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 550,
-        "url": "https://www.nykaa.com/nyx-lipgloss"
+        "url": "https://www.nykaa.com/nyx-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/NYX-LipGloss"
+        "url": "https://www.amazon.in/NYX-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/nyx-lipgloss"
+        "url": "https://www.flipkart.com/nyx-lipgloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/nyx-lipgloss"
+        "url": "https://www.purplle.com/nyx-lipgloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 550,
-        "url": "https://www.myntra.com/nyx-lipgloss"
+        "url": "https://www.myntra.com/nyx-lipgloss?affid=beautynomy"
       }
     ]
   },
@@ -4668,27 +4669,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/maybelline-lipgloss"
+        "url": "https://www.nykaa.com/maybelline-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Maybelline-LipGloss"
+        "url": "https://www.amazon.in/Maybelline-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/maybelline-lipgloss"
+        "url": "https://www.flipkart.com/maybelline-lipgloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/maybelline-lipgloss"
+        "url": "https://www.purplle.com/maybelline-lipgloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/maybelline-lipgloss"
+        "url": "https://www.myntra.com/maybelline-lipgloss?affid=beautynomy"
       }
     ]
   },
@@ -4705,27 +4706,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/lakme-lipgloss"
+        "url": "https://www.nykaa.com/lakme-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 375,
-        "url": "https://www.amazon.in/Lakme-LipGloss"
+        "url": "https://www.amazon.in/Lakme-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 400,
-        "url": "https://www.flipkart.com/lakme-lipgloss"
+        "url": "https://www.flipkart.com/lakme-lipgloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/lakme-lipgloss"
+        "url": "https://www.purplle.com/lakme-lipgloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/lakme-lipgloss"
+        "url": "https://www.myntra.com/lakme-lipgloss?affid=beautynomy"
       }
     ]
   },
@@ -4742,27 +4743,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/sugar-lipgloss"
+        "url": "https://www.nykaa.com/sugar-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/SUGAR-LipGloss"
+        "url": "https://www.amazon.in/SUGAR-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/sugar-lipgloss"
+        "url": "https://www.flipkart.com/sugar-lipgloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/sugar-lipgloss"
+        "url": "https://www.purplle.com/sugar-lipgloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/sugar-lipgloss"
+        "url": "https://www.myntra.com/sugar-lipgloss?affid=beautynomy"
       }
     ]
   },
@@ -4779,27 +4780,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1650,
-        "url": "https://www.nykaa.com/mac-lipgloss"
+        "url": "https://www.nykaa.com/mac-lipgloss?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1499,
-        "url": "https://www.amazon.in/MAC-LipGloss"
+        "url": "https://www.amazon.in/MAC-LipGloss?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1575,
-        "url": "https://www.flipkart.com/mac-lipgloss"
+        "url": "https://www.flipkart.com/mac-lipgloss?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1625,
-        "url": "https://www.purplle.com/mac-lipgloss"
+        "url": "https://www.purplle.com/mac-lipgloss?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1650,
-        "url": "https://www.myntra.com/mac-lipgloss"
+        "url": "https://www.myntra.com/mac-lipgloss?affid=beautynomy"
       }
     ]
   },
@@ -4817,27 +4818,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2600,
-        "url": "https://www.nykaa.com/nars-blush"
+        "url": "https://www.nykaa.com/nars-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2450,
-        "url": "https://www.amazon.in/NARS-Blush"
+        "url": "https://www.amazon.in/NARS-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2550,
-        "url": "https://www.flipkart.com/nars-blush"
+        "url": "https://www.flipkart.com/nars-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2575,
-        "url": "https://www.purplle.com/nars-blush"
+        "url": "https://www.purplle.com/nars-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2600,
-        "url": "https://www.myntra.com/nars-blush"
+        "url": "https://www.myntra.com/nars-blush?affid=beautynomy"
       }
     ]
   },
@@ -4854,27 +4855,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 650,
-        "url": "https://www.nykaa.com/lakme-blush"
+        "url": "https://www.nykaa.com/lakme-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 575,
-        "url": "https://www.amazon.in/Lakme-Blush"
+        "url": "https://www.amazon.in/Lakme-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/lakme-blush"
+        "url": "https://www.flipkart.com/lakme-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/lakme-blush"
+        "url": "https://www.purplle.com/lakme-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 650,
-        "url": "https://www.myntra.com/lakme-blush"
+        "url": "https://www.myntra.com/lakme-blush?affid=beautynomy"
       }
     ]
   },
@@ -4891,27 +4892,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/maybelline-blush"
+        "url": "https://www.nykaa.com/maybelline-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Maybelline-Blush"
+        "url": "https://www.amazon.in/Maybelline-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/maybelline-blush"
+        "url": "https://www.flipkart.com/maybelline-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/maybelline-blush"
+        "url": "https://www.purplle.com/maybelline-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/maybelline-blush"
+        "url": "https://www.myntra.com/maybelline-blush?affid=beautynomy"
       }
     ]
   },
@@ -4928,27 +4929,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1950,
-        "url": "https://www.nykaa.com/mac-blush"
+        "url": "https://www.nykaa.com/mac-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1799,
-        "url": "https://www.amazon.in/MAC-Blush"
+        "url": "https://www.amazon.in/MAC-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1875,
-        "url": "https://www.flipkart.com/mac-blush"
+        "url": "https://www.flipkart.com/mac-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1925,
-        "url": "https://www.purplle.com/mac-blush"
+        "url": "https://www.purplle.com/mac-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1950,
-        "url": "https://www.myntra.com/mac-blush"
+        "url": "https://www.myntra.com/mac-blush?affid=beautynomy"
       }
     ]
   },
@@ -4965,27 +4966,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/sugar-blush"
+        "url": "https://www.nykaa.com/sugar-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/SUGAR-Blush"
+        "url": "https://www.amazon.in/SUGAR-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/sugar-blush"
+        "url": "https://www.flipkart.com/sugar-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/sugar-blush"
+        "url": "https://www.purplle.com/sugar-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/sugar-blush"
+        "url": "https://www.myntra.com/sugar-blush?affid=beautynomy"
       }
     ]
   },
@@ -5002,27 +5003,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/colorbar-blush"
+        "url": "https://www.nykaa.com/colorbar-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 425,
-        "url": "https://www.amazon.in/Colorbar-Blush"
+        "url": "https://www.amazon.in/Colorbar-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/colorbar-blush"
+        "url": "https://www.flipkart.com/colorbar-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 490,
-        "url": "https://www.purplle.com/colorbar-blush"
+        "url": "https://www.purplle.com/colorbar-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/colorbar-blush"
+        "url": "https://www.myntra.com/colorbar-blush?affid=beautynomy"
       }
     ]
   },
@@ -5039,27 +5040,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 125,
-        "url": "https://www.nykaa.com/blueheaven-blush"
+        "url": "https://www.nykaa.com/blueheaven-blush?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 99,
-        "url": "https://www.amazon.in/BlueHeaven-Blush"
+        "url": "https://www.amazon.in/BlueHeaven-Blush?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 110,
-        "url": "https://www.flipkart.com/blueheaven-blush"
+        "url": "https://www.flipkart.com/blueheaven-blush?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 120,
-        "url": "https://www.purplle.com/blueheaven-blush"
+        "url": "https://www.purplle.com/blueheaven-blush?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 125,
-        "url": "https://www.myntra.com/blueheaven-blush"
+        "url": "https://www.myntra.com/blueheaven-blush?affid=beautynomy"
       }
     ]
   },
@@ -5077,27 +5078,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2900,
-        "url": "https://www.nykaa.com/benefit-bronzer"
+        "url": "https://www.nykaa.com/benefit-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2750,
-        "url": "https://www.amazon.in/Benefit-Bronzer"
+        "url": "https://www.amazon.in/Benefit-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2850,
-        "url": "https://www.flipkart.com/benefit-bronzer"
+        "url": "https://www.flipkart.com/benefit-bronzer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2875,
-        "url": "https://www.purplle.com/benefit-bronzer"
+        "url": "https://www.purplle.com/benefit-bronzer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2900,
-        "url": "https://www.myntra.com/benefit-bronzer"
+        "url": "https://www.myntra.com/benefit-bronzer?affid=beautynomy"
       }
     ]
   },
@@ -5114,27 +5115,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2600,
-        "url": "https://www.nykaa.com/toofaced-bronzer"
+        "url": "https://www.nykaa.com/toofaced-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2450,
-        "url": "https://www.amazon.in/TooFaced-Bronzer"
+        "url": "https://www.amazon.in/TooFaced-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2550,
-        "url": "https://www.flipkart.com/toofaced-bronzer"
+        "url": "https://www.flipkart.com/toofaced-bronzer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2575,
-        "url": "https://www.purplle.com/toofaced-bronzer"
+        "url": "https://www.purplle.com/toofaced-bronzer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2600,
-        "url": "https://www.myntra.com/toofaced-bronzer"
+        "url": "https://www.myntra.com/toofaced-bronzer?affid=beautynomy"
       }
     ]
   },
@@ -5151,27 +5152,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 550,
-        "url": "https://www.nykaa.com/lakme-bronzer"
+        "url": "https://www.nykaa.com/lakme-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Lakme-Bronzer"
+        "url": "https://www.amazon.in/Lakme-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/lakme-bronzer"
+        "url": "https://www.flipkart.com/lakme-bronzer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/lakme-bronzer"
+        "url": "https://www.purplle.com/lakme-bronzer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 550,
-        "url": "https://www.myntra.com/lakme-bronzer"
+        "url": "https://www.myntra.com/lakme-bronzer?affid=beautynomy"
       }
     ]
   },
@@ -5188,27 +5189,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/nyx-bronzer"
+        "url": "https://www.nykaa.com/nyx-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 625,
-        "url": "https://www.amazon.in/NYX-Bronzer"
+        "url": "https://www.amazon.in/NYX-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/nyx-bronzer"
+        "url": "https://www.flipkart.com/nyx-bronzer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/nyx-bronzer"
+        "url": "https://www.purplle.com/nyx-bronzer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/nyx-bronzer"
+        "url": "https://www.myntra.com/nyx-bronzer?affid=beautynomy"
       }
     ]
   },
@@ -5225,27 +5226,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1299,
-        "url": "https://www.nykaa.com/physicians-bronzer"
+        "url": "https://www.nykaa.com/physicians-bronzer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1150,
-        "url": "https://www.amazon.in/Physicians-Bronzer"
+        "url": "https://www.amazon.in/Physicians-Bronzer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1225,
-        "url": "https://www.flipkart.com/physicians"
+        "url": "https://www.flipkart.com/physicians?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1275,
-        "url": "https://www.purplle.com/physicians"
+        "url": "https://www.purplle.com/physicians?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1299,
-        "url": "https://www.myntra.com/physicians"
+        "url": "https://www.myntra.com/physicians?affid=beautynomy"
       }
     ]
   },
@@ -5263,27 +5264,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3200,
-        "url": "https://www.nykaa.com/fenty-highlighter"
+        "url": "https://www.nykaa.com/fenty-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2999,
-        "url": "https://www.amazon.in/Fenty-Highlighter"
+        "url": "https://www.amazon.in/Fenty-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3100,
-        "url": "https://www.flipkart.com/fenty-highlighter"
+        "url": "https://www.flipkart.com/fenty-highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3175,
-        "url": "https://www.purplle.com/fenty-highlighter"
+        "url": "https://www.purplle.com/fenty-highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3200,
-        "url": "https://www.myntra.com/fenty-highlighter"
+        "url": "https://www.myntra.com/fenty-highlighter?affid=beautynomy"
       }
     ]
   },
@@ -5300,27 +5301,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2900,
-        "url": "https://www.nykaa.com/abh-highlighter"
+        "url": "https://www.nykaa.com/abh-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2750,
-        "url": "https://www.amazon.in/ABH-Highlighter"
+        "url": "https://www.amazon.in/ABH-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2850,
-        "url": "https://www.flipkart.com/abh-highlighter"
+        "url": "https://www.flipkart.com/abh-highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2875,
-        "url": "https://www.purplle.com/abh-highlighter"
+        "url": "https://www.purplle.com/abh-highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2900,
-        "url": "https://www.myntra.com/abh-highlighter"
+        "url": "https://www.myntra.com/abh-highlighter?affid=beautynomy"
       }
     ]
   },
@@ -5337,27 +5338,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 650,
-        "url": "https://www.nykaa.com/lakme-highlighter"
+        "url": "https://www.nykaa.com/lakme-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 575,
-        "url": "https://www.amazon.in/Lakme-Highlighter"
+        "url": "https://www.amazon.in/Lakme-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/lakme-highlighter"
+        "url": "https://www.flipkart.com/lakme-highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/lakme-highlighter"
+        "url": "https://www.purplle.com/lakme-highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 650,
-        "url": "https://www.myntra.com/lakme-highlighter"
+        "url": "https://www.myntra.com/lakme-highlighter?affid=beautynomy"
       }
     ]
   },
@@ -5374,27 +5375,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/sugar-highlighter"
+        "url": "https://www.nykaa.com/sugar-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/SUGAR-Highlighter"
+        "url": "https://www.amazon.in/SUGAR-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/sugar-highlighter"
+        "url": "https://www.flipkart.com/sugar-highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/sugar-highlighter"
+        "url": "https://www.purplle.com/sugar-highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/sugar-highlighter"
+        "url": "https://www.myntra.com/sugar-highlighter?affid=beautynomy"
       }
     ]
   },
@@ -5411,27 +5412,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 549,
-        "url": "https://www.nykaa.com/maybelline-highlighter"
+        "url": "https://www.nykaa.com/maybelline-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Maybelline-Highlighter"
+        "url": "https://www.amazon.in/Maybelline-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/maybelline-highlighter"
+        "url": "https://www.flipkart.com/maybelline-highlighter?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/maybelline-highlighter"
+        "url": "https://www.purplle.com/maybelline-highlighter?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 549,
-        "url": "https://www.myntra.com/maybelline-highlighter"
+        "url": "https://www.myntra.com/maybelline-highlighter?affid=beautynomy"
       }
     ]
   },
@@ -5448,27 +5449,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3400,
-        "url": "https://www.nykaa.com/becca-highlighter"
+        "url": "https://www.nykaa.com/becca-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3200,
-        "url": "https://www.amazon.in/Becca-Highlighter"
+        "url": "https://www.amazon.in/Becca-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3300,
-        "url": "https://www.flipkart.com/becca"
+        "url": "https://www.flipkart.com/becca?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3375,
-        "url": "https://www.purplle.com/becca"
+        "url": "https://www.purplle.com/becca?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3400,
-        "url": "https://www.myntra.com/becca"
+        "url": "https://www.myntra.com/becca?affid=beautynomy"
       }
     ]
   },
@@ -5485,27 +5486,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/wetnwild-highlighter"
+        "url": "https://www.nykaa.com/wetnwild-highlighter?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/WetNWild-Highlighter"
+        "url": "https://www.amazon.in/WetNWild-Highlighter?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/wetnwild"
+        "url": "https://www.flipkart.com/wetnwild?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/wetnwild"
+        "url": "https://www.purplle.com/wetnwild?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/wetnwild"
+        "url": "https://www.myntra.com/wetnwild?affid=beautynomy"
       }
     ]
   },
@@ -5522,27 +5523,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 349,
-        "url": "https://www.nykaa.com/lakme-cleanser"
+        "url": "https://www.nykaa.com/lakme-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 299,
-        "url": "https://www.amazon.in/Lakme-Cleanser"
+        "url": "https://www.amazon.in/Lakme-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 325,
-        "url": "https://www.flipkart.com/lakme-cleanser"
+        "url": "https://www.flipkart.com/lakme-cleanser?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 340,
-        "url": "https://www.purplle.com/lakme-cleanser"
+        "url": "https://www.purplle.com/lakme-cleanser?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 349,
-        "url": "https://www.myntra.com/lakme-cleanser"
+        "url": "https://www.myntra.com/lakme-cleanser?affid=beautynomy"
       }
     ]
   },
@@ -5559,27 +5560,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/simple-cleanser"
+        "url": "https://www.nykaa.com/simple-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Simple-Cleanser"
+        "url": "https://www.amazon.in/Simple-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/simple"
+        "url": "https://www.flipkart.com/simple?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/simple"
+        "url": "https://www.purplle.com/simple?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/simple"
+        "url": "https://www.myntra.com/simple?affid=beautynomy"
       }
     ]
   },
@@ -5596,27 +5597,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 180,
-        "url": "https://www.nykaa.com/biotique-cleanser"
+        "url": "https://www.nykaa.com/biotique-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 150,
-        "url": "https://www.amazon.in/Biotique-Cleanser"
+        "url": "https://www.amazon.in/Biotique-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 165,
-        "url": "https://www.flipkart.com/biotique"
+        "url": "https://www.flipkart.com/biotique?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 175,
-        "url": "https://www.purplle.com/biotique"
+        "url": "https://www.purplle.com/biotique?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 180,
-        "url": "https://www.myntra.com/biotique"
+        "url": "https://www.myntra.com/biotique?affid=beautynomy"
       }
     ]
   },
@@ -5633,27 +5634,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1750,
-        "url": "https://www.nykaa.com/kiehls-cleanser"
+        "url": "https://www.nykaa.com/kiehls-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1599,
-        "url": "https://www.amazon.in/Kiehls-Cleanser"
+        "url": "https://www.amazon.in/Kiehls-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1675,
-        "url": "https://www.flipkart.com/kiehls"
+        "url": "https://www.flipkart.com/kiehls?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1725,
-        "url": "https://www.purplle.com/kiehls"
+        "url": "https://www.purplle.com/kiehls?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1750,
-        "url": "https://www.myntra.com/kiehls"
+        "url": "https://www.myntra.com/kiehls?affid=beautynomy"
       }
     ]
   },
@@ -5670,27 +5671,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1200,
-        "url": "https://www.nykaa.com/laroche-cleanser"
+        "url": "https://www.nykaa.com/laroche-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1099,
-        "url": "https://www.amazon.in/LaRoche-Cleanser"
+        "url": "https://www.amazon.in/LaRoche-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1150,
-        "url": "https://www.flipkart.com/laroche"
+        "url": "https://www.flipkart.com/laroche?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1175,
-        "url": "https://www.purplle.com/laroche"
+        "url": "https://www.purplle.com/laroche?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1200,
-        "url": "https://www.myntra.com/laroche"
+        "url": "https://www.myntra.com/laroche?affid=beautynomy"
       }
     ]
   },
@@ -5707,27 +5708,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1495,
-        "url": "https://www.nykaa.com/forest-cleanser"
+        "url": "https://www.nykaa.com/forest-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1399,
-        "url": "https://www.amazon.in/Forest-Cleanser"
+        "url": "https://www.amazon.in/Forest-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1450,
-        "url": "https://www.flipkart.com/forest"
+        "url": "https://www.flipkart.com/forest?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1475,
-        "url": "https://www.purplle.com/forest"
+        "url": "https://www.purplle.com/forest?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1495,
-        "url": "https://www.myntra.com/forest"
+        "url": "https://www.myntra.com/forest?affid=beautynomy"
       }
     ]
   },
@@ -5744,27 +5745,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 375,
-        "url": "https://www.nykaa.com/neutrogena-cleanser"
+        "url": "https://www.nykaa.com/neutrogena-cleanser?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 299,
-        "url": "https://www.amazon.in/Neutrogena-Cleanser"
+        "url": "https://www.amazon.in/Neutrogena-Cleanser?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 350,
-        "url": "https://www.flipkart.com/neutrogena"
+        "url": "https://www.flipkart.com/neutrogena?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 365,
-        "url": "https://www.purplle.com/neutrogena"
+        "url": "https://www.purplle.com/neutrogena?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 375,
-        "url": "https://www.myntra.com/neutrogena"
+        "url": "https://www.myntra.com/neutrogena?affid=beautynomy"
       }
     ]
   },
@@ -5782,27 +5783,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1299,
-        "url": "https://www.nykaa.com/cerave-moisturizer"
+        "url": "https://www.nykaa.com/cerave-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1150,
-        "url": "https://www.amazon.in/CeraVe-Moisturizer"
+        "url": "https://www.amazon.in/CeraVe-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1225,
-        "url": "https://www.flipkart.com/cerave"
+        "url": "https://www.flipkart.com/cerave?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1275,
-        "url": "https://www.purplle.com/cerave"
+        "url": "https://www.purplle.com/cerave?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1299,
-        "url": "https://www.myntra.com/cerave"
+        "url": "https://www.myntra.com/cerave?affid=beautynomy"
       }
     ]
   },
@@ -5819,27 +5820,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3600,
-        "url": "https://www.nykaa.com/clinique-moisturizer"
+        "url": "https://www.nykaa.com/clinique-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3400,
-        "url": "https://www.amazon.in/Clinique-Moisturizer"
+        "url": "https://www.amazon.in/Clinique-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3500,
-        "url": "https://www.flipkart.com/clinique"
+        "url": "https://www.flipkart.com/clinique?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3575,
-        "url": "https://www.purplle.com/clinique"
+        "url": "https://www.purplle.com/clinique?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3600,
-        "url": "https://www.myntra.com/clinique"
+        "url": "https://www.myntra.com/clinique?affid=beautynomy"
       }
     ]
   },
@@ -5856,27 +5857,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1999,
-        "url": "https://www.nykaa.com/olay-moisturizer"
+        "url": "https://www.nykaa.com/olay-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1799,
-        "url": "https://www.amazon.in/Olay-Moisturizer"
+        "url": "https://www.amazon.in/Olay-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1899,
-        "url": "https://www.flipkart.com/olay"
+        "url": "https://www.flipkart.com/olay?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1975,
-        "url": "https://www.purplle.com/olay"
+        "url": "https://www.purplle.com/olay?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1999,
-        "url": "https://www.myntra.com/olay"
+        "url": "https://www.myntra.com/olay?affid=beautynomy"
       }
     ]
   },
@@ -5893,27 +5894,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/ponds-moisturizer"
+        "url": "https://www.nykaa.com/ponds-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Ponds-Moisturizer"
+        "url": "https://www.amazon.in/Ponds-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/ponds"
+        "url": "https://www.flipkart.com/ponds?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/ponds"
+        "url": "https://www.purplle.com/ponds?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/ponds"
+        "url": "https://www.myntra.com/ponds?affid=beautynomy"
       }
     ]
   },
@@ -5930,27 +5931,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 475,
-        "url": "https://www.nykaa.com/plum-moisturizer"
+        "url": "https://www.nykaa.com/plum-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Plum-Moisturizer"
+        "url": "https://www.amazon.in/Plum-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 450,
-        "url": "https://www.flipkart.com/plum"
+        "url": "https://www.flipkart.com/plum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 465,
-        "url": "https://www.purplle.com/plum"
+        "url": "https://www.purplle.com/plum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 475,
-        "url": "https://www.myntra.com/plum"
+        "url": "https://www.myntra.com/plum?affid=beautynomy"
       }
     ]
   },
@@ -5967,27 +5968,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 199,
-        "url": "https://www.nykaa.com/lakme-moisturizer"
+        "url": "https://www.nykaa.com/lakme-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 165,
-        "url": "https://www.amazon.in/Lakme-Moisturizer"
+        "url": "https://www.amazon.in/Lakme-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 185,
-        "url": "https://www.flipkart.com/lakme-moisturizer"
+        "url": "https://www.flipkart.com/lakme-moisturizer?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 195,
-        "url": "https://www.purplle.com/lakme-moisturizer"
+        "url": "https://www.purplle.com/lakme-moisturizer?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 199,
-        "url": "https://www.myntra.com/lakme-moisturizer"
+        "url": "https://www.myntra.com/lakme-moisturizer?affid=beautynomy"
       }
     ]
   },
@@ -6004,27 +6005,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 175,
-        "url": "https://www.nykaa.com/himalaya-moisturizer"
+        "url": "https://www.nykaa.com/himalaya-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 140,
-        "url": "https://www.amazon.in/Himalaya-Moisturizer"
+        "url": "https://www.amazon.in/Himalaya-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 160,
-        "url": "https://www.flipkart.com/himalaya"
+        "url": "https://www.flipkart.com/himalaya?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 170,
-        "url": "https://www.purplle.com/himalaya"
+        "url": "https://www.purplle.com/himalaya?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 175,
-        "url": "https://www.myntra.com/himalaya"
+        "url": "https://www.myntra.com/himalaya?affid=beautynomy"
       }
     ]
   },
@@ -6041,27 +6042,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 649,
-        "url": "https://www.nykaa.com/dotkey-moisturizer"
+        "url": "https://www.nykaa.com/dotkey-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 575,
-        "url": "https://www.amazon.in/DotKey-Moisturizer"
+        "url": "https://www.amazon.in/DotKey-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 625,
-        "url": "https://www.flipkart.com/dotkey"
+        "url": "https://www.flipkart.com/dotkey?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 640,
-        "url": "https://www.purplle.com/dotkey"
+        "url": "https://www.purplle.com/dotkey?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 649,
-        "url": "https://www.myntra.com/dotkey"
+        "url": "https://www.myntra.com/dotkey?affid=beautynomy"
       }
     ]
   },
@@ -6078,27 +6079,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 449,
-        "url": "https://www.nykaa.com/wow-moisturizer"
+        "url": "https://www.nykaa.com/wow-moisturizer?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/WOW-Moisturizer"
+        "url": "https://www.amazon.in/WOW-Moisturizer?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/wow"
+        "url": "https://www.flipkart.com/wow?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/wow"
+        "url": "https://www.purplle.com/wow?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 449,
-        "url": "https://www.myntra.com/wow"
+        "url": "https://www.myntra.com/wow?affid=beautynomy"
       }
     ]
   },
@@ -6116,27 +6117,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 5900,
-        "url": "https://www.nykaa.com/esteelauder-serum"
+        "url": "https://www.nykaa.com/esteelauder-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 5500,
-        "url": "https://www.amazon.in/EsteeLauder-Serum"
+        "url": "https://www.amazon.in/EsteeLauder-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 5750,
-        "url": "https://www.flipkart.com/esteelauder"
+        "url": "https://www.flipkart.com/esteelauder?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 5875,
-        "url": "https://www.purplle.com/esteelauder"
+        "url": "https://www.purplle.com/esteelauder?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 5900,
-        "url": "https://www.myntra.com/esteelauder"
+        "url": "https://www.myntra.com/esteelauder?affid=beautynomy"
       }
     ]
   },
@@ -6153,27 +6154,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/lakme-serum"
+        "url": "https://www.nykaa.com/lakme-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Lakme-Serum"
+        "url": "https://www.amazon.in/Lakme-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/lakme-serum"
+        "url": "https://www.flipkart.com/lakme-serum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/lakme-serum"
+        "url": "https://www.purplle.com/lakme-serum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/lakme-serum"
+        "url": "https://www.myntra.com/lakme-serum?affid=beautynomy"
       }
     ]
   },
@@ -6190,27 +6191,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 899,
-        "url": "https://www.nykaa.com/loreal-serum"
+        "url": "https://www.nykaa.com/loreal-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 799,
-        "url": "https://www.amazon.in/Loreal-Serum"
+        "url": "https://www.amazon.in/Loreal-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 850,
-        "url": "https://www.flipkart.com/loreal-serum"
+        "url": "https://www.flipkart.com/loreal-serum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 875,
-        "url": "https://www.purplle.com/loreal-serum"
+        "url": "https://www.purplle.com/loreal-serum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 899,
-        "url": "https://www.myntra.com/loreal-serum"
+        "url": "https://www.myntra.com/loreal-serum?affid=beautynomy"
       }
     ]
   },
@@ -6227,27 +6228,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 549,
-        "url": "https://www.nykaa.com/bodywise-serum"
+        "url": "https://www.nykaa.com/bodywise-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Bodywise-Serum"
+        "url": "https://www.amazon.in/Bodywise-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/bodywise"
+        "url": "https://www.flipkart.com/bodywise?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/bodywise"
+        "url": "https://www.purplle.com/bodywise?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 549,
-        "url": "https://www.myntra.com/bodywise"
+        "url": "https://www.myntra.com/bodywise?affid=beautynomy"
       }
     ]
   },
@@ -6264,27 +6265,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 4200,
-        "url": "https://www.nykaa.com/kiehls-serum"
+        "url": "https://www.nykaa.com/kiehls-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 3999,
-        "url": "https://www.amazon.in/Kiehls-Serum"
+        "url": "https://www.amazon.in/Kiehls-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 4100,
-        "url": "https://www.flipkart.com/kiehls-serum"
+        "url": "https://www.flipkart.com/kiehls-serum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 4175,
-        "url": "https://www.purplle.com/kiehls-serum"
+        "url": "https://www.purplle.com/kiehls-serum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 4200,
-        "url": "https://www.myntra.com/kiehls-serum"
+        "url": "https://www.myntra.com/kiehls-serum?affid=beautynomy"
       }
     ]
   },
@@ -6301,27 +6302,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 747,
-        "url": "https://www.nykaa.com/plum-serum"
+        "url": "https://www.nykaa.com/plum-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/Plum-Serum"
+        "url": "https://www.amazon.in/Plum-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/plum-serum"
+        "url": "https://www.flipkart.com/plum-serum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/plum-serum"
+        "url": "https://www.purplle.com/plum-serum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 747,
-        "url": "https://www.myntra.com/plum-serum"
+        "url": "https://www.myntra.com/plum-serum?affid=beautynomy"
       }
     ]
   },
@@ -6338,27 +6339,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 499,
-        "url": "https://www.nykaa.com/nykaa-serum"
+        "url": "https://www.nykaa.com/nykaa-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 425,
-        "url": "https://www.amazon.in/Nykaa-Serum"
+        "url": "https://www.amazon.in/Nykaa-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 475,
-        "url": "https://www.flipkart.com/nykaa-serum"
+        "url": "https://www.flipkart.com/nykaa-serum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 490,
-        "url": "https://www.purplle.com/nykaa-serum"
+        "url": "https://www.purplle.com/nykaa-serum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 499,
-        "url": "https://www.myntra.com/nykaa-serum"
+        "url": "https://www.myntra.com/nykaa-serum?affid=beautynomy"
       }
     ]
   },
@@ -6375,27 +6376,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 999,
-        "url": "https://www.nykaa.com/drsheths-serum"
+        "url": "https://www.nykaa.com/drsheths-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 899,
-        "url": "https://www.amazon.in/DrSheths-Serum"
+        "url": "https://www.amazon.in/DrSheths-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 975,
-        "url": "https://www.flipkart.com/drsheths"
+        "url": "https://www.flipkart.com/drsheths?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 990,
-        "url": "https://www.purplle.com/drsheths"
+        "url": "https://www.purplle.com/drsheths?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 999,
-        "url": "https://www.myntra.com/drsheths"
+        "url": "https://www.myntra.com/drsheths?affid=beautynomy"
       }
     ]
   },
@@ -6413,27 +6414,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1799,
-        "url": "https://www.nykaa.com/laroche-sunscreen"
+        "url": "https://www.nykaa.com/laroche-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1599,
-        "url": "https://www.amazon.in/LaRoche-Sunscreen"
+        "url": "https://www.amazon.in/LaRoche-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1725,
-        "url": "https://www.flipkart.com/laroche-sunscreen"
+        "url": "https://www.flipkart.com/laroche-sunscreen?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1775,
-        "url": "https://www.purplle.com/laroche-sunscreen"
+        "url": "https://www.purplle.com/laroche-sunscreen?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1799,
-        "url": "https://www.myntra.com/laroche-sunscreen"
+        "url": "https://www.myntra.com/laroche-sunscreen?affid=beautynomy"
       }
     ]
   },
@@ -6450,27 +6451,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 749,
-        "url": "https://www.nykaa.com/neutrogena-sunscreen"
+        "url": "https://www.nykaa.com/neutrogena-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 649,
-        "url": "https://www.amazon.in/Neutrogena-Sunscreen"
+        "url": "https://www.amazon.in/Neutrogena-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/neutrogena-sunscreen"
+        "url": "https://www.flipkart.com/neutrogena-sunscreen?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/neutrogena-sunscreen"
+        "url": "https://www.purplle.com/neutrogena-sunscreen?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 749,
-        "url": "https://www.myntra.com/neutrogena-sunscreen"
+        "url": "https://www.myntra.com/neutrogena-sunscreen?affid=beautynomy"
       }
     ]
   },
@@ -6487,27 +6488,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/lakme-sunscreen"
+        "url": "https://www.nykaa.com/lakme-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/Lakme-Sunscreen"
+        "url": "https://www.amazon.in/Lakme-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/lakme-sunscreen"
+        "url": "https://www.flipkart.com/lakme-sunscreen?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/lakme-sunscreen"
+        "url": "https://www.purplle.com/lakme-sunscreen?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/lakme-sunscreen"
+        "url": "https://www.myntra.com/lakme-sunscreen?affid=beautynomy"
       }
     ]
   },
@@ -6524,27 +6525,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 1650,
-        "url": "https://www.nykaa.com/bioderma-sunscreen"
+        "url": "https://www.nykaa.com/bioderma-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1499,
-        "url": "https://www.amazon.in/Bioderma-Sunscreen"
+        "url": "https://www.amazon.in/Bioderma-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 1575,
-        "url": "https://www.flipkart.com/bioderma"
+        "url": "https://www.flipkart.com/bioderma?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 1625,
-        "url": "https://www.purplle.com/bioderma"
+        "url": "https://www.purplle.com/bioderma?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 1650,
-        "url": "https://www.myntra.com/bioderma"
+        "url": "https://www.myntra.com/bioderma?affid=beautynomy"
       }
     ]
   },
@@ -6561,27 +6562,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 599,
-        "url": "https://www.nykaa.com/cetaphil-sunscreen"
+        "url": "https://www.nykaa.com/cetaphil-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 525,
-        "url": "https://www.amazon.in/Cetaphil-Sunscreen"
+        "url": "https://www.amazon.in/Cetaphil-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 575,
-        "url": "https://www.flipkart.com/cetaphil-sunscreen"
+        "url": "https://www.flipkart.com/cetaphil-sunscreen?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 590,
-        "url": "https://www.purplle.com/cetaphil-sunscreen"
+        "url": "https://www.purplle.com/cetaphil-sunscreen?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 599,
-        "url": "https://www.myntra.com/cetaphil-sunscreen"
+        "url": "https://www.myntra.com/cetaphil-sunscreen?affid=beautynomy"
       }
     ]
   },
@@ -6598,27 +6599,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/nivea-sunscreen"
+        "url": "https://www.nykaa.com/nivea-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Nivea-Sunscreen"
+        "url": "https://www.amazon.in/Nivea-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/nivea"
+        "url": "https://www.flipkart.com/nivea?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/nivea"
+        "url": "https://www.purplle.com/nivea?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/nivea"
+        "url": "https://www.myntra.com/nivea?affid=beautynomy"
       }
     ]
   },
@@ -6635,27 +6636,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 449,
-        "url": "https://www.nykaa.com/mamaearth-sunscreen"
+        "url": "https://www.nykaa.com/mamaearth-sunscreen?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/Mamaearth-Sunscreen"
+        "url": "https://www.amazon.in/Mamaearth-Sunscreen?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/mamaearth"
+        "url": "https://www.flipkart.com/mamaearth?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/mamaearth"
+        "url": "https://www.purplle.com/mamaearth?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 449,
-        "url": "https://www.myntra.com/mamaearth"
+        "url": "https://www.myntra.com/mamaearth?affid=beautynomy"
       }
     ]
   },
@@ -6673,27 +6674,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/loreal-shampoo"
+        "url": "https://www.nykaa.com/loreal-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Loreal-Shampoo"
+        "url": "https://www.amazon.in/Loreal-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 399,
-        "url": "https://www.flipkart.com/loreal-shampoo"
+        "url": "https://www.flipkart.com/loreal-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/loreal-shampoo"
+        "url": "https://www.purplle.com/loreal-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/loreal-shampoo"
+        "url": "https://www.myntra.com/loreal-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -6710,27 +6711,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 295,
-        "url": "https://www.nykaa.com/dove-shampoo"
+        "url": "https://www.nykaa.com/dove-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Dove-Shampoo"
+        "url": "https://www.amazon.in/Dove-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/dove"
+        "url": "https://www.flipkart.com/dove?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/dove"
+        "url": "https://www.purplle.com/dove?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 295,
-        "url": "https://www.myntra.com/dove"
+        "url": "https://www.myntra.com/dove?affid=beautynomy"
       }
     ]
   },
@@ -6747,27 +6748,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/pantene-shampoo"
+        "url": "https://www.nykaa.com/pantene-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Pantene-Shampoo"
+        "url": "https://www.amazon.in/Pantene-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/pantene"
+        "url": "https://www.flipkart.com/pantene?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/pantene"
+        "url": "https://www.purplle.com/pantene?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/pantene"
+        "url": "https://www.myntra.com/pantene?affid=beautynomy"
       }
     ]
   },
@@ -6784,27 +6785,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/tresemme-shampoo"
+        "url": "https://www.nykaa.com/tresemme-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/TRESemme-Shampoo"
+        "url": "https://www.amazon.in/TRESemme-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/tresemme"
+        "url": "https://www.flipkart.com/tresemme?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/tresemme"
+        "url": "https://www.purplle.com/tresemme?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/tresemme"
+        "url": "https://www.myntra.com/tresemme?affid=beautynomy"
       }
     ]
   },
@@ -6821,27 +6822,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 199,
-        "url": "https://www.nykaa.com/sunsilk-shampoo"
+        "url": "https://www.nykaa.com/sunsilk-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 165,
-        "url": "https://www.amazon.in/Sunsilk-Shampoo"
+        "url": "https://www.amazon.in/Sunsilk-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 185,
-        "url": "https://www.flipkart.com/sunsilk"
+        "url": "https://www.flipkart.com/sunsilk?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 195,
-        "url": "https://www.purplle.com/sunsilk"
+        "url": "https://www.purplle.com/sunsilk?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 199,
-        "url": "https://www.myntra.com/sunsilk"
+        "url": "https://www.myntra.com/sunsilk?affid=beautynomy"
       }
     ]
   },
@@ -6858,27 +6859,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 215,
-        "url": "https://www.nykaa.com/biotique-shampoo"
+        "url": "https://www.nykaa.com/biotique-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 180,
-        "url": "https://www.amazon.in/Biotique-Shampoo"
+        "url": "https://www.amazon.in/Biotique-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 199,
-        "url": "https://www.flipkart.com/biotique-shampoo"
+        "url": "https://www.flipkart.com/biotique-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 210,
-        "url": "https://www.purplle.com/biotique-shampoo"
+        "url": "https://www.purplle.com/biotique-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 215,
-        "url": "https://www.myntra.com/biotique-shampoo"
+        "url": "https://www.myntra.com/biotique-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -6895,27 +6896,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 195,
-        "url": "https://www.nykaa.com/himalaya-shampoo"
+        "url": "https://www.nykaa.com/himalaya-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 160,
-        "url": "https://www.amazon.in/Himalaya-Shampoo"
+        "url": "https://www.amazon.in/Himalaya-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 180,
-        "url": "https://www.flipkart.com/himalaya-shampoo"
+        "url": "https://www.flipkart.com/himalaya-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 190,
-        "url": "https://www.purplle.com/himalaya-shampoo"
+        "url": "https://www.purplle.com/himalaya-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 195,
-        "url": "https://www.myntra.com/himalaya-shampoo"
+        "url": "https://www.myntra.com/himalaya-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -6932,27 +6933,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 950,
-        "url": "https://www.nykaa.com/schwarzkopf-shampoo"
+        "url": "https://www.nykaa.com/schwarzkopf-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 850,
-        "url": "https://www.amazon.in/Schwarzkopf-Shampoo"
+        "url": "https://www.amazon.in/Schwarzkopf-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 925,
-        "url": "https://www.flipkart.com/schwarzkopf"
+        "url": "https://www.flipkart.com/schwarzkopf?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 940,
-        "url": "https://www.purplle.com/schwarzkopf"
+        "url": "https://www.purplle.com/schwarzkopf?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 950,
-        "url": "https://www.myntra.com/schwarzkopf"
+        "url": "https://www.myntra.com/schwarzkopf?affid=beautynomy"
       }
     ]
   },
@@ -6969,27 +6970,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 447,
-        "url": "https://www.nykaa.com/plum-shampoo"
+        "url": "https://www.nykaa.com/plum-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 375,
-        "url": "https://www.amazon.in/Plum-Shampoo"
+        "url": "https://www.amazon.in/Plum-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/plum-shampoo"
+        "url": "https://www.flipkart.com/plum-shampoo?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/plum-shampoo"
+        "url": "https://www.purplle.com/plum-shampoo?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 447,
-        "url": "https://www.myntra.com/plum-shampoo"
+        "url": "https://www.myntra.com/plum-shampoo?affid=beautynomy"
       }
     ]
   },
@@ -7006,27 +7007,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 299,
-        "url": "https://www.nykaa.com/garnier-shampoo"
+        "url": "https://www.nykaa.com/garnier-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Garnier-Shampoo"
+        "url": "https://www.amazon.in/Garnier-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/garnier"
+        "url": "https://www.flipkart.com/garnier?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/garnier"
+        "url": "https://www.purplle.com/garnier?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 299,
-        "url": "https://www.myntra.com/garnier"
+        "url": "https://www.myntra.com/garnier?affid=beautynomy"
       }
     ]
   },
@@ -7043,27 +7044,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2100,
-        "url": "https://www.nykaa.com/kerastase-shampoo"
+        "url": "https://www.nykaa.com/kerastase-shampoo?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1950,
-        "url": "https://www.amazon.in/Kerastase-Shampoo"
+        "url": "https://www.amazon.in/Kerastase-Shampoo?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2050,
-        "url": "https://www.flipkart.com/kerastase"
+        "url": "https://www.flipkart.com/kerastase?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2075,
-        "url": "https://www.purplle.com/kerastase"
+        "url": "https://www.purplle.com/kerastase?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2100,
-        "url": "https://www.myntra.com/kerastase"
+        "url": "https://www.myntra.com/kerastase?affid=beautynomy"
       }
     ]
   },
@@ -7080,27 +7081,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 425,
-        "url": "https://www.nykaa.com/loreal-conditioner"
+        "url": "https://www.nykaa.com/loreal-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 349,
-        "url": "https://www.amazon.in/Loreal-Conditioner"
+        "url": "https://www.amazon.in/Loreal-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 399,
-        "url": "https://www.flipkart.com/loreal-conditioner"
+        "url": "https://www.flipkart.com/loreal-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 415,
-        "url": "https://www.purplle.com/loreal-conditioner"
+        "url": "https://www.purplle.com/loreal-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 425,
-        "url": "https://www.myntra.com/loreal-conditioner"
+        "url": "https://www.myntra.com/loreal-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -7117,27 +7118,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 295,
-        "url": "https://www.nykaa.com/dove-conditioner"
+        "url": "https://www.nykaa.com/dove-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 249,
-        "url": "https://www.amazon.in/Dove-Conditioner"
+        "url": "https://www.amazon.in/Dove-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 275,
-        "url": "https://www.flipkart.com/dove-conditioner"
+        "url": "https://www.flipkart.com/dove-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 290,
-        "url": "https://www.purplle.com/dove-conditioner"
+        "url": "https://www.purplle.com/dove-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 295,
-        "url": "https://www.myntra.com/dove-conditioner"
+        "url": "https://www.myntra.com/dove-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -7154,27 +7155,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/tresemme-conditioner"
+        "url": "https://www.nykaa.com/tresemme-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/TRESemme-Conditioner"
+        "url": "https://www.amazon.in/TRESemme-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/tresemme-conditioner"
+        "url": "https://www.flipkart.com/tresemme-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/tresemme-conditioner"
+        "url": "https://www.purplle.com/tresemme-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/tresemme-conditioner"
+        "url": "https://www.myntra.com/tresemme-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -7191,27 +7192,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 950,
-        "url": "https://www.nykaa.com/schwarzkopf-conditioner"
+        "url": "https://www.nykaa.com/schwarzkopf-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 850,
-        "url": "https://www.amazon.in/Schwarzkopf-Conditioner"
+        "url": "https://www.amazon.in/Schwarzkopf-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 925,
-        "url": "https://www.flipkart.com/schwarzkopf-conditioner"
+        "url": "https://www.flipkart.com/schwarzkopf-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 940,
-        "url": "https://www.purplle.com/schwarzkopf-conditioner"
+        "url": "https://www.purplle.com/schwarzkopf-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 950,
-        "url": "https://www.myntra.com/schwarzkopf-conditioner"
+        "url": "https://www.myntra.com/schwarzkopf-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -7228,27 +7229,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 2100,
-        "url": "https://www.nykaa.com/kerastase-conditioner"
+        "url": "https://www.nykaa.com/kerastase-conditioner?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 1950,
-        "url": "https://www.amazon.in/Kerastase-Conditioner"
+        "url": "https://www.amazon.in/Kerastase-Conditioner?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 2050,
-        "url": "https://www.flipkart.com/kerastase-conditioner"
+        "url": "https://www.flipkart.com/kerastase-conditioner?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 2075,
-        "url": "https://www.purplle.com/kerastase-conditioner"
+        "url": "https://www.purplle.com/kerastase-conditioner?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 2100,
-        "url": "https://www.myntra.com/kerastase-conditioner"
+        "url": "https://www.myntra.com/kerastase-conditioner?affid=beautynomy"
       }
     ]
   },
@@ -7266,27 +7267,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 549,
-        "url": "https://www.nykaa.com/loreal-hairserum"
+        "url": "https://www.nykaa.com/loreal-hairserum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 475,
-        "url": "https://www.amazon.in/Loreal-HairSerum"
+        "url": "https://www.amazon.in/Loreal-HairSerum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 525,
-        "url": "https://www.flipkart.com/loreal-hairserum"
+        "url": "https://www.flipkart.com/loreal-hairserum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 540,
-        "url": "https://www.purplle.com/loreal-hairserum"
+        "url": "https://www.purplle.com/loreal-hairserum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 549,
-        "url": "https://www.myntra.com/loreal-hairserum"
+        "url": "https://www.myntra.com/loreal-hairserum?affid=beautynomy"
       }
     ]
   },
@@ -7303,27 +7304,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 199,
-        "url": "https://www.nykaa.com/livon-serum"
+        "url": "https://www.nykaa.com/livon-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 165,
-        "url": "https://www.amazon.in/Livon-Serum"
+        "url": "https://www.amazon.in/Livon-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 185,
-        "url": "https://www.flipkart.com/livon"
+        "url": "https://www.flipkart.com/livon?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 195,
-        "url": "https://www.purplle.com/livon"
+        "url": "https://www.purplle.com/livon?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 199,
-        "url": "https://www.myntra.com/livon"
+        "url": "https://www.myntra.com/livon?affid=beautynomy"
       }
     ]
   },
@@ -7340,27 +7341,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 275,
-        "url": "https://www.nykaa.com/streax-serum"
+        "url": "https://www.nykaa.com/streax-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 225,
-        "url": "https://www.amazon.in/Streax-Serum"
+        "url": "https://www.amazon.in/Streax-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 250,
-        "url": "https://www.flipkart.com/streax"
+        "url": "https://www.flipkart.com/streax?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 265,
-        "url": "https://www.purplle.com/streax"
+        "url": "https://www.purplle.com/streax?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 275,
-        "url": "https://www.myntra.com/streax"
+        "url": "https://www.myntra.com/streax?affid=beautynomy"
       }
     ]
   },
@@ -7377,27 +7378,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 699,
-        "url": "https://www.nykaa.com/schwarzkopf-hairserum"
+        "url": "https://www.nykaa.com/schwarzkopf-hairserum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 625,
-        "url": "https://www.amazon.in/Schwarzkopf-HairSerum"
+        "url": "https://www.amazon.in/Schwarzkopf-HairSerum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 675,
-        "url": "https://www.flipkart.com/schwarzkopf-hairserum"
+        "url": "https://www.flipkart.com/schwarzkopf-hairserum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 690,
-        "url": "https://www.purplle.com/schwarzkopf-hairserum"
+        "url": "https://www.purplle.com/schwarzkopf-hairserum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 699,
-        "url": "https://www.myntra.com/schwarzkopf-hairserum"
+        "url": "https://www.myntra.com/schwarzkopf-hairserum?affid=beautynomy"
       }
     ]
   },
@@ -7414,27 +7415,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 625,
-        "url": "https://www.nykaa.com/matrix-serum"
+        "url": "https://www.nykaa.com/matrix-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 549,
-        "url": "https://www.amazon.in/Matrix-Serum"
+        "url": "https://www.amazon.in/Matrix-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 599,
-        "url": "https://www.flipkart.com/matrix"
+        "url": "https://www.flipkart.com/matrix?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 615,
-        "url": "https://www.purplle.com/matrix"
+        "url": "https://www.purplle.com/matrix?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 625,
-        "url": "https://www.myntra.com/matrix"
+        "url": "https://www.myntra.com/matrix?affid=beautynomy"
       }
     ]
   },
@@ -7451,27 +7452,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 399,
-        "url": "https://www.nykaa.com/toniguy-serum"
+        "url": "https://www.nykaa.com/toniguy-serum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 325,
-        "url": "https://www.amazon.in/ToniGuy-Serum"
+        "url": "https://www.amazon.in/ToniGuy-Serum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 375,
-        "url": "https://www.flipkart.com/toniguy"
+        "url": "https://www.flipkart.com/toniguy?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 390,
-        "url": "https://www.purplle.com/toniguy"
+        "url": "https://www.purplle.com/toniguy?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 399,
-        "url": "https://www.myntra.com/toniguy"
+        "url": "https://www.myntra.com/toniguy?affid=beautynomy"
       }
     ]
   },
@@ -7488,27 +7489,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 3100,
-        "url": "https://www.nykaa.com/kerastase-hairserum"
+        "url": "https://www.nykaa.com/kerastase-hairserum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 2899,
-        "url": "https://www.amazon.in/Kerastase-HairSerum"
+        "url": "https://www.amazon.in/Kerastase-HairSerum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 3000,
-        "url": "https://www.flipkart.com/kerastase-hairserum"
+        "url": "https://www.flipkart.com/kerastase-hairserum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 3075,
-        "url": "https://www.purplle.com/kerastase-hairserum"
+        "url": "https://www.purplle.com/kerastase-hairserum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 3100,
-        "url": "https://www.myntra.com/kerastase-hairserum"
+        "url": "https://www.myntra.com/kerastase-hairserum?affid=beautynomy"
       }
     ]
   },
@@ -7525,27 +7526,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 449,
-        "url": "https://www.nykaa.com/wow-hairserum"
+        "url": "https://www.nykaa.com/wow-hairserum?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 399,
-        "url": "https://www.amazon.in/WOW-HairSerum"
+        "url": "https://www.amazon.in/WOW-HairSerum?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 425,
-        "url": "https://www.flipkart.com/wow-hairserum"
+        "url": "https://www.flipkart.com/wow-hairserum?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 440,
-        "url": "https://www.purplle.com/wow-hairserum"
+        "url": "https://www.purplle.com/wow-hairserum?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 449,
-        "url": "https://www.myntra.com/wow-hairserum"
+        "url": "https://www.myntra.com/wow-hairserum?affid=beautynomy"
       }
     ]
   },
@@ -7563,27 +7564,27 @@ export const products = [
       {
         "platform": "Nykaa",
         "amount": 750,
-        "url": "https://www.nykaa.com/opi-nails"
+        "url": "https://www.nykaa.com/opi-nails?affiliate=beautynomy"
       },
       {
         "platform": "Amazon",
         "amount": 675,
-        "url": "https://www.amazon.in/OPI-Nails"
+        "url": "https://www.amazon.in/OPI-Nails?tag=beautynomy-21"
       },
       {
         "platform": "Flipkart",
         "amount": 725,
-        "url": "https://www.flipkart.com/opi"
+        "url": "https://www.flipkart.com/opi?affid=beautynomy&affExtParam1=beautynomy&affExtParam2=product_comparison&affExtParam3=web"
       },
       {
         "platform": "Purplle",
         "amount": 740,
-        "url": "https://www.purplle.com/opi"
+        "url": "https://www.purplle.com/opi?ref=beautynomy"
       },
       {
         "platform": "Myntra",
         "amount": 750,
-        "url": "https://www.myntra.com/opi"
+        "url": "https://www.myntra.com/opi?affid=beautynomy"
       }
     ]
   }
