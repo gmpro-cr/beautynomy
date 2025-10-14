@@ -4,6 +4,11 @@
   "outputDirectory": "client/dist",
   "installCommand": "echo 'Skipping root install'",
   "framework": null,
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://beautynomy-api.onrender.com"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
