@@ -27,3 +27,6 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Playwright MCP (browser testing)
+.playwright-mcp/
