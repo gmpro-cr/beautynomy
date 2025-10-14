@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Search, Heart, GitCompare, Star, Clock, X, Filter, Menu, ChevronDown, Award, ShieldCheck, Sparkles, Users, Package } from 'lucide-react';
+import { Search, Heart, GitCompare, Star, Clock, X, Filter, Menu, ChevronDown, Award, ShieldCheck, Zap, Users, Package } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://beautynomy-api.onrender.com';
 
@@ -311,7 +311,7 @@ export default function App() {
                 onClick={() => setShowQuiz(true)}
                 className="text-sm font-medium text-slate-700 hover:text-blush-600 transition-colors flex items-center gap-1"
               >
-                <Sparkles className="w-4 h-4" />
+                <Zap className="w-4 h-4" />
                 Find My Match
               </button>
               <button
@@ -380,7 +380,7 @@ export default function App() {
             <div className="md:hidden mt-4 pt-4 border-t border-slate-200">
               <nav className="flex flex-col gap-3">
                 <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2">Home</button>
-                <button onClick={() => { setShowQuiz(true); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2 flex items-center gap-2"><Sparkles className="w-4 h-4" /> Find My Match</button>
+                <button onClick={() => { setShowQuiz(true); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2 flex items-center gap-2"><Zap className="w-4 h-4" /> Find My Match</button>
                 <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2">About</button>
                 <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2">Contact</button>
                 <button onClick={() => { setCurrentPage('wishlist'); setMobileMenuOpen(false); }} className="text-left text-sm font-medium text-slate-700 hover:text-blush-600 py-2">Wishlist ({wishlist.length})</button>
@@ -540,7 +540,7 @@ export default function App() {
                   {/* Concerns */}
                   <div>
                     <h3 className="font-semibold text-slate-800 mb-3 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-mauve-500" aria-hidden="true" />
+                      <Zap className="w-4 h-4 text-mauve-500" aria-hidden="true" />
                       Concerns
                     </h3>
                     <div className="space-y-2 max-h-48 overflow-y-auto">
@@ -1062,7 +1062,7 @@ export default function App() {
                       <span>Regular price updates for accuracy</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Sparkles className="w-5 h-5 text-sage-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      <Zap className="w-5 h-5 text-sage-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>Personalized recommendations based on your skin type</span>
                     </li>
                   </ul>
@@ -1143,7 +1143,7 @@ export default function App() {
             onClick={() => setShowQuiz(true)}
             className="flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors text-slate-600"
           >
-            <Sparkles className="w-5 h-5" aria-hidden="true" />
+            <Zap className="w-5 h-5" aria-hidden="true" />
             <span className="text-xs font-medium">Quiz</span>
           </button>
           <button
