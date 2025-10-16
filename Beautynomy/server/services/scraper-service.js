@@ -1,5 +1,6 @@
 import { scrapeAllPlatforms, scrapePlatform } from '../scrapers/index.js';
 import Product from '../models/Product.js';
+import cuelinksService from './cuelinks-service.js';
 
 /**
  * Scrape and update product prices from all platforms
@@ -110,11 +111,17 @@ async function updateProductInDatabase(productGroup) {
     const avgRating = productGroup.reduce((sum, p) => sum + (p.rating || 0), 0) / productGroup.length;
 
     // Build prices array
-    const prices = productGroup.map(p => ({
+    let prices = productGroup.map(p => ({
       platform: p.platform,
       amount: p.price,
       url: p.url
     }));
+
+    // Convert URLs to Cuelinks deeplinks if configured
+    if (cuelinksService.isConfigured()) {
+      console.log('🔗 Converting URLs to Cuelinks deeplinks...');
+      prices = await cuelinksService.convertPricesToDeeplinks(prices, productId);
+    }
 
     // Find lowest price
     const lowestPrice = Math.min(...prices.map(p => p.amount));
