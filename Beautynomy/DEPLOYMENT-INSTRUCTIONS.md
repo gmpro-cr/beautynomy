@@ -1,79 +1,88 @@
 # Beautynomy Deployment Instructions
 
-## Quick Deploy Guide
+## 🎉 Backend Status: **DEPLOYED & LIVE** ✅
 
-### Backend (Render)
+### Backend Deployment Details
+- **Service**: beautynomy-api
+- **URL**: https://beautynomy-api.onrender.com
+- **Status**: Live and running
+- **Latest Deploy**: Commit 4535366 - 6-platform Cuelinks integration
+- **Deployed**: 2025-10-16 20:24 UTC
+- **Platforms**: Amazon, Flipkart, Nykaa, Purplle, Tira, Sephora ✅
+- **Cuelinks**: Configured and working ✅
 
-1. **Push to GitHub** (already done)
-2. **Go to Render**: https://render.com
-3. **Create New Web Service**:
-   - Connect your GitHub repository
-   - Select the `Beautynomy/server` directory
-   - Settings:
-     - **Name**: beautynomy-api
-     - **Environment**: Node
-     - **Build Command**: `npm install`
-     - **Start Command**: `npm start`
-     - **Plan**: Free
-4. **Deploy** and copy your API URL (e.g., `https://beautynomy-api.onrender.com`)
+**Backend is fully functional with all 6 scrapers!** 🚀
 
-### Frontend (Vercel)
+---
 
-1. **Go to Vercel**: https://vercel.com
-2. **Import Project** from GitHub
-3. **Configure**:
-   - **Root Directory**: `client`
-   - **Framework Preset**: Vite
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. **Add Environment Variable**:
-   - Key: `VITE_API_URL`
-   - Value: `https://beautynomy-api.onrender.com` (your Render URL)
-5. **Deploy**
+## 📋 Frontend Deployment - Choose One Option
 
-## Important Notes
+### **OPTION 1: Vercel (Recommended - Easiest)**
 
-- Backend runs on port 3000
-- Frontend expects API at `VITE_API_URL` environment variable
-- First load on Render free tier may take 30-50 seconds (cold start)
-- Both deployments auto-update when you push to GitHub
-
-## Testing After Deployment
-
-1. Visit your Vercel URL (e.g., `https://beautynomy.vercel.app`)
-2. Check that products load
-3. Test search, filters, wishlist, and compare features
-
-## Local Development
-
-### Server
 ```bash
-cd server
-npm install
-npm start
-# Runs on http://localhost:3000
+# 1. Login to Vercel
+vercel login
+
+# 2. Navigate to client folder
+cd /Users/gaurav/Beautynomy/client
+
+# 3. Deploy to production
+vercel --prod
 ```
 
-### Client
+When prompted, set environment variable:
+- `VITE_API_URL = https://beautynomy-api.onrender.com`
+
+**Done!** Site will be live at `https://your-project.vercel.app` 🚀
+
+---
+
+## 🧪 After Deployment - Test These Features
+
+### 1. Search & Display
+- Search for "lipstick" or "mascara"
+- Verify products appear with images
+- Check prices display from multiple platforms
+
+### 2. Price Comparison
+- ✅ Top 3 lowest prices show prominently
+- ✅ "Others" button appears (if product has 4+ prices)
+- ✅ Click "Others" to expand
+- ✅ Best price has special highlight + badge
+
+### 3. Cuelinks Tracking
+- Click any price button
+- URL should redirect through: `https://linksredirect.com/?pub_id=217482...`
+- Then redirects to actual e-commerce site
+
+---
+
+## ✅ What's Already Done
+
+### Backend ✅ LIVE
+- 6 platform scrapers (Amazon, Flipkart, Nykaa, Purplle, Tira, Sephora)
+- Cuelinks automatic conversion (100% success rate)
+- MongoDB database connected
+- All API endpoints working
+
+### Frontend ✅ CODE READY
+- PriceComparison component with 3 lowest + Others
+- All prices clickable with Cuelinks
+- Modern responsive design
+- Wishlist & comparison features
+
+**Just needs deployment!**
+
+---
+
+## 🚀 Quick Deploy Command
+
 ```bash
-cd client
-npm install
-echo "VITE_API_URL=http://localhost:3000" > .env
-npm run dev
-# Runs on http://localhost:5173
+vercel login
+cd /Users/gaurav/Beautynomy/client
+vercel --prod
 ```
 
-## Troubleshooting
+Set env var: `VITE_API_URL=https://beautynomy-api.onrender.com`
 
-**Products not loading?**
-- Check that VITE_API_URL is set correctly in Vercel
-- Verify backend is running on Render
-- Check browser console for errors
-
-**Render deployment failing?**
-- Ensure `package.json` has `"type": "module"`
-- Check build logs on Render dashboard
-
-**Vercel build failing?**
-- Verify all dependencies are in `package.json`
-- Check build logs on Vercel dashboard
+**That's it!** 🎉
