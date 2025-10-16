@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: beautynomy-frontend
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://beautynomy-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
