@@ -1,6 +1,9 @@
 import scrapeNykaa from './nykaa.js';
 import scrapeAmazon from './amazon.js';
 import scrapeFlipkart from './flipkart.js';
+import scrapePurplle from './purplle.js';
+import scrapeTira from './tira.js';
+import scrapeSephora from './sephora.js';
 
 /**
  * Scrape product prices from all platforms
@@ -11,11 +14,14 @@ export const scrapeAllPlatforms = async (productName) => {
   console.log(`🔍 Scraping prices for: ${productName}`);
 
   try {
-    // Run all scrapers in parallel for speed
-    const [nykaaResults, amazonResults, flipkartResults] = await Promise.allSettled([
+    // Run all 6 scrapers in parallel for speed
+    const [nykaaResults, amazonResults, flipkartResults, purplleResults, tiraResults, sephoraResults] = await Promise.allSettled([
       scrapeNykaa(productName),
       scrapeAmazon(productName),
-      scrapeFlipkart(productName)
+      scrapeFlipkart(productName),
+      scrapePurplle(productName),
+      scrapeTira(productName),
+      scrapeSephora(productName)
     ]);
 
     const allResults = [];
@@ -44,6 +50,30 @@ export const scrapeAllPlatforms = async (productName) => {
       console.log(`❌ Flipkart: ${flipkartResults.reason}`);
     }
 
+    // Process Purplle results
+    if (purplleResults.status === 'fulfilled') {
+      allResults.push(...purplleResults.value);
+      console.log(`✅ Purplle: Found ${purplleResults.value.length} products`);
+    } else {
+      console.log(`❌ Purplle: ${purplleResults.reason}`);
+    }
+
+    // Process Tira results
+    if (tiraResults.status === 'fulfilled') {
+      allResults.push(...tiraResults.value);
+      console.log(`✅ Tira: Found ${tiraResults.value.length} products`);
+    } else {
+      console.log(`❌ Tira: ${tiraResults.reason}`);
+    }
+
+    // Process Sephora results
+    if (sephoraResults.status === 'fulfilled') {
+      allResults.push(...sephoraResults.value);
+      console.log(`✅ Sephora: Found ${sephoraResults.value.length} products`);
+    } else {
+      console.log(`❌ Sephora: ${sephoraResults.reason}`);
+    }
+
     console.log(`📊 Total products found: ${allResults.length}`);
     return allResults;
 
@@ -55,7 +85,7 @@ export const scrapeAllPlatforms = async (productName) => {
 
 /**
  * Scrape specific platform
- * @param {string} platform - Platform name (nykaa, amazon, flipkart)
+ * @param {string} platform - Platform name (nykaa, amazon, flipkart, purplle, tira, sephora)
  * @param {string} productName - Product search query
  * @returns {Promise<Array>} - Array of products from the platform
  */
@@ -69,6 +99,12 @@ export const scrapePlatform = async (platform, productName) => {
       return await scrapeAmazon(productName);
     case 'flipkart':
       return await scrapeFlipkart(productName);
+    case 'purplle':
+      return await scrapePurplle(productName);
+    case 'tira':
+      return await scrapeTira(productName);
+    case 'sephora':
+      return await scrapeSephora(productName);
     default:
       throw new Error(`Unknown platform: ${platform}`);
   }

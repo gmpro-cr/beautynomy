@@ -23,6 +23,107 @@ const CONCERNS = ['Anti-Aging', 'Acne-Prone', 'Hyperpigmentation', 'Dullness', '
 // Key ingredients
 const INGREDIENTS = ['Hyaluronic Acid', 'Vitamin C', 'Retinol', 'Niacinamide', 'Salicylic Acid', 'AHA/BHA', 'Peptides'];
 
+// Price Comparison Component - Shows 3 lowest prices + Others section
+function PriceComparison({ product, bestDeal }) {
+  const [showOthers, setShowOthers] = useState(false);
+
+  // Sort prices by amount (lowest first)
+  const sortedPrices = [...product.prices].sort((a, b) => a.amount - b.amount);
+  const topThree = sortedPrices.slice(0, 3);
+  const others = sortedPrices.slice(3);
+
+  return (
+    <div className="space-y-2 mb-4">
+      <div className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
+        Compare Prices
+      </div>
+
+      {/* Top 3 Lowest Prices */}
+      {topThree.map((price, idx) => (
+        <a
+          key={idx}
+          href={price.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`block group/price relative overflow-hidden transition-all duration-200 rounded-lg ${
+            price.platform === bestDeal.platform
+              ? 'bg-gradient-to-r from-blush-50 to-mauve-50 border-2 border-blush-300'
+              : 'bg-slate-50 border border-slate-200 hover:border-blush-200'
+          }`}
+        >
+          <div className="flex justify-between items-center p-3">
+            <div className="flex items-center gap-2">
+              <span className={`text-sm font-medium ${
+                price.platform === bestDeal.platform ? 'text-blush-700' : 'text-slate-700'
+              }`}>
+                {price.platform}
+              </span>
+              {price.platform === bestDeal.platform && (
+                <span className="text-[10px] font-bold uppercase tracking-wider text-terracotta-600 flex items-center gap-1">
+                  <Award className="w-3 h-3" aria-hidden="true" />
+                  Best
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className={`text-base font-bold ${
+                price.platform === bestDeal.platform ? 'text-slate-900' : 'text-slate-700'
+              }`}>
+                ₹{price.amount}
+              </span>
+              <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400 group-hover/price:translate-x-1 transition-transform" aria-hidden="true" />
+            </div>
+          </div>
+        </a>
+      ))}
+
+      {/* Others Section - Collapsible */}
+      {others.length > 0 && (
+        <div className="mt-3">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowOthers(!showOthers);
+            }}
+            className="w-full flex items-center justify-between px-3 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg transition-colors duration-200 text-sm font-medium text-slate-700"
+          >
+            <span>Others ({others.length})</span>
+            <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showOthers ? 'rotate-180' : ''}`} aria-hidden="true" />
+          </button>
+
+          {showOthers && (
+            <div className="mt-2 space-y-2">
+              {others.map((price, idx) => (
+                <a
+                  key={idx}
+                  href={price.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group/price relative overflow-hidden transition-all duration-200 rounded-lg bg-slate-50 border border-slate-200 hover:border-blush-200"
+                >
+                  <div className="flex justify-between items-center p-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-slate-700">
+                        {price.platform}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-base font-bold text-slate-700">
+                        ₹{price.amount}
+                      </span>
+                      <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400 group-hover/price:translate-x-1 transition-transform" aria-hidden="true" />
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
@@ -739,49 +840,8 @@ export default function App() {
                             <span>{product.reviewCount || '127'} reviews</span>
                           </div>
 
-                          {/* Price Comparison - Minimal */}
-                          <div className="space-y-2 mb-4">
-                            <div className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
-                              Compare Prices
-                            </div>
-                            {product.prices.slice(0, 3).map((price, idx) => (
-                              <a
-                                key={idx}
-                                href={price.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`block group/price relative overflow-hidden transition-all duration-200 rounded-lg ${
-                                  price.platform === bestDeal.platform
-                                    ? 'bg-gradient-to-r from-blush-50 to-mauve-50 border-2 border-blush-300'
-                                    : 'bg-slate-50 border border-slate-200 hover:border-blush-200'
-                                }`}
-                              >
-                                <div className="flex justify-between items-center p-3">
-                                  <div className="flex items-center gap-2">
-                                    <span className={`text-sm font-medium ${
-                                      price.platform === bestDeal.platform ? 'text-blush-700' : 'text-slate-700'
-                                    }`}>
-                                      {price.platform}
-                                    </span>
-                                    {price.platform === bestDeal.platform && (
-                                      <span className="text-[10px] font-bold uppercase tracking-wider text-terracotta-600 flex items-center gap-1">
-                                        <Award className="w-3 h-3" aria-hidden="true" />
-                                        Best
-                                      </span>
-                                    )}
-                                  </div>
-                                  <div className="flex items-center gap-2">
-                                    <span className={`text-base font-bold ${
-                                      price.platform === bestDeal.platform ? 'text-slate-900' : 'text-slate-700'
-                                    }`}>
-                                      ₹{price.amount}
-                                    </span>
-                                    <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400 group-hover/price:translate-x-1 transition-transform" aria-hidden="true" />
-                                  </div>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
+                          {/* Price Comparison - With Others Section */}
+                          <PriceComparison product={product} bestDeal={bestDeal} />
 
                           {/* CTA Button */}
                           <a
