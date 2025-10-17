@@ -743,13 +743,24 @@ export default function App() {
                 <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-blush-200 border-t-blush-500" role="status">
                   <span className="sr-only">Loading products...</span>
                 </div>
-                <p className="mt-6 text-slate-700 font-medium">Loading products...</p>
+                <p className="mt-6 text-slate-700 font-medium text-lg">Loading products...</p>
+                <div className="mt-4 max-w-md mx-auto">
+                  <p className="text-slate-500 text-sm">
+                    This may take up to 60 seconds on first visit as our server wakes up.
+                  </p>
+                  <p className="text-slate-400 text-xs mt-2">
+                    Subsequent visits will be much faster ⚡
+                  </p>
+                </div>
               </div>
             ) : error ? (
               <div className="text-center py-32 bg-white rounded-xl border border-slate-200 p-12">
                 <div className="text-6xl mb-6" aria-hidden="true">⚠️</div>
                 <h3 className="text-3xl font-semibold text-slate-800 mb-4">Connection Error</h3>
-                <p className="text-slate-600 mb-6">{error}</p>
+                <p className="text-slate-600 mb-4">{error}</p>
+                <p className="text-slate-500 text-sm mb-6">
+                  Our server may be waking up. Please try again in a moment.
+                </p>
                 <button
                   onClick={fetchProducts}
                   className="px-8 py-3 bg-blush-500 text-white font-medium hover:bg-blush-600 transition-all rounded-lg"
