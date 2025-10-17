@@ -1,11 +1,15 @@
 services:
+  # Frontend Static Site
   - type: web
-    name: beautynomy-api
-    env: node
-    plan: free
-    buildCommand: cd server && npm install
-    startCommand: cd server && npm start
-    healthCheckPath: /
+    name: beautynomy-frontend-v2
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
-      - key: NODE_ENV
-        value: production
+      - key: VITE_API_URL
+        value: https://beautynomy-api.onrender.com
+    rootDir: Beautynomy/client
