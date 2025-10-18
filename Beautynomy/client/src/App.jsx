@@ -147,6 +147,12 @@ export default function App() {
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
 
+  // Admin/API Fetch states
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [apiFetchQuery, setApiFetchQuery] = useState('');
+  const [apiFetchLoading, setApiFetchLoading] = useState(false);
+  const [apiFetchResult, setApiFetchResult] = useState(null);
+
   // Load wishlist from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('beautynomy_wishlist');
@@ -198,6 +204,47 @@ export default function App() {
       setError('Failed to load products. Please check your connection.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Fetch products via Platform API (Cuelinks)
+  const fetchViaAPI = async () => {
+    if (!apiFetchQuery.trim()) {
+      alert('Please enter a product name');
+      return;
+    }
+
+    try {
+      setApiFetchLoading(true);
+      setApiFetchResult(null);
+
+      console.log('Fetching via Platform API:', apiFetchQuery);
+
+      const response = await axios.post(`${API_URL}/api/products/fetch-hybrid`, {
+        productName: apiFetchQuery,
+        useAPI: true,
+        useScraping: false
+      });
+
+      setApiFetchResult(response.data);
+
+      if (response.data.success) {
+        // Refresh main product list
+        await fetchProducts();
+        alert(`Success! Found ${response.data.products.length} products via ${response.data.source}`);
+      } else {
+        alert('No products found. Try a different search term.');
+      }
+
+    } catch (err) {
+      console.error('API fetch error:', err);
+      setApiFetchResult({
+        success: false,
+        error: err.message
+      });
+      alert('Error fetching products. Check console for details.');
+    } finally {
+      setApiFetchLoading(false);
     }
   };
 
@@ -1367,6 +1414,97 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Admin Panel - Floating Button */}
+      <button
+        onClick={() => setShowAdminPanel(!showAdminPanel)}
+        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-terracotta-500 to-blush-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center z-50 group"
+        aria-label="Toggle Admin Panel"
+        title="Add Products via API"
+      >
+        <Package className="w-6 h-6 group-hover:scale-110 transition-transform" />
+      </button>
+
+      {/* Admin Panel Modal */}
+      {showAdminPanel && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowAdminPanel(false)}>
+          <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-800">Add Products via API</h2>
+                <p className="text-sm text-slate-600 mt-1">Fetch products from Nykaa, Amazon, Flipkart, and more</p>
+              </div>
+              <button
+                onClick={() => setShowAdminPanel(false)}
+                className="text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Product Name
+                </label>
+                <input
+                  type="text"
+                  value={apiFetchQuery}
+                  onChange={(e) => setApiFetchQuery(e.target.value)}
+                  placeholder="e.g., Lakme Lipstick, Maybelline Foundation"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blush-400 focus:border-transparent"
+                  onKeyPress={(e) => e.key === 'Enter' && fetchViaAPI()}
+                />
+              </div>
+
+              <button
+                onClick={fetchViaAPI}
+                disabled={apiFetchLoading}
+                className="w-full py-3 bg-gradient-to-r from-blush-500 to-mauve-500 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {apiFetchLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    Fetching from platforms...
+                  </>
+                ) : (
+                  <>
+                    <Search className="w-5 h-5" />
+                    Fetch Products
+                  </>
+                )}
+              </button>
+
+              {apiFetchResult && (
+                <div className={`p-4 rounded-lg ${apiFetchResult.success ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+                  {apiFetchResult.success ? (
+                    <div>
+                      <p className="text-green-800 font-medium">✅ Success!</p>
+                      <p className="text-green-700 text-sm mt-1">
+                        Found {apiFetchResult.products?.length || 0} products from {apiFetchResult.platformCount || 0} platforms
+                      </p>
+                      <p className="text-green-600 text-xs mt-1">
+                        Source: {apiFetchResult.source}
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="text-red-800 font-medium">❌ Error</p>
+                      <p className="text-red-700 text-sm mt-1">{apiFetchResult.message || apiFetchResult.error}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="bg-slate-50 rounded-lg p-4">
+                <p className="text-xs text-slate-600">
+                  <strong>How it works:</strong> This fetches products via Cuelinks API from multiple platforms including Nykaa, Amazon, Flipkart, Myntra, Purplle, Tira, and Sephora. All products include automatic affiliate tracking.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import connectDB from './config/database.js';
 import Product from './models/Product.js';
 import { scrapeAndUpdateProduct, batchScrapeProducts } from './services/scraper-service.js';
 import { startPriceUpdateScheduler, triggerManualUpdate } from './scheduler/price-updater.js';
+import { startDailyProductFetching, startWeeklyProductFetching, triggerManualFetch } from './scheduler/product-api-fetcher.js';
 import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
@@ -20,6 +21,10 @@ connectDB();
 
 // Start automated price update scheduler
 startPriceUpdateScheduler();
+
+// Start automated product fetching (daily and weekly)
+startDailyProductFetching();
+startWeeklyProductFetching();
 
 // Health check endpoint
 app.get('/', async (req, res) => {
@@ -544,6 +549,34 @@ app.get('/api/platforms/stats', async (req, res) => {
   } catch (error) {
     console.error('Error fetching platform stats:', error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+/**
+ * Trigger manual product fetch via cron job
+ * POST /api/cron/fetch-products
+ * Body: { categories: string[] } (optional)
+ */
+app.post('/api/cron/fetch-products', async (req, res) => {
+  try {
+    const { categories } = req.body;
+
+    console.log('📡 Manual product fetch triggered via API');
+
+    const result = await triggerManualFetch(categories);
+
+    res.json({
+      success: true,
+      message: 'Product fetch completed',
+      ...result
+    });
+  } catch (error) {
+    console.error('Manual fetch error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
   }
 });
 
