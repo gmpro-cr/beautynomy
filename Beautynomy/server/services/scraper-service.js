@@ -110,6 +110,9 @@ async function updateProductInDatabase(productGroup) {
     // Calculate average rating
     const avgRating = productGroup.reduce((sum, p) => sum + (p.rating || 0), 0) / productGroup.length;
 
+    // Create product ID from normalized name (moved up to fix bug)
+    const productId = normalizeProductName(baseProduct.name);
+
     // Build prices array
     let prices = productGroup.map(p => ({
       platform: p.platform,
@@ -125,9 +128,6 @@ async function updateProductInDatabase(productGroup) {
 
     // Find lowest price
     const lowestPrice = Math.min(...prices.map(p => p.amount));
-
-    // Create product ID from normalized name
-    const productId = normalizeProductName(baseProduct.name);
 
     // Check if product exists
     let product = await Product.findById(productId);

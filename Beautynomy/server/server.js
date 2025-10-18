@@ -7,6 +7,7 @@ import { scrapeAndUpdateProduct, batchScrapeProducts } from './services/scraper-
 import { startPriceUpdateScheduler, triggerManualUpdate } from './scheduler/price-updater.js';
 import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
+import platformAPIService from './services/platform-api-service.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -459,6 +460,166 @@ app.get('/api/cuelinks/fetcher-stats', (req, res) => {
   } catch (error) {
     console.error('Error fetching stats:', error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ==================== PLATFORM API ROUTES (Cuelinks-based) ====================
+
+/**
+ * Fetch products from all platforms via Cuelinks API
+ * This is an alternative to scraping that uses official Cuelinks merchant APIs
+ * GET /api/platforms/fetch?query=<product_name>&limit=<number>
+ */
+app.get('/api/platforms/fetch', async (req, res) => {
+  try {
+    const { query, limit } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    console.log(`🔍 API fetch request for: ${query}`);
+
+    const result = await platformAPIService.fetchFromAllPlatforms(query, {
+      limit: parseInt(limit) || 50
+    });
+
+    res.json(result);
+  } catch (error) {
+    console.error('Platform API fetch error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Fetch products from a specific platform via Cuelinks API
+ * GET /api/platforms/:platform/fetch?query=<product_name>
+ * Supported platforms: nykaa, amazon, flipkart, myntra, purplle, tira, sephora
+ */
+app.get('/api/platforms/:platform/fetch', async (req, res) => {
+  try {
+    const { platform } = req.params;
+    const { query } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    console.log(`🏪 API fetch from ${platform} for: ${query}`);
+
+    const offers = await platformAPIService.fetchFromPlatform(platform, query);
+
+    res.json({
+      success: offers.length > 0,
+      platform: platform,
+      query: query,
+      count: offers.length,
+      offers: offers
+    });
+  } catch (error) {
+    console.error(`Platform API fetch error for ${req.params.platform}:`, error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Get supported platforms and API stats
+ * GET /api/platforms/stats
+ */
+app.get('/api/platforms/stats', async (req, res) => {
+  try {
+    const stats = await platformAPIService.getAPIStats();
+    res.json({
+      message: 'Platform API statistics',
+      ...stats
+    });
+  } catch (error) {
+    console.error('Error fetching platform stats:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+/**
+ * Hybrid fetch - Try API first, fallback to scraping
+ * POST /api/products/fetch-hybrid
+ * Body: { productName: string, useAPI: boolean, useScraping: boolean }
+ */
+app.post('/api/products/fetch-hybrid', async (req, res) => {
+  try {
+    const { productName, useAPI = true, useScraping = false } = req.body;
+
+    if (!productName) {
+      return res.status(400).json({ error: 'productName is required' });
+    }
+
+    console.log(`🔄 Hybrid fetch for: ${productName} (API: ${useAPI}, Scraping: ${useScraping})`);
+
+    let result = { success: false, products: [], source: null };
+
+    // Try API first if enabled
+    if (useAPI) {
+      console.log('📡 Trying Cuelinks API...');
+      const apiResult = await platformAPIService.fetchFromAllPlatforms(productName);
+
+      if (apiResult.success && apiResult.products.length > 0) {
+        result = {
+          success: true,
+          products: apiResult.products,
+          source: 'cuelinks_api',
+          platformCount: apiResult.platformCount,
+          message: apiResult.message
+        };
+
+        console.log(`✅ API fetch successful: ${apiResult.products.length} products`);
+      } else {
+        console.log('❌ API fetch returned no results');
+      }
+    }
+
+    // Fallback to scraping if API failed and scraping is enabled
+    if (!result.success && useScraping) {
+      console.log('🔍 Falling back to scraping...');
+      const scrapeResult = await scrapeAndUpdateProduct(productName);
+
+      if (scrapeResult.success) {
+        result = {
+          success: true,
+          products: scrapeResult.products,
+          source: 'scraping',
+          scrapedCount: scrapeResult.scrapedCount,
+          message: scrapeResult.message
+        };
+
+        console.log(`✅ Scraping successful: ${scrapeResult.products.length} products`);
+      }
+    }
+
+    // Return result
+    if (result.success) {
+      res.json(result);
+    } else {
+      res.status(404).json({
+        success: false,
+        message: 'No products found via API or scraping',
+        productName: productName
+      });
+    }
+
+  } catch (error) {
+    console.error('Hybrid fetch error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
   }
 });
 
