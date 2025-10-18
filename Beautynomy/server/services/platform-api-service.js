@@ -257,6 +257,21 @@ async function createOrUpdateProduct(offerGroup, searchQuery) {
       // Try multiple price fields from Cuelinks API response
       const price = offer.discountedPrice || offer.originalPrice || offer.price || offer.sale_price || offer.mrp || 0;
 
+      // Debug: log offer structure if price is 0
+      if (!price || parseFloat(price) === 0) {
+        console.log(`⚠️  Offer with no price:`, JSON.stringify({
+          name: offer.name?.substring(0, 50),
+          platform: offer.platform,
+          merchant: offer.merchant,
+          discountedPrice: offer.discountedPrice,
+          originalPrice: offer.originalPrice,
+          price: offer.price,
+          sale_price: offer.sale_price,
+          mrp: offer.mrp,
+          allKeys: Object.keys(offer)
+        }));
+      }
+
       return {
         platform: offer.platform,
         amount: parseFloat(price) || 0,
