@@ -1,8 +1,8 @@
 import cron from 'node-cron';
-import platformAPIService from '../services/platform-api-service.js';
+import scraperService from '../services/scraper-service.js';
 
 /**
- * Automated Product Fetching via Platform API
+ * Automated Product Fetching via Web Scraping + Cuelinks Affiliate Conversion
  * Runs scheduled jobs to fetch new products from e-commerce platforms
  */
 
@@ -28,20 +28,19 @@ async function fetchProductsForQuery(query) {
   try {
     console.log(`📡 Auto-fetching: ${query}`);
 
-    const result = await platformAPIService.fetchFromAllPlatforms(query, {
-      limit: 30
-    });
+    // Use web scraping with automatic Cuelinks affiliate conversion
+    const result = await scraperService.scrapeAndUpdateProduct(query);
 
     if (result.success) {
-      console.log(`✅ Fetched ${result.products.length} products for "${query}" from ${result.platformCount} platforms`);
+      console.log(`✅ Fetched ${result.products.length} products for "${query}"`);
       return {
         success: true,
         query: query,
         count: result.products.length,
-        platforms: result.platformCount
+        scrapedCount: result.scrapedCount
       };
     } else {
-      console.log(`⚠️  No products found for "${query}"`);
+      console.log(`⚠️  No products found for "${query}": ${result.message}`);
       return {
         success: false,
         query: query,
