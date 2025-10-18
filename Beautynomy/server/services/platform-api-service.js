@@ -253,13 +253,18 @@ async function createOrUpdateProduct(offerGroup, searchQuery) {
     const brand = extractBrand(baseOffer.name);
 
     // Build prices array with Cuelinks deeplinks (already included in offers)
-    const prices = offerGroup.map(offer => ({
-      platform: offer.platform,
-      amount: parseFloat(offer.price) || 0,
-      url: offer.url || offer.deeplink, // Cuelinks URL
-      rating: offer.rating || 0,
-      reviews: offer.reviews || 0
-    })).filter(p => p.amount > 0);
+    const prices = offerGroup.map(offer => {
+      // Try multiple price fields from Cuelinks API response
+      const price = offer.discountedPrice || offer.originalPrice || offer.price || offer.sale_price || offer.mrp || 0;
+
+      return {
+        platform: offer.platform,
+        amount: parseFloat(price) || 0,
+        url: offer.affiliateUrl || offer.url || offer.deeplink || offer.productUrl, // Cuelinks affiliate URL
+        rating: offer.rating || 0,
+        reviews: offer.reviews || offer.reviewCount || 0
+      };
+    }).filter(p => p.amount > 0);
 
     if (prices.length === 0) {
       console.warn('No valid prices found for product');
@@ -283,7 +288,7 @@ async function createOrUpdateProduct(offerGroup, searchQuery) {
 
       product.prices = prices;
       product.priceChange = parseFloat(priceChange);
-      product.image = baseOffer.imageUrl || product.image;
+      product.image = baseOffer.image || baseOffer.imageUrl || baseOffer.thumbnail || product.image;
 
       // Add to price history
       product.priceHistory.push({
@@ -309,9 +314,9 @@ async function createOrUpdateProduct(offerGroup, searchQuery) {
         brand: brand,
         category: baseOffer.category || 'Beauty',
         description: baseOffer.description || `${baseOffer.name} available on multiple platforms`,
-        image: baseOffer.imageUrl || 'https://via.placeholder.com/300x300?text=No+Image',
+        image: baseOffer.image || baseOffer.imageUrl || baseOffer.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image',
         rating: baseOffer.rating || 0,
-        reviewCount: baseOffer.reviews || 0,
+        reviewCount: baseOffer.reviews || baseOffer.reviewCount || 0,
         priceChange: 0,
         prices: prices,
         priceHistory: [{
