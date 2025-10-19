@@ -1,9 +1,10 @@
-import scrapeNykaa from './nykaa.js';
-import scrapeAmazon from './amazon.js';
-import scrapeFlipkart from './flipkart.js';
-import scrapePurplle from './purplle.js';
-import scrapeTira from './tira.js';
-import scrapeSephora from './sephora.js';
+// Enhanced scrapers with anti-bot measures
+import scrapeNykaa from './nykaa-enhanced.js';
+import scrapeAmazon from './amazon.js'; // Amazon already works well
+import scrapeFlipkart from './flipkart-enhanced.js';
+import scrapePurplle from './purplle-enhanced.js';
+import scrapeTira from './tira-enhanced.js';
+import scrapeSephora from './sephora-enhanced.js';
 
 /**
  * Scrape product prices from all platforms

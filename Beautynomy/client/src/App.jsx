@@ -147,11 +147,12 @@ export default function App() {
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
 
-  // Admin/API Fetch states
+  // Admin/Scraper states
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [apiFetchQuery, setApiFetchQuery] = useState('');
   const [apiFetchLoading, setApiFetchLoading] = useState(false);
   const [apiFetchResult, setApiFetchResult] = useState(null);
+  const [scrapingStatus, setScrapingStatus] = useState({});
 
   // Load wishlist from localStorage
   useEffect(() => {
@@ -207,7 +208,7 @@ export default function App() {
     }
   };
 
-  // Fetch products via Platform API (Cuelinks)
+  // Scrape products from all platforms
   const fetchViaAPI = async () => {
     if (!apiFetchQuery.trim()) {
       alert('Please enter a product name');
@@ -217,32 +218,54 @@ export default function App() {
     try {
       setApiFetchLoading(true);
       setApiFetchResult(null);
-
-      console.log('Fetching via Platform API:', apiFetchQuery);
-
-      const response = await axios.post(`${API_URL}/api/products/fetch-hybrid`, {
-        productName: apiFetchQuery,
-        useAPI: true,
-        useScraping: false
+      setScrapingStatus({
+        Nykaa: 'scraping',
+        Amazon: 'scraping',
+        Flipkart: 'scraping',
+        Purplle: 'scraping',
+        Tira: 'scraping',
+        Sephora: 'scraping'
       });
 
-      setApiFetchResult(response.data);
+      console.log('🔍 Scraping prices from all platforms:', apiFetchQuery);
 
-      if (response.data.success) {
+      const response = await axios.post(`${API_URL}/api/scrape`, {
+        productName: apiFetchQuery
+      });
+
+      // Update status based on results
+      const newStatus = {};
+      const platforms = ['Nykaa', 'Amazon', 'Flipkart', 'Purplle', 'Tira', 'Sephora'];
+
+      platforms.forEach(platform => {
+        const found = response.data.results?.filter(r => r.platform === platform).length || 0;
+        newStatus[platform] = found > 0 ? `found ${found}` : 'blocked';
+      });
+
+      setScrapingStatus(newStatus);
+      setApiFetchResult({
+        success: true,
+        totalProducts: response.data.results?.length || 0,
+        message: response.data.message,
+        results: response.data.results || []
+      });
+
+      if (response.data.results && response.data.results.length > 0) {
         // Refresh main product list
         await fetchProducts();
-        alert(`Success! Found ${response.data.products.length} products via ${response.data.source}`);
+        alert(`✅ Success! Found ${response.data.results.length} products from ${Object.keys(newStatus).filter(k => newStatus[k].includes('found')).length} platforms`);
       } else {
-        alert('No products found. Try a different search term.');
+        alert('⚠️ No products found. All platforms may be blocking requests. Try again later.');
       }
 
     } catch (err) {
-      console.error('API fetch error:', err);
+      console.error('❌ Scraping error:', err);
       setApiFetchResult({
         success: false,
         error: err.message
       });
-      alert('Error fetching products. Check console for details.');
+      setScrapingStatus({});
+      alert('Error scraping products. Check console for details.');
     } finally {
       setApiFetchLoading(false);
     }
@@ -1428,11 +1451,11 @@ export default function App() {
       {/* Admin Panel Modal */}
       {showAdminPanel && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowAdminPanel(false)}>
-          <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-slate-800">Add Products via API</h2>
-                <p className="text-sm text-slate-600 mt-1">Fetch products from Nykaa, Amazon, Flipkart, and more</p>
+                <h2 className="text-2xl font-bold text-slate-800">Real-Time Price Scraper</h2>
+                <p className="text-sm text-slate-600 mt-1">Scrape live prices from 6 major e-commerce platforms</p>
               </div>
               <button
                 onClick={() => setShowAdminPanel(false)}
@@ -1454,6 +1477,7 @@ export default function App() {
                   placeholder="e.g., Lakme Lipstick, Maybelline Foundation"
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blush-400 focus:border-transparent"
                   onKeyPress={(e) => e.key === 'Enter' && fetchViaAPI()}
+                  disabled={apiFetchLoading}
                 />
               </div>
 
@@ -1465,40 +1489,84 @@ export default function App() {
                 {apiFetchLoading ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                    Fetching from platforms...
+                    Scraping platforms...
                   </>
                 ) : (
                   <>
                     <Search className="w-5 h-5" />
-                    Fetch Products
+                    Start Scraping
                   </>
                 )}
               </button>
 
+              {/* Real-time Platform Status */}
+              {Object.keys(scrapingStatus).length > 0 && (
+                <div className="bg-slate-50 rounded-lg p-4 space-y-2">
+                  <h3 className="text-sm font-semibold text-slate-700 mb-3">Platform Status:</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {Object.entries(scrapingStatus).map(([platform, status]) => (
+                      <div key={platform} className="flex items-center justify-between bg-white p-2 rounded border border-slate-200">
+                        <span className="text-sm font-medium text-slate-700">{platform}</span>
+                        {status === 'scraping' ? (
+                          <div className="flex items-center gap-1">
+                            <div className="animate-spin rounded-full h-3 w-3 border-2 border-blush-500 border-t-transparent"></div>
+                            <span className="text-xs text-slate-500">Scraping...</span>
+                          </div>
+                        ) : status.includes('found') ? (
+                          <span className="text-xs font-semibold text-green-600 flex items-center gap-1">
+                            ✅ {status}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-slate-400">🚫 Blocked</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Results Summary */}
               {apiFetchResult && (
                 <div className={`p-4 rounded-lg ${apiFetchResult.success ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
                   {apiFetchResult.success ? (
                     <div>
-                      <p className="text-green-800 font-medium">✅ Success!</p>
+                      <p className="text-green-800 font-medium">✅ Scraping Complete!</p>
                       <p className="text-green-700 text-sm mt-1">
-                        Found {apiFetchResult.products?.length || 0} products from {apiFetchResult.platformCount || 0} platforms
+                        Found {apiFetchResult.totalProducts || 0} products total
                       </p>
-                      <p className="text-green-600 text-xs mt-1">
-                        Source: {apiFetchResult.source}
-                      </p>
+                      {apiFetchResult.results && apiFetchResult.results.length > 0 && (
+                        <div className="mt-3 space-y-1">
+                          <p className="text-green-600 text-xs font-semibold">Products by platform:</p>
+                          {['Nykaa', 'Amazon', 'Flipkart', 'Purplle', 'Tira', 'Sephora'].map(platform => {
+                            const count = apiFetchResult.results.filter(r => r.platform === platform).length;
+                            return count > 0 ? (
+                              <p key={platform} className="text-green-600 text-xs ml-2">
+                                • {platform}: {count} product{count > 1 ? 's' : ''}
+                              </p>
+                            ) : null;
+                          })}
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <div>
                       <p className="text-red-800 font-medium">❌ Error</p>
-                      <p className="text-red-700 text-sm mt-1">{apiFetchResult.message || apiFetchResult.error}</p>
+                      <p className="text-red-700 text-sm mt-1">{apiFetchResult.error}</p>
                     </div>
                   )}
                 </div>
               )}
 
+              {/* Info Box */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p className="text-xs text-blue-800">
+                  <strong>⚡ Enhanced Scraping:</strong> Uses advanced anti-bot measures including User-Agent rotation, realistic browser headers, automatic retries, and CAPTCHA detection. Some platforms may block requests - this is expected behavior.
+                </p>
+              </div>
+
               <div className="bg-slate-50 rounded-lg p-4">
                 <p className="text-xs text-slate-600">
-                  <strong>How it works:</strong> This fetches products via Cuelinks API from multiple platforms including Nykaa, Amazon, Flipkart, Myntra, Purplle, Tira, and Sephora. All products include automatic affiliate tracking.
+                  <strong>How it works:</strong> Scrapes real-time prices from Nykaa, Amazon, Flipkart, Purplle, Tira, and Sephora. All products are automatically saved with Cuelinks affiliate tracking.
                 </p>
               </div>
             </div>

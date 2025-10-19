@@ -9,6 +9,7 @@ import { startDailyProductFetching, startWeeklyProductFetching, triggerManualFet
 import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
+import dataYugeService from './services/datayuge-service.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -648,6 +649,242 @@ app.post('/api/products/fetch-hybrid', async (req, res) => {
 
   } catch (error) {
     console.error('Hybrid fetch error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+// ==================== DATAYUGE API ROUTES ====================
+
+/**
+ * Get DataYuge API status and statistics
+ * GET /api/datayuge/status
+ */
+app.get('/api/datayuge/status', (req, res) => {
+  try {
+    const stats = dataYugeService.getStats();
+    res.json({
+      message: 'DataYuge Price Comparison API status',
+      service: 'DataYuge',
+      ...stats
+    });
+  } catch (error) {
+    console.error('Error fetching DataYuge status:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+/**
+ * Compare product prices across platforms using DataYuge API
+ * GET /api/datayuge/compare?query=<product_name>&category=<category>&limit=<number>
+ */
+app.get('/api/datayuge/compare', async (req, res) => {
+  try {
+    const { query, category, limit } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    if (!dataYugeService.isConfigured()) {
+      return res.status(503).json({
+        error: 'DataYuge API not configured',
+        message: 'Please set DATAYUGE_API_KEY in environment variables',
+        signupUrl: 'https://price-api.datayuge.com/register'
+      });
+    }
+
+    console.log(`🔍 DataYuge price comparison for: ${query}`);
+
+    const products = await dataYugeService.comparePrice(query, {
+      category,
+      limit: parseInt(limit) || 20
+    });
+
+    res.json({
+      success: true,
+      query: query,
+      category: category || 'all',
+      count: products.length,
+      products: products,
+      source: 'datayuge_api'
+    });
+  } catch (error) {
+    console.error('DataYuge compare error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Search products using DataYuge API
+ * GET /api/datayuge/search?query=<search_term>&limit=<number>
+ */
+app.get('/api/datayuge/search', async (req, res) => {
+  try {
+    const { query, limit } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    if (!dataYugeService.isConfigured()) {
+      return res.status(503).json({
+        error: 'DataYuge API not configured',
+        message: 'Please set DATAYUGE_API_KEY in environment variables',
+        signupUrl: 'https://price-api.datayuge.com/register'
+      });
+    }
+
+    const products = await dataYugeService.searchProducts(query, {
+      limit: parseInt(limit) || 20
+    });
+
+    res.json({
+      success: true,
+      query: query,
+      count: products.length,
+      products: products
+    });
+  } catch (error) {
+    console.error('DataYuge search error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Get product from specific platform using DataYuge
+ * GET /api/datayuge/platform/:platform?query=<product_name>
+ */
+app.get('/api/datayuge/platform/:platform', async (req, res) => {
+  try {
+    const { platform } = req.params;
+    const { query } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    if (!dataYugeService.isConfigured()) {
+      return res.status(503).json({
+        error: 'DataYuge API not configured',
+        message: 'Please set DATAYUGE_API_KEY in environment variables'
+      });
+    }
+
+    const product = await dataYugeService.getProductFromPlatform(query, platform);
+
+    if (product) {
+      res.json({
+        success: true,
+        platform: platform,
+        query: query,
+        product: product
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: `No products found for "${query}" on ${platform}`
+      });
+    }
+  } catch (error) {
+    console.error('DataYuge platform search error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Import products from DataYuge to MongoDB
+ * POST /api/datayuge/import
+ * Body: { query: string, category?: string, limit?: number }
+ */
+app.post('/api/datayuge/import', async (req, res) => {
+  try {
+    const { query, category, limit } = req.body;
+
+    if (!query) {
+      return res.status(400).json({ error: 'Query is required in request body' });
+    }
+
+    if (!dataYugeService.isConfigured()) {
+      return res.status(503).json({
+        error: 'DataYuge API not configured',
+        message: 'Please set DATAYUGE_API_KEY in environment variables'
+      });
+    }
+
+    console.log(`📥 Importing products from DataYuge: ${query}`);
+
+    // Fetch products from DataYuge
+    const products = await dataYugeService.comparePrice(query, {
+      category,
+      limit: parseInt(limit) || 50
+    });
+
+    if (products.length === 0) {
+      return res.json({
+        success: false,
+        message: 'No products found from DataYuge',
+        query: query,
+        imported: 0
+      });
+    }
+
+    // Import to database
+    const results = await dataYugeService.importToDatabase(products, Product);
+
+    res.json({
+      success: true,
+      message: `Imported ${results.imported} new products, updated ${results.updated} existing products`,
+      query: query,
+      ...results
+    });
+  } catch (error) {
+    console.error('DataYuge import error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+/**
+ * Get supported platforms from DataYuge
+ * GET /api/datayuge/platforms
+ */
+app.get('/api/datayuge/platforms', async (req, res) => {
+  try {
+    if (!dataYugeService.isConfigured()) {
+      return res.status(503).json({
+        error: 'DataYuge API not configured',
+        message: 'Please set DATAYUGE_API_KEY in environment variables'
+      });
+    }
+
+    const platforms = await dataYugeService.getSupportedPlatforms();
+
+    res.json({
+      success: true,
+      count: platforms.length,
+      platforms: platforms
+    });
+  } catch (error) {
+    console.error('DataYuge platforms error:', error);
     res.status(500).json({
       success: false,
       error: 'Internal server error',
