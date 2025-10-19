@@ -9,7 +9,6 @@ import { startDailyProductFetching, startWeeklyProductFetching, triggerManualFet
 import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
-import dataYugeService from './services/datayuge-service.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
