@@ -1,6 +1,7 @@
 import cron from 'node-cron';
 import Product from '../models/Product.js';
 import { scrapeAndUpdateProduct } from '../services/scraper-service.js';
+import { SCRAPING_LIMITS } from '../config/constants.js';
 
 /**
  * Scheduled job to update product prices daily
@@ -40,8 +41,8 @@ async function updateAllProductPrices() {
     let successCount = 0;
     let failCount = 0;
 
-    // Process in batches of 5 to avoid overwhelming the servers
-    const batchSize = 5;
+    // Process in batches to avoid overwhelming the servers
+    const batchSize = SCRAPING_LIMITS.BATCH_PROCESSING_SIZE;
     for (let i = 0; i < products.length; i += batchSize) {
       const batch = products.slice(i, i + batchSize);
 
@@ -59,9 +60,9 @@ async function updateAllProductPrices() {
         }
       });
 
-      // Wait 3 seconds between batches
+      // Wait between batches
       if (i + batchSize < products.length) {
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, SCRAPING_LIMITS.DELAY_BETWEEN_BATCHES_MS));
       }
     }
 
@@ -90,8 +91,8 @@ async function updateHighPriorityProducts() {
     let successCount = 0;
     let failCount = 0;
 
-    // Process in batches of 3
-    const batchSize = 3;
+    // Process in batches
+    const batchSize = SCRAPING_LIMITS.HIGH_PRIORITY_BATCH_SIZE;
     for (let i = 0; i < highPriorityProducts.length; i += batchSize) {
       const batch = highPriorityProducts.slice(i, i + batchSize);
 
@@ -107,9 +108,9 @@ async function updateHighPriorityProducts() {
         }
       });
 
-      // Wait 2 seconds between batches
+      // Wait between batches
       if (i + batchSize < highPriorityProducts.length) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, SCRAPING_LIMITS.DELAY_BETWEEN_SCRAPES_MS));
       }
     }
 
@@ -153,7 +154,7 @@ async function updateProducts(products) {
   let successCount = 0;
   let failCount = 0;
 
-  const batchSize = 3;
+  const batchSize = SCRAPING_LIMITS.HIGH_PRIORITY_BATCH_SIZE;
   for (let i = 0; i < products.length; i += batchSize) {
     const batch = products.slice(i, i + batchSize);
 
@@ -170,7 +171,7 @@ async function updateProducts(products) {
     });
 
     if (i + batchSize < products.length) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, SCRAPING_LIMITS.DELAY_BETWEEN_SCRAPES_MS));
     }
   }
 
