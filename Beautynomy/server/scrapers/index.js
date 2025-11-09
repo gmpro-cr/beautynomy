@@ -1,10 +1,17 @@
-// Enhanced scrapers with anti-bot measures
-import scrapeNykaa from './nykaa-enhanced.js';
-import scrapeAmazon from './amazon.js'; // Amazon already works well
-import scrapeFlipkart from './flipkart-enhanced.js';
+// Advanced scrapers with multi-strategy support
+// Falls back automatically: Puppeteer → ScraperAPI → Enhanced Cheerio
+import scrapeNykaaAdvanced from './nykaa-advanced.js';
+import scrapeAmazon from './amazon.js'; // Amazon works well with basic Cheerio
+import scrapeFlipkartAdvanced from './flipkart-advanced.js';
+
+// For platforms without advanced scrapers yet, use enhanced versions
 import scrapePurplle from './purplle-enhanced.js';
 import scrapeTira from './tira-enhanced.js';
 import scrapeSephora from './sephora-enhanced.js';
+
+// Use advanced scrapers for Nykaa and Flipkart (most problematic)
+const scrapeNykaa = scrapeNykaaAdvanced;
+const scrapeFlipkart = scrapeFlipkartAdvanced;
 
 /**
  * Scrape product prices from all platforms
