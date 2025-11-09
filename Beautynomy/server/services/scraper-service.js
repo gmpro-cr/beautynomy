@@ -1,6 +1,7 @@
 import { scrapeAllPlatforms, scrapePlatform } from '../scrapers/index.js';
 import Product from '../models/Product.js';
 import cuelinksService from './cuelinks-service.js';
+import { PRICE_TRACKING, SCRAPING_LIMITS } from '../config/constants.js';
 
 /**
  * Scrape and update product prices from all platforms
@@ -149,9 +150,9 @@ async function updateProductInDatabase(productGroup) {
         averagePrice: avgPrice
       });
 
-      // Keep only last 90 days of history (approximately)
-      if (product.priceHistory.length > 90) {
-        product.priceHistory = product.priceHistory.slice(-90);
+      // Keep only last N days of history (from constants)
+      if (product.priceHistory.length > PRICE_TRACKING.HISTORY_MAX_ENTRIES) {
+        product.priceHistory = product.priceHistory.slice(-PRICE_TRACKING.HISTORY_MAX_ENTRIES);
       }
 
       product.prices = prices;
@@ -249,8 +250,8 @@ export const batchScrapeProducts = async (productNames) => {
 
   const results = [];
 
-  // Process in batches of 3 to avoid overwhelming the scrapers
-  const batchSize = 3;
+  // Process in batches to avoid overwhelming the scrapers
+  const batchSize = SCRAPING_LIMITS.HIGH_PRIORITY_BATCH_SIZE;
   for (let i = 0; i < productNames.length; i += batchSize) {
     const batch = productNames.slice(i, i + batchSize);
 
@@ -264,9 +265,9 @@ export const batchScrapeProducts = async (productNames) => {
       data: result.status === 'fulfilled' ? result.value : { error: result.reason }
     })));
 
-    // Wait 2 seconds between batches to be respectful to servers
+    // Wait between batches to be respectful to servers
     if (i + batchSize < productNames.length) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, SCRAPING_LIMITS.DELAY_BETWEEN_SCRAPES_MS));
     }
   }
 

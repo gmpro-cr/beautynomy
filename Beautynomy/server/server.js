@@ -10,11 +10,37 @@ import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
 
+// Import middleware
+import { apiLimiter, scrapeLimiter, adminLimiter } from './middleware/rateLimiter.js';
+import { authenticateAdmin } from './middleware/auth.js';
+import { errorHandler, notFoundHandler, asyncHandler } from './middleware/errorHandler.js';
+import { validate, schemas, escapeRegex, sanitizeInputs } from './middleware/validation.js';
+import * as cache from './utils/cache.js';
+import { ALLOWED_ORIGINS, CACHE_CONFIG, SCRAPING_LIMITS } from './config/constants.js';
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// CORS configuration with whitelist
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+
+    if (ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.warn(`⚠️  Blocked request from origin: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-api-key', 'Authorization']
+}));
+
 app.use(express.json());
+app.use(sanitizeInputs);
 
 // Connect to MongoDB
 connectDB();
@@ -49,35 +75,48 @@ app.get('/', async (req, res) => {
   }
 });
 
+// Apply rate limiting to all API routes
+app.use('/api/', apiLimiter);
+
 // Get all products or search products
-app.get('/api/products', async (req, res) => {
-  try {
+app.get('/api/products',
+  validate(schemas.productQuery, 'query'),
+  cache.cacheMiddleware(CACHE_CONFIG.PRODUCTS_TTL_SECONDS),
+  asyncHandler(async (req, res) => {
     const { query, category, brand } = req.query;
 
     let filter = {};
 
     // Search by query (name, brand, description, category)
     if (query && query.toLowerCase() !== 'all') {
-      filter.$text = { $search: query };
+      // Try text search first
+      try {
+        filter.$text = { $search: query };
+      } catch (error) {
+        // Fallback to regex search if text index not available
+        const escapedQuery = escapeRegex(query);
+        filter.$or = [
+          { name: new RegExp(escapedQuery, 'i') },
+          { brand: new RegExp(escapedQuery, 'i') },
+          { description: new RegExp(escapedQuery, 'i') }
+        ];
+      }
     }
 
-    // Filter by category
+    // Filter by category (fixed NoSQL injection)
     if (category && category !== 'All') {
-      filter.category = new RegExp(`^${category}$`, 'i');
+      filter.category = new RegExp(`^${escapeRegex(category)}$`, 'i');
     }
 
-    // Filter by brand
+    // Filter by brand (fixed NoSQL injection)
     if (brand && brand !== 'All') {
-      filter.brand = new RegExp(`^${brand}$`, 'i');
+      filter.brand = new RegExp(`^${escapeRegex(brand)}$`, 'i');
     }
 
     const products = await Product.find(filter);
     res.json(products);
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+  })
+);
 
 // Get product by ID
 app.get('/api/products/:id', async (req, res) => {
@@ -154,15 +193,18 @@ app.get('/api/stats', async (req, res) => {
 });
 
 // Scrape and update product prices
-app.post('/api/scrape', async (req, res) => {
-  try {
+app.post('/api/scrape',
+  scrapeLimiter,
+  authenticateAdmin,
+  validate(schemas.scrapeProduct),
+  asyncHandler(async (req, res) => {
     const { productName } = req.body;
 
-    if (!productName) {
-      return res.status(400).json({ error: 'Product name is required' });
-    }
-
     console.log(`🔍 Received scrape request for: ${productName}`);
+
+    // Invalidate product cache
+    cache.invalidateByPattern('cache:*/api/products*');
+
     const result = await scrapeAndUpdateProduct(productName);
 
     if (result.success) {
@@ -170,26 +212,22 @@ app.post('/api/scrape', async (req, res) => {
     } else {
       res.status(404).json(result);
     }
-  } catch (error) {
-    console.error('Scraping error:', error);
-    res.status(500).json({ error: 'Internal server error', message: error.message });
-  }
-});
+  })
+);
 
 // Batch scrape multiple products
-app.post('/api/scrape/batch', async (req, res) => {
-  try {
+app.post('/api/scrape/batch',
+  scrapeLimiter,
+  authenticateAdmin,
+  validate(schemas.batchScrape),
+  asyncHandler(async (req, res) => {
     const { productNames } = req.body;
 
-    if (!productNames || !Array.isArray(productNames) || productNames.length === 0) {
-      return res.status(400).json({ error: 'Product names array is required' });
-    }
-
-    if (productNames.length > 20) {
-      return res.status(400).json({ error: 'Maximum 20 products allowed per batch' });
-    }
-
     console.log(`📦 Received batch scrape request for ${productNames.length} products`);
+
+    // Invalidate product cache
+    cache.invalidateByPattern('cache:*/api/products*');
+
     const results = await batchScrapeProducts(productNames);
 
     res.json({
@@ -199,26 +237,27 @@ app.post('/api/scrape/batch', async (req, res) => {
       failed: results.filter(r => !r.success).length,
       results
     });
-  } catch (error) {
-    console.error('Batch scraping error:', error);
-    res.status(500).json({ error: 'Internal server error', message: error.message });
-  }
-});
+  })
+);
 
 // Trigger manual price update
-app.post('/api/update-prices', async (req, res) => {
-  try {
+app.post('/api/update-prices',
+  adminLimiter,
+  authenticateAdmin,
+  validate(schemas.updatePrices),
+  asyncHandler(async (req, res) => {
     const { productIds } = req.body;
 
     console.log('🔄 Manual price update triggered');
+
+    // Invalidate product cache
+    cache.invalidateByPattern('cache:*/api/products*');
+
     const result = await triggerManualUpdate(productIds || []);
 
     res.json(result);
-  } catch (error) {
-    console.error('Manual update error:', error);
-    res.status(500).json({ error: 'Internal server error', message: error.message });
-  }
-});
+  })
+);
 
 // Cuelinks API endpoints
 
@@ -324,44 +363,43 @@ app.get('/api/cuelinks/search', async (req, res) => {
 });
 
 // Convert existing product URLs to Cuelinks deeplinks
-app.post('/api/cuelinks/convert-product', async (req, res) => {
-  try {
+app.post('/api/cuelinks/convert-product',
+  adminLimiter,
+  authenticateAdmin,
+  validate(schemas.productId),
+  asyncHandler(async (req, res) => {
     const { productId } = req.body;
 
-    if (!productId) {
-      return res.status(400).json({ error: 'Product ID is required' });
-    }
-
     if (!cuelinksService.isConfigured()) {
-      return res.status(503).json({ 
+      return res.status(503).json({
         error: 'Cuelinks not configured',
         message: 'Please set CUELINKS_API_KEY and CUELINKS_PUBLISHER_ID in environment variables'
       });
     }
 
     const product = await Product.findById(productId);
-    
+
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
 
     // Convert all price URLs to Cuelinks deeplinks
     const convertedPrices = await cuelinksService.convertPricesToDeeplinks(product.prices, productId);
-    
+
     // Update product with new URLs
     product.prices = convertedPrices;
     await product.save();
+
+    // Invalidate cache for this product
+    cache.invalidateByPattern('cache:*/api/products*');
 
     res.json({
       success: true,
       message: 'Product URLs converted to Cuelinks deeplinks',
       product: product
     });
-  } catch (error) {
-    console.error('Product conversion error:', error);
-    res.status(500).json({ error: 'Internal server error', message: error.message });
-  }
-});
+  })
+);
 
 // Fetch product offers from Cuelinks
 app.get('/api/cuelinks/fetch-products', async (req, res) => {
@@ -557,11 +595,16 @@ app.get('/api/platforms/stats', async (req, res) => {
  * POST /api/cron/fetch-products
  * Body: { categories: string[] } (optional)
  */
-app.post('/api/cron/fetch-products', async (req, res) => {
-  try {
+app.post('/api/cron/fetch-products',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
     const { categories } = req.body;
 
     console.log('📡 Manual product fetch triggered via API');
+
+    // Invalidate product cache
+    cache.invalidateByPattern('cache:*/api/products*');
 
     const result = await triggerManualFetch(categories);
 
@@ -570,15 +613,8 @@ app.post('/api/cron/fetch-products', async (req, res) => {
       message: 'Product fetch completed',
       ...result
     });
-  } catch (error) {
-    console.error('Manual fetch error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
+  })
+);
 
 /**
  * Hybrid fetch - Try API first, fallback to scraping
@@ -656,241 +692,13 @@ app.post('/api/products/fetch-hybrid', async (req, res) => {
   }
 });
 
-// ==================== DATAYUGE API ROUTES ====================
+// DataYuge service has been discontinued - endpoints removed
 
-/**
- * Get DataYuge API status and statistics
- * GET /api/datayuge/status
- */
-app.get('/api/datayuge/status', (req, res) => {
-  try {
-    const stats = dataYugeService.getStats();
-    res.json({
-      message: 'DataYuge Price Comparison API status',
-      service: 'DataYuge',
-      ...stats
-    });
-  } catch (error) {
-    console.error('Error fetching DataYuge status:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+// 404 Handler - Must be after all routes
+app.use(notFoundHandler);
 
-/**
- * Compare product prices across platforms using DataYuge API
- * GET /api/datayuge/compare?query=<product_name>&category=<category>&limit=<number>
- */
-app.get('/api/datayuge/compare', async (req, res) => {
-  try {
-    const { query, category, limit } = req.query;
-
-    if (!query) {
-      return res.status(400).json({ error: 'Query parameter is required' });
-    }
-
-    if (!dataYugeService.isConfigured()) {
-      return res.status(503).json({
-        error: 'DataYuge API not configured',
-        message: 'Please set DATAYUGE_API_KEY in environment variables',
-        signupUrl: 'https://price-api.datayuge.com/register'
-      });
-    }
-
-    console.log(`🔍 DataYuge price comparison for: ${query}`);
-
-    const products = await dataYugeService.comparePrice(query, {
-      category,
-      limit: parseInt(limit) || 20
-    });
-
-    res.json({
-      success: true,
-      query: query,
-      category: category || 'all',
-      count: products.length,
-      products: products,
-      source: 'datayuge_api'
-    });
-  } catch (error) {
-    console.error('DataYuge compare error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
-
-/**
- * Search products using DataYuge API
- * GET /api/datayuge/search?query=<search_term>&limit=<number>
- */
-app.get('/api/datayuge/search', async (req, res) => {
-  try {
-    const { query, limit } = req.query;
-
-    if (!query) {
-      return res.status(400).json({ error: 'Query parameter is required' });
-    }
-
-    if (!dataYugeService.isConfigured()) {
-      return res.status(503).json({
-        error: 'DataYuge API not configured',
-        message: 'Please set DATAYUGE_API_KEY in environment variables',
-        signupUrl: 'https://price-api.datayuge.com/register'
-      });
-    }
-
-    const products = await dataYugeService.searchProducts(query, {
-      limit: parseInt(limit) || 20
-    });
-
-    res.json({
-      success: true,
-      query: query,
-      count: products.length,
-      products: products
-    });
-  } catch (error) {
-    console.error('DataYuge search error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
-
-/**
- * Get product from specific platform using DataYuge
- * GET /api/datayuge/platform/:platform?query=<product_name>
- */
-app.get('/api/datayuge/platform/:platform', async (req, res) => {
-  try {
-    const { platform } = req.params;
-    const { query } = req.query;
-
-    if (!query) {
-      return res.status(400).json({ error: 'Query parameter is required' });
-    }
-
-    if (!dataYugeService.isConfigured()) {
-      return res.status(503).json({
-        error: 'DataYuge API not configured',
-        message: 'Please set DATAYUGE_API_KEY in environment variables'
-      });
-    }
-
-    const product = await dataYugeService.getProductFromPlatform(query, platform);
-
-    if (product) {
-      res.json({
-        success: true,
-        platform: platform,
-        query: query,
-        product: product
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: `No products found for "${query}" on ${platform}`
-      });
-    }
-  } catch (error) {
-    console.error('DataYuge platform search error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
-
-/**
- * Import products from DataYuge to MongoDB
- * POST /api/datayuge/import
- * Body: { query: string, category?: string, limit?: number }
- */
-app.post('/api/datayuge/import', async (req, res) => {
-  try {
-    const { query, category, limit } = req.body;
-
-    if (!query) {
-      return res.status(400).json({ error: 'Query is required in request body' });
-    }
-
-    if (!dataYugeService.isConfigured()) {
-      return res.status(503).json({
-        error: 'DataYuge API not configured',
-        message: 'Please set DATAYUGE_API_KEY in environment variables'
-      });
-    }
-
-    console.log(`📥 Importing products from DataYuge: ${query}`);
-
-    // Fetch products from DataYuge
-    const products = await dataYugeService.comparePrice(query, {
-      category,
-      limit: parseInt(limit) || 50
-    });
-
-    if (products.length === 0) {
-      return res.json({
-        success: false,
-        message: 'No products found from DataYuge',
-        query: query,
-        imported: 0
-      });
-    }
-
-    // Import to database
-    const results = await dataYugeService.importToDatabase(products, Product);
-
-    res.json({
-      success: true,
-      message: `Imported ${results.imported} new products, updated ${results.updated} existing products`,
-      query: query,
-      ...results
-    });
-  } catch (error) {
-    console.error('DataYuge import error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
-
-/**
- * Get supported platforms from DataYuge
- * GET /api/datayuge/platforms
- */
-app.get('/api/datayuge/platforms', async (req, res) => {
-  try {
-    if (!dataYugeService.isConfigured()) {
-      return res.status(503).json({
-        error: 'DataYuge API not configured',
-        message: 'Please set DATAYUGE_API_KEY in environment variables'
-      });
-    }
-
-    const platforms = await dataYugeService.getSupportedPlatforms();
-
-    res.json({
-      success: true,
-      count: platforms.length,
-      platforms: platforms
-    });
-  } catch (error) {
-    console.error('DataYuge platforms error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
+// Error Handler - Must be last
+app.use(errorHandler);
 
 // Start server - bind to 0.0.0.0 for cloud platforms like Render
 app.listen(PORT, '0.0.0.0', () => {
@@ -901,4 +709,10 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`   - Health: http://localhost:${PORT}/`);
   console.log(`   - Products: http://localhost:${PORT}/api/products`);
   console.log(`   - Stats: http://localhost:${PORT}/api/stats`);
+  console.log(`\n🔒 Security Features:`);
+  console.log(`   - Rate Limiting: ✅ Enabled`);
+  console.log(`   - Admin Auth: ${process.env.ADMIN_API_KEY ? '✅ Configured' : '⚠️  Not configured'}`);
+  console.log(`   - CORS Whitelist: ✅ Enabled`);
+  console.log(`   - Input Validation: ✅ Enabled`);
+  console.log(`   - Caching: ✅ Enabled`);
 });
