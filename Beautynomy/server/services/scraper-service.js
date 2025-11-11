@@ -1,5 +1,5 @@
 import { scrapeAllPlatforms, scrapePlatform } from '../scrapers/index.js';
-import Product from '../models/Product.js';
+import productService from '../database/productService.js';
 import cuelinksService from './cuelinks-service.js';
 import { PRICE_TRACKING, SCRAPING_LIMITS } from '../config/constants.js';
 
@@ -131,17 +131,25 @@ async function updateProductInDatabase(productGroup) {
     const lowestPrice = Math.min(...prices.map(p => p.amount));
 
     // Check if product exists
-    let product = await Product.findById(productId);
+    let product = await productService.findById(productId);
+
+    const avgPrice = prices.reduce((sum, p) => sum + p.amount, 0) / prices.length;
 
     if (product) {
       // Update existing product
       const oldLowestPrice = Math.min(...product.prices.map(p => p.amount));
       const priceChange = ((lowestPrice - oldLowestPrice) / oldLowestPrice * 100).toFixed(1);
 
+      // Update product with new prices
+      product = await productService.update(productId, {
+        prices: prices,
+        rating: avgRating,
+        priceChange: parseFloat(priceChange),
+        image: baseProduct.image || product.image
+      });
+
       // Add to price history
-      const avgPrice = prices.reduce((sum, p) => sum + p.amount, 0) / prices.length;
-      product.priceHistory.push({
-        date: new Date(),
+      await productService.addPriceHistory(productId, {
         prices: prices.map(p => ({
           platform: p.platform,
           amount: p.amount
@@ -150,23 +158,10 @@ async function updateProductInDatabase(productGroup) {
         averagePrice: avgPrice
       });
 
-      // Keep only last N days of history (from constants)
-      if (product.priceHistory.length > PRICE_TRACKING.HISTORY_MAX_ENTRIES) {
-        product.priceHistory = product.priceHistory.slice(-PRICE_TRACKING.HISTORY_MAX_ENTRIES);
-      }
-
-      product.prices = prices;
-      product.rating = avgRating;
-      product.priceChange = parseFloat(priceChange);
-      product.image = baseProduct.image || product.image;
-
-      await product.save();
       console.log(`✅ Updated product: ${product.name}`);
     } else {
       // Create new product
-      const avgPrice = prices.reduce((sum, p) => sum + p.amount, 0) / prices.length;
-
-      product = await Product.create({
+      product = await productService.upsert({
         _id: productId,
         name: baseProduct.name,
         brand: brand,
@@ -176,17 +171,19 @@ async function updateProductInDatabase(productGroup) {
         rating: avgRating,
         reviewCount: 0,
         priceChange: 0,
-        prices: prices,
-        priceHistory: [{
-          date: new Date(),
-          prices: prices.map(p => ({
-            platform: p.platform,
-            amount: p.amount
-          })),
-          lowestPrice: lowestPrice,
-          averagePrice: avgPrice
-        }]
+        prices: prices
       });
+
+      // Add initial price history
+      await productService.addPriceHistory(productId, {
+        prices: prices.map(p => ({
+          platform: p.platform,
+          amount: p.amount
+        })),
+        lowestPrice: lowestPrice,
+        averagePrice: avgPrice
+      });
+
       console.log(`✅ Created new product: ${product.name}`);
     }
 

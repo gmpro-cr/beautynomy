@@ -2,13 +2,18 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/database.js';
-import Product from './models/Product.js';
+import productService from './database/productService.js';
+import { checkConnection as checkSupabaseConnection } from './config/supabase.js';
 import { scrapeAndUpdateProduct, batchScrapeProducts } from './services/scraper-service.js';
 import { startPriceUpdateScheduler, triggerManualUpdate } from './scheduler/price-updater.js';
 import { startDailyProductFetching, startWeeklyProductFetching, triggerManualFetch } from './scheduler/product-api-fetcher.js';
 import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
+
+// Import scraping agent
+import scrapingAgent from './services/scraping-agent.js';
+import priceTracker from './services/price-tracker.js';
 
 // Import middleware
 import { apiLimiter, scrapeLimiter, adminLimiter } from './middleware/rateLimiter.js';
@@ -52,6 +57,12 @@ startPriceUpdateScheduler();
 startDailyProductFetching();
 startWeeklyProductFetching();
 
+// Start autonomous scraping agent
+if (process.env.ENABLE_SCRAPING_AGENT !== 'false') {
+  scrapingAgent.start();
+  console.log('🤖 Autonomous Scraping Agent started');
+}
+
 // Health check endpoint
 app.get('/', async (req, res) => {
   try {
@@ -89,108 +100,74 @@ app.get('/api/products',
 
     // Search by query (name, brand, description, category)
     if (query && query.toLowerCase() !== 'all') {
-      // Try text search first
-      try {
-        filter.$text = { $search: query };
-      } catch (error) {
-        // Fallback to regex search if text index not available
-        const escapedQuery = escapeRegex(query);
-        filter.$or = [
-          { name: new RegExp(escapedQuery, 'i') },
-          { brand: new RegExp(escapedQuery, 'i') },
-          { description: new RegExp(escapedQuery, 'i') }
-        ];
-      }
+      // For Supabase/PostgreSQL, use $or for text search
+      filter.$or = [
+        { name: escapeRegex(query) },
+        { brand: escapeRegex(query) },
+        { description: escapeRegex(query) }
+      ];
     }
 
-    // Filter by category (fixed NoSQL injection)
+    // Filter by category
     if (category && category !== 'All') {
-      filter.category = new RegExp(`^${escapeRegex(category)}$`, 'i');
+      filter.category = escapeRegex(category);
     }
 
-    // Filter by brand (fixed NoSQL injection)
+    // Filter by brand
     if (brand && brand !== 'All') {
-      filter.brand = new RegExp(`^${escapeRegex(brand)}$`, 'i');
+      filter.brand = escapeRegex(brand);
     }
 
-    const products = await Product.find(filter);
+    const { products } = await productService.find(filter);
     res.json(products);
   })
 );
 
 // Get product by ID
-app.get('/api/products/:id', async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
-    if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
-    res.json(product);
-  } catch (error) {
-    console.error('Error fetching product:', error);
-    res.status(500).json({ error: 'Internal server error' });
+app.get('/api/products/:id', asyncHandler(async (req, res) => {
+  const product = await productService.findById(req.params.id);
+  if (!product) {
+    return res.status(404).json({ error: 'Product not found' });
   }
-});
+  res.json(product);
+}));
 
 // Get available brands
-app.get('/api/brands', async (req, res) => {
-  try {
-    const brands = await Product.distinct('brand');
-    res.json(brands.sort());
-  } catch (error) {
-    console.error('Error fetching brands:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+app.get('/api/brands', asyncHandler(async (req, res) => {
+  const brands = await productService.getBrands();
+  res.json(brands.sort());
+}));
 
 // Get available categories
-app.get('/api/categories', async (req, res) => {
-  try {
-    const categories = await Product.distinct('category');
-    res.json(categories.sort());
-  } catch (error) {
-    console.error('Error fetching categories:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+app.get('/api/categories', asyncHandler(async (req, res) => {
+  const categories = await productService.getCategories();
+  res.json(categories.sort());
+}));
 
 // Get price statistics
-app.get('/api/stats', async (req, res) => {
-  try {
-    const totalProducts = await Product.countDocuments();
-    const categories = await Product.distinct('category');
-    const brands = await Product.distinct('brand');
+app.get('/api/stats', asyncHandler(async (req, res) => {
+  const dbStats = await productService.getStats();
+  const categories = await productService.getCategories();
+  const brands = await productService.getBrands();
 
-    // Get price range
-    const priceAggregation = await Product.aggregate([
-      { $unwind: '$prices' },
-      {
-        $group: {
-          _id: null,
-          minPrice: { $min: '$prices.amount' },
-          maxPrice: { $max: '$prices.amount' }
-        }
-      }
-    ]);
+  // Get all products with prices for price range calculation
+  const { products } = await productService.find({}, { limit: 10000 });
+  const allPrices = products.flatMap(p => p.prices || []).map(pr => pr.amount);
 
-    const stats = {
-      totalProducts,
-      totalPlatforms: 5,
-      platforms: ['Nykaa', 'Amazon India', 'Flipkart', 'Purplle', 'Myntra'],
-      categories: categories.sort(),
-      brands: brands.sort(),
-      averageProducts: Math.floor(totalProducts / 5),
-      priceRange: {
-        min: priceAggregation[0]?.minPrice || 0,
-        max: priceAggregation[0]?.maxPrice || 0
-      }
-    };
-    res.json(stats);
-  } catch (error) {
-    console.error('Error fetching stats:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+  const stats = {
+    totalProducts: dbStats.totalProducts || products.length,
+    totalPlatforms: 5,
+    platforms: ['Nykaa', 'Amazon India', 'Flipkart', 'Purplle', 'Myntra'],
+    categories: categories.sort(),
+    brands: brands.sort(),
+    averageProducts: Math.floor((dbStats.totalProducts || products.length) / 5),
+    priceRange: {
+      min: allPrices.length > 0 ? Math.min(...allPrices) : 0,
+      max: allPrices.length > 0 ? Math.max(...allPrices) : 0
+    }
+  };
+  res.json(stats);
+}));
 
 // Scrape and update product prices
 app.post('/api/scrape',
@@ -377,7 +354,7 @@ app.post('/api/cuelinks/convert-product',
       });
     }
 
-    const product = await Product.findById(productId);
+    const product = await productService.findById(productId);
 
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
@@ -387,8 +364,7 @@ app.post('/api/cuelinks/convert-product',
     const convertedPrices = await cuelinksService.convertPricesToDeeplinks(product.prices, productId);
 
     // Update product with new URLs
-    product.prices = convertedPrices;
-    await product.save();
+    await productService.update(productId, { prices: convertedPrices });
 
     // Invalidate cache for this product
     cache.invalidateByPattern('cache:*/api/products*');
@@ -691,6 +667,245 @@ app.post('/api/products/fetch-hybrid', async (req, res) => {
     });
   }
 });
+
+// ==================== SCRAPING AGENT API ENDPOINTS ====================
+
+/**
+ * Get scraping agent status
+ * GET /api/agent/status
+ */
+app.get('/api/agent/status',
+  asyncHandler(async (req, res) => {
+    const status = scrapingAgent.getStatus();
+    res.json({
+      success: true,
+      agent: status
+    });
+  })
+);
+
+/**
+ * Get detailed agent statistics
+ * GET /api/agent/stats
+ */
+app.get('/api/agent/stats',
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    const stats = scrapingAgent.getDetailedStats();
+    res.json({
+      success: true,
+      ...stats
+    });
+  })
+);
+
+/**
+ * Start scraping agent
+ * POST /api/agent/start
+ */
+app.post('/api/agent/start',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    await scrapingAgent.start();
+    res.json({
+      success: true,
+      message: 'Scraping agent started',
+      status: scrapingAgent.getStatus()
+    });
+  })
+);
+
+/**
+ * Stop scraping agent
+ * POST /api/agent/stop
+ */
+app.post('/api/agent/stop',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.stop();
+    res.json({
+      success: true,
+      message: 'Scraping agent stopped',
+      status: scrapingAgent.getStatus()
+    });
+  })
+);
+
+/**
+ * Pause scraping agent
+ * POST /api/agent/pause
+ */
+app.post('/api/agent/pause',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.pause();
+    res.json({
+      success: true,
+      message: 'Scraping agent paused'
+    });
+  })
+);
+
+/**
+ * Resume scraping agent
+ * POST /api/agent/resume
+ */
+app.post('/api/agent/resume',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.resume();
+    res.json({
+      success: true,
+      message: 'Scraping agent resumed'
+    });
+  })
+);
+
+/**
+ * Add product to scraping queue
+ * POST /api/agent/queue/add
+ * Body: { productName: string, priority?: number }
+ */
+app.post('/api/agent/queue/add',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    const { productName, priority } = req.body;
+
+    if (!productName) {
+      return res.status(400).json({
+        success: false,
+        error: 'productName is required'
+      });
+    }
+
+    const jobId = scrapingAgent.scrapeProduct(productName, priority || 5);
+
+    res.json({
+      success: true,
+      message: 'Product added to scraping queue',
+      jobId
+    });
+  })
+);
+
+/**
+ * Clear scraping queue
+ * POST /api/agent/queue/clear
+ */
+app.post('/api/agent/queue/clear',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.clearQueue();
+    res.json({
+      success: true,
+      message: 'Scraping queue cleared'
+    });
+  })
+);
+
+// ==================== PRICE TRACKER API ENDPOINTS ====================
+
+/**
+ * Get price change notifications
+ * GET /api/price-tracker/notifications
+ */
+app.get('/api/price-tracker/notifications',
+  asyncHandler(async (req, res) => {
+    const unreadOnly = req.query.unreadOnly === 'true';
+    const notifications = priceTracker.getNotifications(unreadOnly);
+
+    res.json({
+      success: true,
+      count: notifications.length,
+      notifications
+    });
+  })
+);
+
+/**
+ * Mark notification as read
+ * POST /api/price-tracker/notifications/:id/read
+ */
+app.post('/api/price-tracker/notifications/:id/read',
+  asyncHandler(async (req, res) => {
+    priceTracker.markAsRead(req.params.id);
+    res.json({
+      success: true,
+      message: 'Notification marked as read'
+    });
+  })
+);
+
+/**
+ * Clear all notifications
+ * POST /api/price-tracker/notifications/clear
+ */
+app.post('/api/price-tracker/notifications/clear',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    priceTracker.clearNotifications();
+    res.json({
+      success: true,
+      message: 'All notifications cleared'
+    });
+  })
+);
+
+/**
+ * Get price trends for a product
+ * GET /api/price-tracker/trends/:productId
+ */
+app.get('/api/price-tracker/trends/:productId',
+  asyncHandler(async (req, res) => {
+    const { productId } = req.params;
+    const days = parseInt(req.query.days) || 30;
+
+    const trends = await priceTracker.calculateTrends(productId, days);
+
+    if (trends) {
+      res.json({
+        success: true,
+        trends
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        error: 'Product not found or insufficient data'
+      });
+    }
+  })
+);
+
+/**
+ * Get best time to buy recommendation
+ * GET /api/price-tracker/best-time/:productId
+ */
+app.get('/api/price-tracker/best-time/:productId',
+  asyncHandler(async (req, res) => {
+    const { productId } = req.params;
+
+    const recommendation = await priceTracker.getBestTimeToBuy(productId);
+
+    if (recommendation) {
+      res.json({
+        success: true,
+        recommendation
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        error: 'Product not found or insufficient data'
+      });
+    }
+  })
+);
 
 // DataYuge service has been discontinued - endpoints removed
 
