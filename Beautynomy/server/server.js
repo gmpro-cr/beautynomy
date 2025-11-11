@@ -100,22 +100,23 @@ app.get('/api/products',
 
     // Search by query (name, brand, description, category)
     if (query && query.toLowerCase() !== 'all') {
-      // For Supabase/PostgreSQL, use $or for text search
+      // MongoDB regex search - case insensitive partial match
+      const searchRegex = new RegExp(escapeRegex(query), 'i');
       filter.$or = [
-        { name: escapeRegex(query) },
-        { brand: escapeRegex(query) },
-        { description: escapeRegex(query) }
+        { name: searchRegex },
+        { brand: searchRegex },
+        { description: searchRegex }
       ];
     }
 
-    // Filter by category
+    // Filter by category - exact match
     if (category && category !== 'All') {
-      filter.category = escapeRegex(category);
+      filter.category = category;
     }
 
-    // Filter by brand
+    // Filter by brand - exact match
     if (brand && brand !== 'All') {
-      filter.brand = escapeRegex(brand);
+      filter.brand = brand;
     }
 
     const products = await Product.find(filter);
