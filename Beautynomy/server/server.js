@@ -10,6 +10,10 @@ import cuelinksService from './services/cuelinks-service.js';
 import cuelinksProductFetcher from './services/cuelinks-product-fetcher.js';
 import platformAPIService from './services/platform-api-service.js';
 
+// Import scraping agent
+import scrapingAgent from './services/scraping-agent.js';
+import priceTracker from './services/price-tracker.js';
+
 // Import middleware
 import { apiLimiter, scrapeLimiter, adminLimiter } from './middleware/rateLimiter.js';
 import { authenticateAdmin } from './middleware/auth.js';
@@ -51,6 +55,12 @@ startPriceUpdateScheduler();
 // Start automated product fetching (daily and weekly)
 startDailyProductFetching();
 startWeeklyProductFetching();
+
+// Start autonomous scraping agent
+if (process.env.ENABLE_SCRAPING_AGENT !== 'false') {
+  scrapingAgent.start();
+  console.log('🤖 Autonomous Scraping Agent started');
+}
 
 // Health check endpoint
 app.get('/', async (req, res) => {
@@ -691,6 +701,245 @@ app.post('/api/products/fetch-hybrid', async (req, res) => {
     });
   }
 });
+
+// ==================== SCRAPING AGENT API ENDPOINTS ====================
+
+/**
+ * Get scraping agent status
+ * GET /api/agent/status
+ */
+app.get('/api/agent/status',
+  asyncHandler(async (req, res) => {
+    const status = scrapingAgent.getStatus();
+    res.json({
+      success: true,
+      agent: status
+    });
+  })
+);
+
+/**
+ * Get detailed agent statistics
+ * GET /api/agent/stats
+ */
+app.get('/api/agent/stats',
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    const stats = scrapingAgent.getDetailedStats();
+    res.json({
+      success: true,
+      ...stats
+    });
+  })
+);
+
+/**
+ * Start scraping agent
+ * POST /api/agent/start
+ */
+app.post('/api/agent/start',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    await scrapingAgent.start();
+    res.json({
+      success: true,
+      message: 'Scraping agent started',
+      status: scrapingAgent.getStatus()
+    });
+  })
+);
+
+/**
+ * Stop scraping agent
+ * POST /api/agent/stop
+ */
+app.post('/api/agent/stop',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.stop();
+    res.json({
+      success: true,
+      message: 'Scraping agent stopped',
+      status: scrapingAgent.getStatus()
+    });
+  })
+);
+
+/**
+ * Pause scraping agent
+ * POST /api/agent/pause
+ */
+app.post('/api/agent/pause',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.pause();
+    res.json({
+      success: true,
+      message: 'Scraping agent paused'
+    });
+  })
+);
+
+/**
+ * Resume scraping agent
+ * POST /api/agent/resume
+ */
+app.post('/api/agent/resume',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.resume();
+    res.json({
+      success: true,
+      message: 'Scraping agent resumed'
+    });
+  })
+);
+
+/**
+ * Add product to scraping queue
+ * POST /api/agent/queue/add
+ * Body: { productName: string, priority?: number }
+ */
+app.post('/api/agent/queue/add',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    const { productName, priority } = req.body;
+
+    if (!productName) {
+      return res.status(400).json({
+        success: false,
+        error: 'productName is required'
+      });
+    }
+
+    const jobId = scrapingAgent.scrapeProduct(productName, priority || 5);
+
+    res.json({
+      success: true,
+      message: 'Product added to scraping queue',
+      jobId
+    });
+  })
+);
+
+/**
+ * Clear scraping queue
+ * POST /api/agent/queue/clear
+ */
+app.post('/api/agent/queue/clear',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    scrapingAgent.clearQueue();
+    res.json({
+      success: true,
+      message: 'Scraping queue cleared'
+    });
+  })
+);
+
+// ==================== PRICE TRACKER API ENDPOINTS ====================
+
+/**
+ * Get price change notifications
+ * GET /api/price-tracker/notifications
+ */
+app.get('/api/price-tracker/notifications',
+  asyncHandler(async (req, res) => {
+    const unreadOnly = req.query.unreadOnly === 'true';
+    const notifications = priceTracker.getNotifications(unreadOnly);
+
+    res.json({
+      success: true,
+      count: notifications.length,
+      notifications
+    });
+  })
+);
+
+/**
+ * Mark notification as read
+ * POST /api/price-tracker/notifications/:id/read
+ */
+app.post('/api/price-tracker/notifications/:id/read',
+  asyncHandler(async (req, res) => {
+    priceTracker.markAsRead(req.params.id);
+    res.json({
+      success: true,
+      message: 'Notification marked as read'
+    });
+  })
+);
+
+/**
+ * Clear all notifications
+ * POST /api/price-tracker/notifications/clear
+ */
+app.post('/api/price-tracker/notifications/clear',
+  adminLimiter,
+  authenticateAdmin,
+  asyncHandler(async (req, res) => {
+    priceTracker.clearNotifications();
+    res.json({
+      success: true,
+      message: 'All notifications cleared'
+    });
+  })
+);
+
+/**
+ * Get price trends for a product
+ * GET /api/price-tracker/trends/:productId
+ */
+app.get('/api/price-tracker/trends/:productId',
+  asyncHandler(async (req, res) => {
+    const { productId } = req.params;
+    const days = parseInt(req.query.days) || 30;
+
+    const trends = await priceTracker.calculateTrends(productId, days);
+
+    if (trends) {
+      res.json({
+        success: true,
+        trends
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        error: 'Product not found or insufficient data'
+      });
+    }
+  })
+);
+
+/**
+ * Get best time to buy recommendation
+ * GET /api/price-tracker/best-time/:productId
+ */
+app.get('/api/price-tracker/best-time/:productId',
+  asyncHandler(async (req, res) => {
+    const { productId } = req.params;
+
+    const recommendation = await priceTracker.getBestTimeToBuy(productId);
+
+    if (recommendation) {
+      res.json({
+        success: true,
+        recommendation
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        error: 'Product not found or insufficient data'
+      });
+    }
+  })
+);
 
 // DataYuge service has been discontinued - endpoints removed
 
