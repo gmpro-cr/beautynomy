@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/database.js';
+import Product from './models/Product.js';
 import productService from './database/productService.js';
 import { checkConnection as checkSupabaseConnection } from './config/supabase.js';
 import { scrapeAndUpdateProduct, batchScrapeProducts } from './services/scraper-service.js';
