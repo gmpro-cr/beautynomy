@@ -1,4 +1,4 @@
-import Product from '../models/Product.js';
+import productService from '../database/productService.js';
 import ScrapingQueue from './scraping-queue.js';
 import priceTracker from './price-tracker.js';
 import { scrapeAndUpdateProduct } from './scraper-service.js';
@@ -89,9 +89,7 @@ class ScrapingAgent {
     try {
       console.log('📋 Populating scraping queue...');
 
-      const products = await Product.find({})
-        .select('_id name updatedAt rating reviewCount')
-        .lean();
+      const { products } = await productService.find({}, { limit: 1000 });
 
       const now = Date.now();
       let added = 0;
@@ -107,7 +105,7 @@ class ScrapingAgent {
         // 2. Product popularity (rating * review count)
         // 3. Random factor for variety
 
-        const lastUpdate = new Date(product.updatedAt).getTime();
+        const lastUpdate = new Date(product.updatedAt || product.updated_at).getTime();
         const timeSinceUpdate = now - lastUpdate;
         const popularity = (product.rating || 1) * Math.log10((product.reviewCount || 1) + 1);
 

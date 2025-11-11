@@ -11,6 +11,7 @@
     "migrate:force": "node scripts/migrate-data.js --force"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.81.0",
     "axios": "^1.12.2",
     "cheerio": "^1.1.2",
     "cors": "^2.8.5",

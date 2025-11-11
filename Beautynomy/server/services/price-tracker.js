@@ -1,4 +1,5 @@
-import Product from '../models/Product.js';
+import productService from '../database/productService.js';
+import notificationService from '../database/notificationService.js';
 
 /**
  * Price Tracker Service
@@ -8,7 +9,7 @@ import Product from '../models/Product.js';
 class PriceTracker {
   constructor() {
     this.priceDropThreshold = 10; // Notify if price drops by 10% or more
-    this.notifications = [];
+    this.notifications = []; // Fallback in-memory storage
   }
 
   /**
@@ -16,7 +17,7 @@ class PriceTracker {
    */
   async analyzePriceChange(productId, newPrices) {
     try {
-      const product = await Product.findById(productId);
+      const product = await productService.findById(productId);
       if (!product) return null;
 
       const oldPrices = product.prices;
@@ -88,28 +89,43 @@ class PriceTracker {
    */
   async createPriceDropNotification(product, drops) {
     const notification = {
-      id: `notif_${Date.now()}`,
       type: 'price_drop',
-      productId: product._id,
+      productId: product._id || product.id,
       productName: product.name,
-      drops: drops,
-      createdAt: new Date(),
-      read: false
+      drops: drops
     };
 
-    this.notifications.push(notification);
+    // Try to save to database first
+    try {
+      const savedNotification = await notificationService.create(notification);
+      console.log(
+        `🔔 Price Drop Alert: ${product.name} - ` +
+        `${drops.map(d => `${d.platform}: ${d.percentChange}%`).join(', ')}`
+      );
+      return savedNotification;
+    } catch (error) {
+      // Fallback to in-memory
+      const fallbackNotification = {
+        id: `notif_${Date.now()}`,
+        ...notification,
+        createdAt: new Date(),
+        read: false
+      };
 
-    // Keep only last 100 notifications
-    if (this.notifications.length > 100) {
-      this.notifications.shift();
+      this.notifications.push(fallbackNotification);
+
+      // Keep only last 100 notifications
+      if (this.notifications.length > 100) {
+        this.notifications.shift();
+      }
+
+      console.log(
+        `🔔 Price Drop Alert (in-memory): ${product.name} - ` +
+        `${drops.map(d => `${d.platform}: ${d.percentChange}%`).join(', ')}`
+      );
+
+      return fallbackNotification;
     }
-
-    console.log(
-      `🔔 Price Drop Alert: ${product.name} - ` +
-      `${drops.map(d => `${d.platform}: ${d.percentChange}%`).join(', ')}`
-    );
-
-    return notification;
   }
 
   /**
@@ -117,7 +133,7 @@ class PriceTracker {
    */
   async calculateTrends(productId, days = 30) {
     try {
-      const product = await Product.findById(productId);
+      const product = await productService.findById(productId);
       if (!product || !product.priceHistory) return null;
 
       const cutoffDate = new Date();
@@ -178,7 +194,7 @@ class PriceTracker {
    */
   async getBestTimeToBuy(productId) {
     try {
-      const product = await Product.findById(productId);
+      const product = await productService.findById(productId);
       if (!product || !product.priceHistory) return null;
 
       const last30Days = product.priceHistory.slice(-30);
@@ -239,40 +255,68 @@ class PriceTracker {
   /**
    * Get all unread notifications
    */
-  getNotifications(unreadOnly = false) {
-    if (unreadOnly) {
-      return this.notifications.filter(n => !n.read);
+  async getNotifications(unreadOnly = false) {
+    try {
+      const dbNotifications = await notificationService.getAll(unreadOnly);
+      return dbNotifications;
+    } catch (error) {
+      // Fallback to in-memory
+      if (unreadOnly) {
+        return this.notifications.filter(n => !n.read);
+      }
+      return this.notifications;
     }
-    return this.notifications;
   }
 
   /**
    * Mark notification as read
    */
-  markAsRead(notificationId) {
-    const notification = this.notifications.find(n => n.id === notificationId);
-    if (notification) {
-      notification.read = true;
+  async markAsRead(notificationId) {
+    try {
+      await notificationService.markAsRead(notificationId);
+    } catch (error) {
+      // Fallback to in-memory
+      const notification = this.notifications.find(n => n.id === notificationId);
+      if (notification) {
+        notification.read = true;
+      }
     }
   }
 
   /**
    * Clear all notifications
    */
-  clearNotifications() {
-    this.notifications = [];
-    console.log('🧹 All notifications cleared');
+  async clearNotifications() {
+    try {
+      await notificationService.clearAll();
+      console.log('🧹 All notifications cleared (database)');
+    } catch (error) {
+      // Fallback to in-memory
+      this.notifications = [];
+      console.log('🧹 All notifications cleared (in-memory)');
+    }
   }
 
   /**
    * Get price tracker statistics
    */
-  getStats() {
-    return {
-      totalNotifications: this.notifications.length,
-      unreadNotifications: this.notifications.filter(n => !n.read).length,
-      priceDropThreshold: this.priceDropThreshold
-    };
+  async getStats() {
+    try {
+      const totalNotifications = await notificationService.getCount(false);
+      const unreadNotifications = await notificationService.getCount(true);
+      return {
+        totalNotifications,
+        unreadNotifications,
+        priceDropThreshold: this.priceDropThreshold
+      };
+    } catch (error) {
+      // Fallback to in-memory
+      return {
+        totalNotifications: this.notifications.length,
+        unreadNotifications: this.notifications.filter(n => !n.read).length,
+        priceDropThreshold: this.priceDropThreshold
+      };
+    }
   }
 }
 
