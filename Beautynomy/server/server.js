@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/database.js';
 import Product from './models/Product.js';
-import productService from './database/productService.js';
 import { checkConnection as checkSupabaseConnection } from './config/supabase.js';
 import { scrapeAndUpdateProduct, batchScrapeProducts } from './services/scraper-service.js';
 import { startPriceUpdateScheduler, triggerManualUpdate } from './scheduler/price-updater.js';
@@ -119,14 +118,14 @@ app.get('/api/products',
       filter.brand = escapeRegex(brand);
     }
 
-    const { products } = await productService.find(filter);
+    const products = await Product.find(filter);
     res.json(products);
   })
 );
 
 // Get product by ID
 app.get('/api/products/:id', asyncHandler(async (req, res) => {
-  const product = await productService.findById(req.params.id);
+  const product = await Product.findById(req.params.id);
   if (!product) {
     return res.status(404).json({ error: 'Product not found' });
   }
@@ -135,28 +134,28 @@ app.get('/api/products/:id', asyncHandler(async (req, res) => {
 
 // Get available brands
 app.get('/api/brands', asyncHandler(async (req, res) => {
-  const brands = await productService.getBrands();
+  const brands = await Product.distinct('brand');
   res.json(brands.sort());
 }));
 
 // Get available categories
 app.get('/api/categories', asyncHandler(async (req, res) => {
-  const categories = await productService.getCategories();
+  const categories = await Product.distinct('category');
   res.json(categories.sort());
 }));
 
 // Get price statistics
 app.get('/api/stats', asyncHandler(async (req, res) => {
-  const dbStats = await productService.getStats();
-  const categories = await productService.getCategories();
-  const brands = await productService.getBrands();
+  const totalProducts = await Product.countDocuments();
+  const categories = await Product.distinct('category');
+  const brands = await Product.distinct('brand');
 
   // Get all products with prices for price range calculation
-  const { products } = await productService.find({}, { limit: 10000 });
+  const products = await Product.find({}).limit(10000);
   const allPrices = products.flatMap(p => p.prices || []).map(pr => pr.amount);
 
   const stats = {
-    totalProducts: dbStats.totalProducts || products.length,
+    totalProducts: totalProducts || products.length,
     totalPlatforms: 5,
     platforms: ['Nykaa', 'Amazon India', 'Flipkart', 'Purplle', 'Myntra'],
     categories: categories.sort(),
@@ -355,7 +354,7 @@ app.post('/api/cuelinks/convert-product',
       });
     }
 
-    const product = await productService.findById(productId);
+    const product = await Product.findById(productId);
 
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
@@ -365,7 +364,8 @@ app.post('/api/cuelinks/convert-product',
     const convertedPrices = await cuelinksService.convertPricesToDeeplinks(product.prices, productId);
 
     // Update product with new URLs
-    await productService.update(productId, { prices: convertedPrices });
+    product.prices = convertedPrices;
+    await product.save();
 
     // Invalidate cache for this product
     cache.invalidateByPattern('cache:*/api/products*');
