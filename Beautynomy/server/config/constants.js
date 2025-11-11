@@ -46,6 +46,7 @@ export const ALLOWED_ORIGINS = [
   'https://beautynomy.vercel.app',
   'https://beautynomy.onrender.com',
   'https://beautynomy-client.vercel.app',
+  'https://client-76ywljz3t-gaurav-mahales-projects-cbe20bce.vercel.app',
   'http://localhost:5173',
   'http://localhost:3000'
 ];
